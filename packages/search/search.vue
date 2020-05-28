@@ -1,3 +1,4 @@
+<script>
 export default {
   name: 'plh-search',
   props: {
@@ -63,3 +64,63 @@ export default {
     }
   }
 }
+</script>
+<style lang="stylus">
+  .plh-search-all {
+  .search-all {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .search-all-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .plh-search {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    &-title {
+      padding-top: 10px;
+      height: 32px;
+    }
+    .el-form-item {
+      display: flex;
+    }
+    .from-list-all {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .plh-search-row {
+      font-size: 14px;
+      color: #172434;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 5px;
+      & + .plh-search-row {
+        margin-left: 20px;
+      }
+    }
+  }
+  .plh-search-button {
+    margin-left: 10px;
+  }
+  @keyframes bounce {
+    30%,
+    to {
+      transform: translateY(8px);
+    }
+    90% {
+      transform: translateY(0px);
+    }
+  }
+  .more {
+    font-size: 30px;
+    text-align: center;
+    animation: bounce 2s ease-in infinite;
+  }
+}
+</style>

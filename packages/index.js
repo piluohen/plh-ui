@@ -14,14 +14,14 @@ import Preview from './preview'
 import TableForm from './table-form'
 
 const install = Vue => {
-  Vue.component(Button.name, Button)
-  Vue.component(Form.name, Form)
-  Vue.component(Search.name, Search)
-  Vue.component(Table.name, Table)
-  Vue.component(DatePicker.name, DatePicker)
-  Vue.component(Upload.name, Upload)
-  Vue.component(Preview.name, Preview)
-  Vue.component(TableForm.name, TableForm)
+  Vue.use(Button)
+  Vue.use(Form)
+  Vue.use(Search)
+  Vue.use(Table)
+  Vue.use(DatePicker)
+  Vue.use(Upload)
+  Vue.use(Preview)
+  Vue.use(TableForm)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

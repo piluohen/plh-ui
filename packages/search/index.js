@@ -3,7 +3,8 @@
  * @author piluohen
  */
 
-import './style.styl'
 import Search from './search'
+
+Search.install = Vue => Vue.component(Search.name, Search)
 
 export default Search
