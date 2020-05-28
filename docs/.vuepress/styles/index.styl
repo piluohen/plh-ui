@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.95rem
+}
+
+.page {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+/* 光标 */
+@keyframes caret {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+.code {
+  font: bold 100% Consolas, Monaco, monospace;
+  min-width: 15ch;
+  min-height: 50px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background: #000;
+  color: rgb(26, 230, 26);
+  padding: 5px;
+  margin: 10px 0;
+  border-right: 7px solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+pre.language-bash,
+pre.language-html,
+pre.language-js,
+pre.language-pug,
+pre.language-scss,
+pre.language-css {
+  max-height: 400px;
+}
