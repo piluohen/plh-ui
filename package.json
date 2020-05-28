@@ -9,7 +9,7 @@
   "scripts": {
     "serve": "cross-env ENV=dev vuepress dev docs",
     "build": "cross-env ENV=prod vuepress build docs",
-    "json": "node script/json",
+    "json": "node build/json",
     "lib": "vue-cli-service build"
   },
   "dependencies": {
