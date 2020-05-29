@@ -11,11 +11,6 @@ h1 {
   overflow: hidden;
 }
 
-.theme-default-content:not(.custom) {
-  max-width: inherit;
-}
-
-
 /* 光标 */
 @keyframes caret {
   50% {
@@ -24,18 +19,11 @@ h1 {
 }
 
 .code {
+  padding: 10px;
   font: bold 100% Consolas, Monaco, monospace;
   min-width: 15ch;
-  min-height: 50px;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
   background: #000;
   color: rgb(26, 230, 26);
-  padding: 5px;
-  margin: 10px 0;
-  border-right: 7px solid;
-  animation: caret 1s steps(1) infinite;
 }
 
 pre.language-bash,
@@ -51,4 +39,24 @@ pre.language-vue {
 
 .demo {
   margin-top: 20px;
+}
+
+.el-date-table,
+.el-year-table,
+.el-month-table {
+  display: table;
+  tr, th, td {
+    border: none;
+  }
+  tr:nth-child(2n) {
+    background-color: #ffffff;
+  }
+}
+
+.mt10 {
+  margin-top: 10px  
+}
+
+.mt20 {
+  margin-top: 20px  
 }

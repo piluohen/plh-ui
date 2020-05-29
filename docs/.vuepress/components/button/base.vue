@@ -1,10 +1,18 @@
 <template>
   <div class="demo demo-button">
-    <plh-search :params="params" :searchList="searchList" :showSubmit="false" @submit="handleSearch"></plh-search>
-    <div class="btn-list">
+    <h3>配置项</h3>
+    <plh-search
+      :params="params"
+      :searchList="searchList"
+      :showSubmit="false"
+      :collapse="false"
+      @submit="handleSearch"
+    ></plh-search>
+    <div class="btn-list mt10">
       <plh-button
         v-for="item in list"
         :type="item"
+        :size="params.size"
         :plain="params.plain"
         :round="params.round"
         :circle="params.circle"
@@ -17,24 +25,14 @@
   </div>
 </template>
 <script>
+import { radioItem, searchs } from '../../js/search'
 export default {
   name: 'DemoButtonBase',
   data() {
-    const radioItem = {
-      tag: 'el-radio-group',
-      label: '朴素按钮',
-      key: 'plain',
-      children: {
-        tag: 'el-radio-button',
-        options: [
-          { label: '是', value: true },
-          { label: '否', value: false }
-        ]
-      }
-    }
     return {
       list: ['', 'primary', 'success', 'warning', 'danger', 'info', 'text'],
       params: {
+        size: 'medium',
         plain: false,
         round: false,
         circle: false,
@@ -43,34 +41,35 @@ export default {
         icon: false
       },
       searchList: [
+        { ...searchs.size },
         {
           ...radioItem,
-          label: '朴素按钮',
+          label: '朴素按钮(plain)',
           key: 'plain'
         },
         {
           ...radioItem,
-          label: '圆角按钮',
+          label: '圆角按钮(round)',
           key: 'round'
         },
         {
           ...radioItem,
-          label: '圆形按钮',
+          label: '圆形按钮(circle)',
           key: 'circle'
         },
         {
           ...radioItem,
-          label: '加载中',
+          label: '加载中(loading)',
           key: 'loading'
         },
         {
           ...radioItem,
-          label: '禁用',
+          label: '禁用(disabled)',
           key: 'disabled'
         },
         {
           ...radioItem,
-          label: 'Icon',
+          label: '图标(icon)',
           key: 'icon'
         }
       ]

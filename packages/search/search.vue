@@ -16,13 +16,16 @@ export default {
     },
     height: {
       type: Number,
-      default: 44
+      default: 43
+    },
+    collapse: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
     return {
       showMore: true,
-      fold: true,
       form: { ...this.params }
     }
   },
@@ -43,7 +46,7 @@ export default {
       this.showMore = height > this.height
     },
     expend() {
-      this.fold = !this.fold
+      this.collapse = !this.collapse
     },
     getParams() {
       let params = this.form
@@ -54,7 +57,7 @@ export default {
     },
     handleInput(val) {
       if (!this.showSubmit) {
-        this.getParams()
+        this.$emit('submit', this.form)
       }
     }
   },
@@ -64,7 +67,10 @@ export default {
         <div class={this.showMore ? 'search-all-more' : 'search-all'}>
           <div
             class="plh-search"
-            style={{ height: this.fold ? this.height + 'px' : 'auto', overflowY: this.fold ? 'hidden' : 'auto' }}>
+            style={{
+              height: this.collapse ? this.height + 'px' : 'auto',
+              overflowY: this.collapse ? 'hidden' : 'auto'
+            }}>
             <plh-form
               ref="form"
               v-model={this.form}
@@ -85,9 +91,9 @@ export default {
               <plh-button
                 size="small"
                 type="text"
-                icon={this.fold ? 'el-icon-arrow-down' : 'el-icon-arrow-up'}
+                icon={this.collapse ? 'el-icon-arrow-down' : 'el-icon-arrow-up'}
                 onClick={() => this.expend()}>
-                {this.fold ? '展开' : '收起'}
+                {this.collapse ? '展开' : '收起'}
               </plh-button>
             ) : null}
           </div>

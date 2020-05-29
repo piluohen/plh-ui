@@ -1,7 +1,14 @@
 <template>
   <div class="demo demo-button">
-    <plh-search :params="params" :searchList="searchList" :showSubmit="false" @submit="handleSearch"></plh-search>
-    <div class="btn-list">
+    <h3>配置项</h3>
+    <plh-search
+      :params="params"
+      :searchList="searchList"
+      :showSubmit="false"
+      :collapse="false"
+      @submit="handleSearch"
+    ></plh-search>
+    <div class="btn-list mt10">
       <plh-button
         v-for="item in list"
         tooltip
@@ -21,31 +28,10 @@
   </div>
 </template>
 <script>
+import { radioItem, inputNumberItem } from '../../js/search'
 export default {
   name: 'DemoButtonTooltip',
   data() {
-    const radioItem = {
-      tag: 'el-radio-group',
-      label: '朴素按钮',
-      key: 'plain',
-      children: {
-        tag: 'el-radio-button',
-        options: [
-          { label: '是', value: true },
-          { label: '否', value: false }
-        ]
-      }
-    }
-    const inputNumberItem = {
-      tag: 'el-input-number',
-      props: {
-        min: 0,
-        max: 10000,
-        step: 100,
-        precision: 0,
-        'step-strictly': true
-      }
-    }
     // 位置
     const placement =
       'top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end'
@@ -64,7 +50,7 @@ export default {
       searchList: [
         {
           tag: 'el-radio-group',
-          label: '主题',
+          label: '主题(effect)',
           key: 'effect',
           children: {
             tag: 'el-radio-button',
@@ -76,7 +62,7 @@ export default {
         },
         {
           tag: 'el-select',
-          label: '位置',
+          label: '位置(placement)',
           key: 'placement',
           children: {
             tag: 'el-option',
@@ -87,22 +73,22 @@ export default {
         },
         {
           ...radioItem,
-          label: '箭头',
+          label: '箭头(visible-arrow)',
           key: 'visible-arrow'
         },
         {
           ...radioItem,
-          label: '鼠标是否允许进入',
+          label: '鼠标是否允许进入(enterable)',
           key: 'enterable'
         },
         {
           ...radioItem,
-          label: '禁用',
+          label: '禁用(disabled)',
           key: 'disabled'
         },
         {
           tag: 'el-input-number',
-          label: '偏移量',
+          label: '偏移量(offset)',
           key: 'offset',
           props: {
             min: 0,
@@ -114,12 +100,12 @@ export default {
         },
         {
           ...inputNumberItem,
-          label: '出现延迟',
+          label: '出现延迟(open-delay)',
           key: 'open-delay'
         },
         {
           ...inputNumberItem,
-          label: '隐藏延时',
+          label: '隐藏延时(hide-after)',
           key: 'hide-after'
         }
       ]

@@ -1,11 +1,11 @@
 <template>
   <el-date-picker
-    v-model="currValue"
+    v-model="model"
     :type="type"
     :size="size"
-    range-separator="至"
-    start-placeholder="开始日期"
-    end-placeholder="结束日期"
+    :range-separator="rangeSeparator"
+    :start-placeholder="startPlaceholder"
+    :end-placeholder="endPlaceholder"
     :default-time="defaultTimeArr"
     v-bind="$attrs"
     :value-format="valueFormat"
@@ -27,18 +27,30 @@ export default {
     },
     size: {
       type: String,
-      default: 'small'
+      default: 'medium'
     },
     'default-time': {
       type: [String, Array]
     },
-    valueFormat: {
+    'value-format': {
       type: String,
       default: 'timestamp'
+    },
+    'range-separator': {
+      type: String,
+      default: '至'
+    },
+    'start-placeholder': {
+      type: String,
+      default: '开始日期'
+    },
+    'end-placeholder': {
+      type: String,
+      default: '结束日期'
     }
   },
   computed: {
-    currValue: {
+    model: {
       get() {
         return this.value
       },
@@ -61,3 +73,8 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+.el-date-editor .el-range-separator {
+  width: auto;
+}
+</style>

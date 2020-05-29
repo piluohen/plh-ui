@@ -1,10 +1,3 @@
-# Date-picker 日期选择
-
-## 用法
-
-<date-picker-base></date-picker-base>
-
-```vue
 <template>
   <div class="demo demo-button">
     <h3>配置项</h3>
@@ -146,21 +139,3 @@ export default {
 }
 </script>
 <style lang="stylus"></style>
-```
-
-## API
-
-| 参数              | 说明             | 类型                              | 可选值                           | 默认值    |
-| ----------------- | ---------------- | --------------------------------- | -------------------------------- | --------- |
-| vuale \| v-model  | 值               | string \| date \| array \| number |                                  |           |
-| type              | 类型             | string                            |                                  | date      |
-| size              | 尺寸             | string                            | large \| medium \| small \| mini | medium    |
-| value-format      | 格式化值         | string                            |                                  | timestamp |
-| range-separator   | 分割符文案       | string                            |                                  | 至        |
-| start-placeholder | 开始时间描述文案 | string                            |                                  | 开始日期  |
-| end-placeholder   | 结束时间描述文案 | string                            |                                  | 结束日期  |
-
-详细 API 参考：
-
-- [日期格式 API](https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi)
-- [el-date-picker Api](https://element.eleme.cn/#/zh-CN/component/date-picker#attributes)

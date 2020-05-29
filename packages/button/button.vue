@@ -13,6 +13,10 @@
 export default {
   name: 'plh-button',
   props: {
+    size: {
+      type: String,
+      default: 'medium'
+    },
     tooltip: {
       type: Boolean,
       default: false
