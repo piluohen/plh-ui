@@ -11,6 +11,10 @@ h1 {
   overflow: hidden;
 }
 
+.theme-default-content:not(.custom) {
+  max-width: inherit;
+}
+
 
 /* 光标 */
 @keyframes caret {
@@ -39,6 +43,11 @@ pre.language-html,
 pre.language-js,
 pre.language-pug,
 pre.language-scss,
+pre.language-stylus,
 pre.language-css {
   max-height: 400px;
+}
+
+.demo {
+  margin-top: 20px;
 }
