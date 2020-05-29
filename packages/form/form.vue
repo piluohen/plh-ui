@@ -125,7 +125,12 @@ export default {
         [...item.children.options].map((option, i) => {
           let childrenTag = item.children.tag
           let props = { ...option }
-          if (childrenTag === 'el-radio' || childrenTag === 'el-checkbox') {
+          if (
+            childrenTag === 'el-radio' ||
+            childrenTag === 'el-radio-button' ||
+            childrenTag === 'el-checkbox' ||
+            childrenTag === 'el-checkbox-button'
+          ) {
             props = {
               ...props,
               slot: option.label,

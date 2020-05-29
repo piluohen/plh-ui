@@ -14,44 +14,34 @@ export default {
       type: Boolean,
       default: true
     },
-    more: {
-      type: Boolean,
-      default: false
+    height: {
+      type: Number,
+      default: 42
     }
   },
   data() {
     return {
+      showMore: true,
       fold: true,
       form: { ...this.params }
     }
   },
-  created() {},
-  render(h) {
-    return (
-      <div class="plh-search-all">
-        <div class={this.more ? 'search-all-more' : 'search-all'}>
-          <div
-            class="plh-search"
-            style={{ height: this.fold ? '40px' : 'auto', overflowY: this.fold ? 'hidden' : 'auto' }}>
-            <plh-form ref="form" v-model={this.form} inline={true} items={this.searchList} onEnter={this.getParams} />
-          </div>
-          {this.showSubmit ? (
-            <div class="plh-search-button">
-              <plh-button size="small" onClick={this.getParams}>
-                查询
-              </plh-button>
-            </div>
-          ) : null}
-        </div>
-        {this.more ? (
-          <div class="more" onClick={() => this.expend()}>
-            <i class={this.fold ? 'el-icon-arrow-down' : 'el-icon-arrow-up'} />
-          </div>
-        ) : null}
-      </div>
-    )
+  computed: {},
+  mounted() {
+    this.showMoreFn()
+    window.addEventListener('resize', this.resize)
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.resize)
   },
   methods: {
+    resize() {
+      this.showMoreFn()
+    },
+    showMoreFn() {
+      const height = this.$refs.form.$el.clientHeight
+      this.showMore = height > this.height
+    },
     expend() {
       this.fold = !this.fold
     },
@@ -61,38 +51,87 @@ export default {
         if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
       })
       this.$emit('submit', params)
+    },
+    handleInput(val) {
+      if (!this.showSubmit) {
+        this.getParams()
+      }
     }
+  },
+  render(h) {
+    return (
+      <div class="plh-search-all">
+        <div class={this.showMore ? 'search-all-more' : 'search-all'}>
+          <div
+            class="plh-search"
+            style={{ height: this.fold ? this.height + 'px' : 'auto', overflowY: this.fold ? 'hidden' : 'auto' }}>
+            <plh-form
+              ref="form"
+              v-model={this.form}
+              inline={true}
+              size="small"
+              items={this.searchList}
+              onInput={this.handleInput}
+              onEnter={this.getParams}
+            />
+          </div>
+          <div class="plh-search-button">
+            {this.showSubmit ? (
+              <plh-button size="small" type="primary" onClick={this.getParams}>
+                查询
+              </plh-button>
+            ) : null}
+            {this.showMore ? (
+              <plh-button
+                size="small"
+                type="text"
+                icon={this.fold ? 'el-icon-arrow-down' : 'el-icon-arrow-up'}
+                onClick={() => this.expend()}>
+                {this.fold ? '展开' : '收起'}
+              </plh-button>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 </script>
 <style lang="stylus">
-  .plh-search-all {
+.plh-search-all {
   .search-all {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
   }
+
   .search-all-more {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
+
   .plh-search {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+
     &-title {
       padding-top: 10px;
       height: 32px;
     }
+
     .el-form-item {
       display: flex;
+      margin-bottom: 10px;
     }
+
     .from-list-all {
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
     }
+
     .plh-search-row {
       font-size: 14px;
       color: #172434;
@@ -100,23 +139,31 @@ export default {
       align-items: center;
       flex-wrap: wrap;
       margin: 5px;
+
       & + .plh-search-row {
         margin-left: 20px;
       }
     }
   }
+
   .plh-search-button {
+    height: 34px;
     margin-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
+
   @keyframes bounce {
-    30%,
-    to {
+    30%, to {
       transform: translateY(8px);
     }
+
     90% {
       transform: translateY(0px);
     }
   }
+
   .more {
     font-size: 30px;
     text-align: center;
