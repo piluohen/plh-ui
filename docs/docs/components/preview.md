@@ -7,7 +7,7 @@
 ```vue
 <template>
   <div class="demo demo-preview">
-    <div class="img-list mt10">
+    <div class="img-list">
       <div class="item" v-for="(item, index) in fileList" :key="index">
         <el-image :src="item.url" fit="cover" @click="handlePreview(index)"></el-image>
       </div>

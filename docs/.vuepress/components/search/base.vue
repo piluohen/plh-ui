@@ -113,10 +113,3 @@ export default {
   }
 }
 </script>
-<style lang="stylus">
-.btn-list {
-  .plh-button {
-    margin-top: 10px;
-  }
-}
-</style>
