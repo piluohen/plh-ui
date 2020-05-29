@@ -1,10 +1,10 @@
 <template>
-  <el-tootip effect="dark" v-if="tips" :content="tips" placement="top-start">
-    <el-button class="plh-button" :size="size" :type="type" v-bind="$attrs" @click="handleClick">
+  <el-tooltip v-if="tooltip" :placement="placement" v-bind="$attrs">
+    <el-button class="plh-button" v-bind="$attrs" @click="handleClick">
       <slot></slot>
     </el-button>
-  </el-tootip>
-  <el-button v-else class="plh-button" :size="size" :type="type" v-bind="$attrs" @click="handleClick">
+  </el-tooltip>
+  <el-button v-else class="plh-button" v-bind="$attrs" @click="handleClick">
     <slot></slot>
   </el-button>
 </template>
@@ -13,17 +13,13 @@
 export default {
   name: 'plh-button',
   props: {
-    type: {
-      type: String,
-      default: 'primary'
+    tooltip: {
+      type: Boolean,
+      default: false
     },
-    size: {
+    placement: {
       type: String,
-      default: 'medium'
-    },
-    tips: {
-      type: String,
-      default: null
+      default: 'top'
     }
   },
   methods: {
