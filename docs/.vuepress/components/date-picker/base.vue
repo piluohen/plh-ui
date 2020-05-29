@@ -1,5 +1,5 @@
 <template>
-  <div class="demo demo-button">
+  <div class="demo demo-date-picker">
     <h3>配置项</h3>
     <plh-search
       :params="params"

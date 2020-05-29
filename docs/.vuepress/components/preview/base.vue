@@ -1,10 +1,3 @@
-# Preview 图片预览
-
-## 用法
-
-<preview-base></preview-base>
-
-```vue
 <template>
   <div class="demo demo-preview">
     <div class="img-list mt10">
@@ -57,12 +50,3 @@ export default {
   }
 }
 </style>
-```
-
-## Api
-
-| 参数    |       描述       |  类型   |    可选值     | 必须 | 默认值      |
-| ------- | :--------------: | :-----: | :-----------: | :--: | ----------- |
-| v-model |   是否显示预览   | boolean | true \| false |  是  | false       |
-| list    |     图片列表     |  array  |               |  是  | [{url: ''}] |
-| index   | 当前展示图片索引 | number  |               |  是  | 0           |
