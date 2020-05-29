@@ -22,8 +22,8 @@
         :offset="params.offset"
         :open-delay="params['open-delay']"
         :hide-after="params['hide-after']"
-        >{{ item ? item : '默认' }}</plh-button
-      >
+        >{{ item ? item : '默认' }}
+      </plh-button>
     </div>
   </div>
 </template>

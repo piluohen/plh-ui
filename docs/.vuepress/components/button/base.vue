@@ -19,8 +19,8 @@
         :loading="params.loading"
         :disabled="params.disabled"
         :icon="params.icon ? 'el-icon-view' : ''"
-        >{{ item ? item : '默认' }}</plh-button
-      >
+        >{{ item ? item : '默认' }}
+      </plh-button>
     </div>
   </div>
 </template>

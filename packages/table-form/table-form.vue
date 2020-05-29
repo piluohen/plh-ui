@@ -8,8 +8,10 @@
       :tableData="list"
       :paginationable="false"
     ></plh-table>
-    <div v-if="type !== 'view'" v-show="list.length < limitNum" class="add-btn" style="text-align: center">
-      <plh-button type="primary" plain :size="size" icon="el-icon-plus" @click="handleAdd">增加</plh-button>
+    <div v-if="showBtn" v-show="list.length < limitNum" class="add-btn" style="text-align: center">
+      <plh-button type="primary" plain :size="size" icon="el-icon-plus" :disabled="disabled" @click="handleAdd">
+        增加
+      </plh-button>
     </div>
   </div>
 </template>
@@ -26,14 +28,17 @@ export default {
       type: Array,
       default: () => []
     },
-    // add, view, edit
-    type: {
-      type: String,
-      default: 'add'
+    showBtn: {
+      type: Boolean,
+      default: true
     },
     size: {
       type: String,
       default: 'medium'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -74,7 +79,7 @@ export default {
       const operator = this.columns.find(item => {
         return item.key === 'operator'
       })
-      if (!operator && this.type !== 'view') {
+      if (!operator && this.showBtn) {
         columns = columns.concat({
           title: '操作',
           width: '80px',
@@ -85,6 +90,8 @@ export default {
               <plh-button
                 type="text"
                 icon="el-icon-delete"
+                size={this.size}
+                disabled={this.disabled}
                 onClick={() => {
                   this.handleDelete($index)
                 }}>
@@ -154,13 +161,14 @@ export default {
           ref: item.ref,
           attrs: {
             clearable: true,
+            disabled: this.disabled,
+            size: this.size,
             ...item.attrs,
             ...(item.attrFn && item.attrFn(row))
           },
           props: {
             ...item.props,
-            value,
-            size: this.size
+            value
           },
           on: {
             ...item.on,
