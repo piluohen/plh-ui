@@ -33,7 +33,7 @@ export default {
     },
     size: {
       type: String,
-      default: 'small'
+      default: 'medium'
     }
   },
   data() {
@@ -264,6 +264,7 @@ export default {
   .text-danger {
     color: #f56c6c;
   }
+
   .add-btn {
     margin-top: 10px;
   }
@@ -280,6 +281,7 @@ export default {
     margin-bottom: 0;
     display: flex;
     align-items: center;
+
     .el-form-item__error {
       top: auto;
       bottom: 3px;

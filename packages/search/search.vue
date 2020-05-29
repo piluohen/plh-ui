@@ -10,13 +10,13 @@ export default {
       type: Object,
       default: () => {}
     },
+    size: {
+      type: String,
+      default: 'medium'
+    },
     showSubmit: {
       type: Boolean,
       default: true
-    },
-    height: {
-      type: Number,
-      default: 43
     },
     collapse: {
       type: Boolean,
@@ -25,11 +25,22 @@ export default {
   },
   data() {
     return {
+      isCollapse: this.collapse,
       showMore: true,
       form: { ...this.params }
     }
   },
-  computed: {},
+  computed: {
+    height() {
+      const sizeMap = {
+        large: 40,
+        medium: 36,
+        small: 32,
+        mini: 28
+      }
+      return sizeMap[this.size] + 10
+    }
+  },
   mounted() {
     this.showMoreFn()
     window.addEventListener('resize', this.resize)
@@ -46,7 +57,7 @@ export default {
       this.showMore = height > this.height
     },
     expend() {
-      this.collapse = !this.collapse
+      this.isCollapse = !this.isCollapse
     },
     getParams() {
       let params = this.form
@@ -68,14 +79,14 @@ export default {
           <div
             class="plh-search"
             style={{
-              height: this.collapse ? this.height + 'px' : 'auto',
-              overflowY: this.collapse ? 'hidden' : 'auto'
+              height: this.isCollapse ? this.height + 'px' : 'auto',
+              overflowY: this.isCollapse ? 'hidden' : 'auto'
             }}>
             <plh-form
               ref="form"
               v-model={this.form}
               inline={true}
-              size="small"
+              size={this.size}
               items={this.searchList}
               onInput={this.handleInput}
               onEnter={this.getParams}
@@ -83,17 +94,17 @@ export default {
           </div>
           <div class="plh-search-button">
             {this.showSubmit ? (
-              <plh-button size="small" type="primary" onClick={this.getParams}>
+              <plh-button type="primary" size={this.size} onClick={this.getParams}>
                 查询
               </plh-button>
             ) : null}
             {this.showMore ? (
               <plh-button
-                size="small"
                 type="text"
-                icon={this.collapse ? 'el-icon-arrow-down' : 'el-icon-arrow-up'}
+                size={this.size}
+                icon={this.isCollapse ? 'el-icon-arrow-down' : 'el-icon-arrow-up'}
                 onClick={() => this.expend()}>
-                {this.collapse ? '展开' : '收起'}
+                {this.isCollapse ? '展开' : '收起'}
               </plh-button>
             ) : null}
           </div>

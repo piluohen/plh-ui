@@ -76,7 +76,7 @@ export const formList = [
       tag: 'el-checkbox',
       props: {
         border: true,
-        size: 'small'
+        size: 'medium'
       },
       options: [
         { label: '选项一', value: '1' },

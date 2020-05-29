@@ -108,7 +108,7 @@ export default {
       default: () => {
         return {
           type: 'primary',
-          size: 'small',
+          size: 'medium',
           icon: '',
           round: false
         }
@@ -283,6 +283,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+
   .plh-upload-item {
     margin: 5px;
     width: 120px;
@@ -291,10 +292,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .el-image {
       width: 100%;
       height: 100%;
     }
+
     .delete {
       display: none;
       justify-content: center;
@@ -306,20 +309,24 @@ export default {
       right: 0;
       bottom: 0;
       font-size: 18px;
+
       i {
         cursor: pointer;
         color: #ffffff;
       }
+
       i + i {
         margin-left: 10px;
       }
     }
+
     &:hover {
       .delete {
         display: flex;
       }
     }
   }
+
   .el-upload--picture-card {
     display: flex;
     justify-content: center;
@@ -328,6 +335,7 @@ export default {
     width: 118px;
     height: 118px;
     position: relative;
+
     .progress {
       display: flex;
       align-items: center;
@@ -337,12 +345,15 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
+
       .el-image {
         width: 100%;
         height: 100%;
       }
+
       .el-progress--circle {
         position: absolute;
+
         .el-progress__text {
           color: #ffffff;
         }
