@@ -234,11 +234,11 @@ export default {
 
 ## API
 
-| 参数      | 说明             | 类型    | 可选值                           | 默认值 |
-| --------- | ---------------- | ------- | -------------------------------- | ------ |
-| size      | 尺寸             | string  | large \| medium \| small \| mini | medium |
-| tooltip   | 是否显示 tooltip | boolean |                                  | false  |
-| placement | tooltip 位置     | string  |                                  | top    |
+| 参数      | 描述             | 类型    | 可选值                           | 必须 | 默认值 |
+| --------- | ---------------- | ------- | -------------------------------- | ---- | ------ |
+| size      | 尺寸             | string  | large \| medium \| small \| mini | 否   | medium |
+| tooltip   | 是否显示 tooltip | boolean |                                  | 否   | false  |
+| placement | tooltip 位置     | string  |                                  | 否   | top    |
 
 详细 API 参考：
 

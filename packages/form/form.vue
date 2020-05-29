@@ -169,7 +169,9 @@ export default {
         size={this.size}
         inline={this.inline}
         onValidate={this.validateHandle}>
-        <el-row class="from-list-all">{this.renderItem(createElement)}</el-row>
+        <el-row class="from-list-all" type="flex">
+          {this.renderItem(createElement)}
+        </el-row>
       </el-form>
     )
   }
@@ -178,11 +180,18 @@ export default {
 <style lang="stylus">
 .el-form--label-top {
   margin: 0 -10px;
+
   .el-form-item {
     padding: 0 10px;
+
     .el-form-item__label {
       padding: 0;
     }
   }
+}
+
+.from-list-all {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

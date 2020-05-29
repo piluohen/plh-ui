@@ -34,7 +34,7 @@
 <script>
 import { radioItem, inputNumberItem, searchs } from '../../js/search'
 export default {
-  name: 'DemoButtonBase',
+  name: 'DemoDatePickerBase',
   data() {
     const type = 'year/month/date/dates/week/datetime/datetimerange/daterange/monthrange'
     return {
