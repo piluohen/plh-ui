@@ -34,5 +34,17 @@ export const searchs = {
         { label: 'mini', value: 'mini' }
       ]
     }
+  },
+  tootipEffect: {
+    tag: 'el-radio-group',
+    label: '主题(effect)',
+    key: 'effect',
+    children: {
+      tag: 'el-radio-button',
+      options: [
+        { label: 'dark', value: 'dark' },
+        { label: 'light', value: 'light' }
+      ]
+    }
   }
 }

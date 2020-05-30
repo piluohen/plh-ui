@@ -48,18 +48,7 @@ export default {
         'hide-after': 0
       },
       searchList: [
-        {
-          tag: 'el-radio-group',
-          label: '主题(effect)',
-          key: 'effect',
-          children: {
-            tag: 'el-radio-button',
-            options: [
-              { label: 'dark', value: 'dark' },
-              { label: 'light', value: 'light' }
-            ]
-          }
-        },
+        { ...searchs.tootipEffect },
         {
           tag: 'el-select',
           label: '位置(placement)',

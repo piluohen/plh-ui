@@ -58,8 +58,18 @@ pre.language-vue {
 .el-table {
   display: table;
   th, td {
-    border: none;
-  }  
+    border-right: none;
+    border-top: none;
+    border-left: none;
+  }
+  &.el-table--border {
+    td {
+      border-right: 1px solid #EBEEF5;
+    }
+  }
+  tr:nth-child(2n) {
+    background-color: #ffffff;
+  }
 }
 
 .mt10 {

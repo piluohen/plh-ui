@@ -38,7 +38,8 @@ export default {
     },
     // 尺寸
     size: {
-      type: String
+      type: String,
+      default: 'medium'
     },
     // 接口路径
     path: {
@@ -78,16 +79,16 @@ export default {
       return [...Array.from(new Set(sizes))]
     }
   },
-  watch: {
-    tableData(val) {
-      this.getLocalData()
-    }
-  },
   mounted() {
     this.search()
   },
   destroyed() {
     clearTimeout(this.timer)
+  },
+  watch: {
+    tableData(val) {
+      this.getLocalData()
+    }
   },
   methods: {
     formatter(row, column, cellValue, index) {
@@ -136,15 +137,6 @@ export default {
       this.uid++
       return this.getData()
     },
-    clearSelection() {
-      this.$refs.table.clearSelection()
-    },
-    toggleRowSelection(...args) {
-      this.$refs.table.toggleRowSelection(...args)
-    },
-    setCurrentRow(...args) {
-      this.$refs.table.setCurrentRow(...args)
-    },
     getData() {
       return new Promise((resolve, reject) => {
         this.$nextTick(() => {
@@ -185,14 +177,32 @@ export default {
       this.pagination.pageSize = pageSize
       this.getData()
     },
-    handledbClick(row) {
-      this.$emit('dbClick', row)
+    clearSelection() {
+      this.$refs.table.clearSelection()
     },
-    handleSelectionChange(...args) {
-      this.$emit('selection-change', ...args)
+    toggleRowSelection(...args) {
+      this.$refs.table.toggleRowSelection(...args)
     },
-    currentChange(...args) {
-      this.$emit('current-change', ...args)
+    toggleAllSelection(...args) {
+      this.$refs.table.toggleAllSelection(...args)
+    },
+    toggleRowExpansion(...args) {
+      this.$refs.table.toggleRowExpansion(...args)
+    },
+    setCurrentRow(...args) {
+      this.$refs.table.setCurrentRow(...args)
+    },
+    clearSort(...args) {
+      this.$refs.table.clearSort(...args)
+    },
+    clearFilter(...args) {
+      this.$refs.table.clearFilter(...args)
+    },
+    doLayout(...args) {
+      this.$refs.table.doLayout(...args)
+    },
+    sort(...args) {
+      this.$refs.table.sort(...args)
     }
   },
   render(h) {
@@ -216,33 +226,73 @@ export default {
     return (
       <div class="plh-table">
         <el-table
-          v-loading={this.loading}
           ref="table"
-          attrs={this.$attrs}
-          size={this.size}
+          v-loading={this.loading}
           data={this.data}
-          on-current-change={this.currentChange}
-          on-row-dblclick={this.handledbClick}
-          on-selection-change={this.handleSelectionChange}>
+          size={this.size}
+          attrs={this.$attrs}
+          on-select={(...args) => {
+            this.$emit('select', ...args)
+          }}
+          on-select-all={(...args) => {
+            this.$emit('select-all', ...args)
+          }}
+          on-selection-change={(...args) => {
+            this.$emit('selection-change', ...args)
+          }}
+          on-cell-mouse-enter={(...args) => {
+            this.$emit('cell-mouse-enter', ...args)
+          }}
+          on-cell-mouse-leave={(...args) => {
+            this.$emit('cell-mouse-leave', ...args)
+          }}
+          on-cell-click={(...args) => {
+            this.$emit('cell-click', ...args)
+          }}
+          on-cell-dblclick={(...args) => {
+            this.$emit('cell-dblclick', ...args)
+          }}
+          on-row-click={(...args) => {
+            this.$emit('row-click', ...args)
+          }}
+          on-row-contextmenu={(...args) => {
+            this.$emit('row-contextmenu', ...args)
+          }}
+          on-row-dblclick={(...args) => {
+            this.$emit('row-dblclick', ...args)
+          }}
+          on-header-click={(...args) => {
+            this.$emit('header-click', ...args)
+          }}
+          on-header-contextmenu={(...args) => {
+            this.$emit('header-contextmenu', ...args)
+          }}
+          on-sort-change={(...args) => {
+            this.$emit('sort-change', ...args)
+          }}
+          on-filter-change={(...args) => {
+            this.$emit('filter-change', ...args)
+          }}
+          on-current-change={(...args) => {
+            this.$emit('current-change', ...args)
+          }}
+          on-expand-change={(...args) => {
+            this.$emit('expand-change', ...args)
+          }}
+          on-header-dragend={(...args) => {
+            this.$emit('header-dragend', ...args)
+          }}>
           {this.columns.map((item, index) => {
             const render = item.render
               ? props => item.render(this.$parent ? this.$parent.$createElement : h, props)
               : null
             return (
               <el-table-column
-                key={item.key}
-                prop={item.key}
-                width={item.width}
-                min-width={item.minWidth}
-                type={item.type}
                 label={item.title}
-                render-header={item.renderHeader}
-                formatter={item.format || this.formatter}
-                fixed={item.fixed}
-                align={item.align}
-                selectable={item.selectable}
-                reserve-selection={item.reserveSelection}
-                show-overflow-tooltip={item.showOverflowTooltip === false ? item.showOverflowTooltip : true}>
+                prop={item.key}
+                attrs={item}
+                props={item}
+                formatter={item.format || this.formatter}>
                 {render}
               </el-table-column>
             )
@@ -257,16 +307,17 @@ export default {
 <style lang="stylus">
 .plh-table {
   width: 100%;
-  .el-table__header,
-  .el-table__footer,
-  .el-table__body {
+
+  .el-table__header, .el-table__footer, .el-table__body {
     margin: 0;
   }
 }
+
 .plh-pagination {
   margin: 20px 0 10px 0;
   padding: 0;
   text-align: right;
+
   &.is-background .el-pager li {
     color: #8a92a5;
     font-weight: normal;
