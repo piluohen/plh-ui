@@ -10,11 +10,11 @@
       </div>
     </template>
     <el-upload
-      v-if="(type !== 'picture' || (fileList && fileList.length < options.limitNum)) && !disabled"
+      v-if="type !== 'picture' || (fileList && fileList.length < options.limitNum)"
       ref="upload"
       :action="action"
       :headers="headers"
-      :disabled="isUploading"
+      :disabled="isUploading || disabled"
       :limit="options.limitNum"
       :accept="options.limitType"
       :show-file-list="typeConfig.showFileList"
