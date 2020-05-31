@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { radioItem, searchs } from '../../js/search'
+import { searchList } from './searchList'
 export default {
   name: 'DemoTableFormBase',
   data() {
@@ -38,31 +38,7 @@ export default {
         disabled: false,
         showBtn: true
       },
-      searchList: [
-        { ...searchs.size },
-        {
-          tag: 'el-input-number',
-          label: '限制数量(limitNum)',
-          key: 'limitNum',
-          props: {
-            min: 1,
-            max: 10,
-            step: 1,
-            precision: 0,
-            'step-strictly': true
-          }
-        },
-        {
-          ...radioItem,
-          label: '禁用(disabled)',
-          key: 'disabled'
-        },
-        {
-          ...radioItem,
-          label: '显示按钮(showBtn)',
-          key: 'showBtn'
-        }
-      ],
+      searchList: [...searchList],
       tableData: [],
       columns: [
         {

@@ -83,13 +83,13 @@ export default {
 
 ## columns Api
 
-| 参数 | 描述                       | 类型   | 可选值 | 必须  | 默认值   |
-| ---- | -------------------------- | ------ | ------ | ----- | -------- |
-| tag  | 表单元素标签，无则显示文本 | string |        | false | el-input |
+| 参数 | 描述                       | 类型   | 可选值 | 必须 | 默认值   |
+| ---- | -------------------------- | ------ | ------ | ---- | -------- |
+| tag  | 表单元素标签，无则显示文本 | string |        | 否   | el-input |
 
 <font color="red">注意：使用 表单元素必须指给 tag，如 el-input，若不指定，则为普通表格元素</font>
 
 其他参考：
 
 - 有 tag： [plh-form items Api](./form.html#items-api)
-- 无 tag： [plh-table columns](./table.html#columns-api)
+- 无 tag： [plh-table columns Api](./table.html#columns-api)

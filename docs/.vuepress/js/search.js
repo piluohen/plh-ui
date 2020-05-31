@@ -9,17 +9,6 @@ export const radioItem = {
   }
 }
 
-export const inputNumberItem = {
-  tag: 'el-input-number',
-  props: {
-    min: 0,
-    max: 10000,
-    step: 100,
-    precision: 0,
-    'step-strictly': true
-  }
-}
-
 export const searchs = {
   size: {
     tag: 'el-radio-group',

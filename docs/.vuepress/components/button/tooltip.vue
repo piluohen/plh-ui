@@ -28,13 +28,10 @@
   </div>
 </template>
 <script>
-import { radioItem, inputNumberItem } from '../../js/search'
+import { tooltipSearchList } from './searchList'
 export default {
   name: 'DemoButtonTooltip',
   data() {
-    // 位置
-    const placement =
-      'top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end'
     return {
       list: ['', 'primary', 'success', 'warning', 'danger', 'info', 'text'],
       params: {
@@ -47,57 +44,7 @@ export default {
         'open-delay': 0,
         'hide-after': 0
       },
-      searchList: [
-        { ...searchs.tootipEffect },
-        {
-          tag: 'el-select',
-          label: '位置(placement)',
-          key: 'placement',
-          children: {
-            tag: 'el-option',
-            options: placement.split('/').map(item => {
-              return { label: item, value: item }
-            })
-          }
-        },
-        {
-          ...radioItem,
-          label: '箭头(visible-arrow)',
-          key: 'visible-arrow'
-        },
-        {
-          ...radioItem,
-          label: '鼠标是否允许进入(enterable)',
-          key: 'enterable'
-        },
-        {
-          ...radioItem,
-          label: '禁用(disabled)',
-          key: 'disabled'
-        },
-        {
-          tag: 'el-input-number',
-          label: '偏移量(offset)',
-          key: 'offset',
-          props: {
-            min: 0,
-            max: 100,
-            step: 1,
-            precision: 0,
-            'step-strictly': true
-          }
-        },
-        {
-          ...inputNumberItem,
-          label: '出现延迟(open-delay)',
-          key: 'open-delay'
-        },
-        {
-          ...inputNumberItem,
-          label: '隐藏延时(hide-after)',
-          key: 'hide-after'
-        }
-      ]
+      searchList: [...tooltipSearchList]
     }
   },
   methods: {

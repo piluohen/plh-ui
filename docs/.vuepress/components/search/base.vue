@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { radioItem, searchs } from '../../js/search'
+import { searchList } from './searchList'
 export default {
   name: 'DemoSearchBase',
   data() {
@@ -38,24 +38,7 @@ export default {
         collapse: true,
         disabled: false
       },
-      searchList: [
-        { ...searchs.size },
-        {
-          ...radioItem,
-          label: '显示查询按钮(showSubmit)',
-          key: 'showSubmit'
-        },
-        {
-          ...radioItem,
-          label: '是否收起(collapse)',
-          key: 'collapse'
-        },
-        {
-          ...radioItem,
-          label: '禁用(disabled)',
-          key: 'disabled'
-        }
-      ],
+      searchList: [...searchList],
       model: {
         checkbox: []
       },

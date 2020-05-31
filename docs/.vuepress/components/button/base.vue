@@ -25,7 +25,7 @@
   </div>
 </template>
 <script>
-import { radioItem, searchs } from '../../js/search'
+import { baseSearchList } from './searchList'
 export default {
   name: 'DemoButtonBase',
   data() {
@@ -40,39 +40,7 @@ export default {
         disabled: false,
         icon: false
       },
-      searchList: [
-        { ...searchs.size },
-        {
-          ...radioItem,
-          label: '朴素按钮(plain)',
-          key: 'plain'
-        },
-        {
-          ...radioItem,
-          label: '圆角按钮(round)',
-          key: 'round'
-        },
-        {
-          ...radioItem,
-          label: '圆形按钮(circle)',
-          key: 'circle'
-        },
-        {
-          ...radioItem,
-          label: '加载中(loading)',
-          key: 'loading'
-        },
-        {
-          ...radioItem,
-          label: '禁用(disabled)',
-          key: 'disabled'
-        },
-        {
-          ...radioItem,
-          label: '图标(icon)',
-          key: 'icon'
-        }
-      ]
+      searchList: [...baseSearchList]
     }
   },
   methods: {
