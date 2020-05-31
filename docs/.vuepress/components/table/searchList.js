@@ -40,11 +40,6 @@ export const baseSearchList = [
     key: 'show-header'
   },
   {
-    ...radioItem,
-    label: '默认展开全部(default-expand-all)',
-    key: 'default-expand-all'
-  },
-  {
     ...searchs.tootipEffect,
     label: 'tooltip主题(tooltip-effect)',
     key: 'tooltip-effect'
@@ -53,11 +48,6 @@ export const baseSearchList = [
     ...radioItem,
     label: '多选行为(select-on-indeterminate)',
     key: 'select-on-indeterminate'
-  },
-  {
-    ...radioItem,
-    label: '是否懒加载(lazy)',
-    key: 'lazy'
   },
   {
     ...radioItem,
@@ -70,9 +60,38 @@ export const baseSearchList = [
     key: 'sum-text'
   },
   {
-    tag: 'el-input',
-    label: '无数据(empty-text)',
-    key: 'empty-text'
+    tag: 'el-input-number',
+    label: '默认分页数量(pageSize)',
+    key: 'pageSize',
+    props: {
+      min: 1,
+      max: 15,
+      step: 1,
+      precision: 0,
+      'step-strictly': true
+    }
+  }
+]
+
+export const fixedSearchList = [
+  { ...height },
+  {
+    ...height,
+    label: '最大高度(max-height)',
+    key: 'max-height'
+  }
+]
+
+export const expandSearchList = [
+  {
+    ...radioItem,
+    label: '是否懒加载(lazy)',
+    key: 'lazy'
+  },
+  {
+    ...radioItem,
+    label: '默认展开全部(default-expand-all)',
+    key: 'default-expand-all'
   },
   {
     tag: 'el-input-number',
@@ -88,11 +107,10 @@ export const baseSearchList = [
   }
 ]
 
-export const fixedSearchList = [
-  { ...height },
+export const emptySearchList = [
   {
-    ...height,
-    label: '最大高度(max-height)',
-    key: 'max-height'
+    tag: 'el-input',
+    label: '无数据(empty-text)',
+    key: 'empty-text'
   }
 ]

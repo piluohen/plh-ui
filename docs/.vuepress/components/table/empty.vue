@@ -9,32 +9,23 @@
       @submit="handleSearch"
     ></plh-search>
     <div class="mt10">
-      <plh-table
-        ref="table"
-        :columns="columns"
-        :tableData="tableData"
-        :height="params.height"
-        :max-height="params['max-height']"
-      ></plh-table>
+      <plh-table ref="table" :columns="columns" :tableData="tableData" :empty-text="params['empty-text']"></plh-table>
     </div>
   </div>
 </template>
 <script>
-import { fixedSearchList } from './searchList'
+import { emptySearchList } from './searchList'
 import { dataItem } from './mock'
 
 export default {
   name: 'DemoTableFixed',
   data() {
     return {
-      searchList: [...fixedSearchList],
+      searchList: [...emptySearchList],
       params: {
-        height: 400,
-        'max-height': 500
+        'empty-text': '暂无数据'
       },
-
       tableData: [],
-      total: 34,
       columns: [
         {
           label: 'ID',
@@ -75,15 +66,8 @@ export default {
       ]
     }
   },
-  created() {
-    this.createData()
-  },
+  created() {},
   methods: {
-    createData() {
-      for (let i = 0; i < this.total; i++) {
-        this.tableData.push({ ...dataItem, id: i + 1 })
-      }
-    },
     handleSearch(data) {
       this.params = { ...data }
     }

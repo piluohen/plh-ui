@@ -8,38 +8,42 @@
       :collapse="false"
       @submit="handleSearch"
     ></plh-search>
+    <div class="mt10">是不是不能根据表单重新渲染表格？先不管了，知道初始化能用就行了。</div>
     <div class="mt10">
       <plh-table
         ref="table"
         :columns="columns"
         :tableData="tableData"
-        :height="params.height"
-        :max-height="params['max-height']"
+        row-key="id"
+        :default-expand-all="params['default-expand-all']"
+        :indent="params.indent"
+        :lazy="params.lazy"
+        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
       ></plh-table>
     </div>
   </div>
 </template>
 <script>
-import { fixedSearchList } from './searchList'
+import { expandSearchList } from './searchList'
 import { dataItem } from './mock'
 
 export default {
-  name: 'DemoTableFixed',
+  name: 'DemoTableTree',
   data() {
     return {
-      searchList: [...fixedSearchList],
+      searchList: [...expandSearchList],
       params: {
-        height: 400,
-        'max-height': 500
+        'default-expand-all': false,
+        indent: 16,
+        lazy: false
       },
-
       tableData: [],
       total: 34,
       columns: [
         {
           label: 'ID',
           prop: 'id',
-          width: '60px'
+          width: '120px'
         },
         {
           title: '姓名',
@@ -81,7 +85,7 @@ export default {
   methods: {
     createData() {
       for (let i = 0; i < this.total; i++) {
-        this.tableData.push({ ...dataItem, id: i + 1 })
+        this.tableData.push({ ...dataItem, id: i + 1, children: [{ id: `${100 + i}`, ...dataItem }] })
       }
     },
     handleSearch(data) {
