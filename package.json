@@ -1,6 +1,6 @@
 {
   "name": "plh-ui",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "author": {
     "name": "piluohen<1012106967@qq.com>"
   },
@@ -21,10 +21,9 @@
     "serve": "cross-env ENV=dev vuepress dev docs",
     "build": "cross-env ENV=prod vuepress build docs",
     "json": "node build/json",
-    "lib": "vue-cli-service build && cp README.md publish/README.md"
+    "lib": "vue-cli-service build"
   },
   "dependencies": {
-    "core-js": "^2.6.10",
     "countup.js": "^2.0.5"
   },
   "devDependencies": {
@@ -38,6 +37,7 @@
     "@vuepress/shared-utils": "^1.5.0",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
     "element-ui": "^2.13.2",
     "eslint": "^6.7.2",
