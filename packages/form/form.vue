@@ -85,6 +85,7 @@ export default {
                 ref: item.ref,
                 attrs: {
                   clearable: true,
+                  size: this.size,
                   ...item.attrs,
                   placeholder: this.placeholder(item)
                 },

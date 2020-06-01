@@ -181,7 +181,8 @@ export const formList = [
   {
     label: '时间选择',
     tag: 'plh-date-picker',
-    key: 'time'
+    key: 'time',
+    props: {}
   },
   {
     label: '评分',
