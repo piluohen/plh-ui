@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-scroll-list">
+  <div class="demo demo-scroll-list">
     <plh-scroll-list
       ref="scroll"
       :data="list"

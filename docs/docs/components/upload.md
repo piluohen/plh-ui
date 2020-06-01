@@ -68,12 +68,12 @@ export default {
 
 | 参数      |     描述     |  类型   |                                         可选值                                          | 必须  | 默认值                                                 |
 | --------- | :----------: | :-----: | :-------------------------------------------------------------------------------------: | :---: | ------------------------------------------------------ |
-| type      |   上传类型   | String  |                                   picture/file/button                                   | true  | picture                                                |
-| action    |   上传地址   | String  |                                                                                         | true  |                                                        |
-| headers   | 请求 headers | Object  |                                                                                         | false |                                                        |
-| configs   |    配置项    | Object  | limitNum(限制数) \| limitSize(文件大小) \| limitType(限制类型) \| btnName(操作按钮文案) | false | 10 \| 10 \| image/png,image/jpeg,image/gif \| 点击上传 |
-| btnConfig |  按钮配置项  | Object  |               type(类型) \| size(大小) \| icon(icon 图标) \| round(圆角)                | false | primary \| small \| 空值 \| false                      |
-| disabled  |   禁用与否   | Boolean |                                      true \| false                                      |  否   | true                                                   |
+| type      |   上传类型   | string  |                                   picture/file/button                                   | true  | picture                                                |
+| action    |   上传地址   | string  |                                                                                         | true  |                                                        |
+| headers   | 请求 headers | object  |                                                                                         | false |                                                        |
+| configs   |    配置项    | object  | limitNum(限制数) \| limitSize(文件大小) \| limitType(限制类型) \| btnName(操作按钮文案) | false | 10 \| 10 \| image/png,image/jpeg,image/gif \| 点击上传 |
+| btnConfig |  按钮配置项  | object  |               type(类型) \| size(大小) \| icon(icon 图标) \| round(圆角)                | false | primary \| small \| 空值 \| false                      |
+| disabled  |   禁用与否   | boolean |                                      true \| false                                      |  否   | true                                                   |
 
 ## Events
 

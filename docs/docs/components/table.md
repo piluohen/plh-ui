@@ -388,7 +388,7 @@ export default {
 
 | 参数            | 描述                        |   类型   |              可选值              | 必须 | 默认值                      |
 | --------------- | --------------------------- | :------: | :------------------------------: | :--: | --------------------------- |
-| api             | 接口地址与 tableData 二选一 | Function |                                  |  是  |                             |
+| api             | 接口地址与 tableData 二选一 | function |                                  |  是  |                             |
 | tableData       | 表格数据                    |  arrary  |                                  |  否  |                             |
 | params          | 请求参数                    |  object  |                                  |  否  |                             |
 | defaultParams   | 预设的参数                  |  arrary  |                                  |  否  |                             |

@@ -5,6 +5,7 @@
  */
 
 import Button from './button'
+import Countup from './countup'
 import Form from './form'
 import Search from './search'
 import Table from './table'
@@ -16,6 +17,7 @@ import ScrollList from './scroll-list'
 
 const install = Vue => {
   Vue.use(Button)
+  Vue.use(Countup)
   Vue.use(Form)
   Vue.use(Search)
   Vue.use(Table)
@@ -30,6 +32,6 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export { Button, Form, Search, Table, DatePicker, Upload, Preview, TableForm, ScrollList }
+export { Button, Countup, Form, Search, Table, DatePicker, Upload, Preview, TableForm, ScrollList }
 
 export default { install }
