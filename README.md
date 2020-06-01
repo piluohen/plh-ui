@@ -10,7 +10,7 @@ npm i -S plh-ui
 
 ## 项目引入css
 
-import "~plh-ui/index/style.css";
+import "plh-ui/lib/index/style.css";
 
 ## 项目main.js引入组件, 全局引入
 
@@ -36,5 +36,3 @@ npm run lib
 ```
 
 ## 文档地址
-
-- 地址： https://hy.hekr.me/plh-ui/web/index.html
