@@ -1,7 +1,7 @@
 const { resolve, getComponentEntries } = require('./utils')
 
 module.exports = {
-  outputDir: resolve('publish'),
+  outputDir: resolve('lib'),
   configureWebpack: {
     entry: {
       ...getComponentEntries('packages')

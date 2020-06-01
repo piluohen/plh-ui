@@ -1,6 +1,6 @@
 {
   "name": "plh-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "piluohen<1012106967@qq.com>"
   },
@@ -12,9 +12,11 @@
     "vue",
     "components"
   ],
-  "main": "publish/index/index.js",
+  "main": "lib/index/index.js",
   "files": [
-    "publish"
+    "lib/index/index.js",
+    "lib/index/style.css",
+    "lib"
   ],
   "private": false,
   "scripts": {
@@ -37,7 +39,6 @@
     "@vuepress/shared-utils": "^1.5.0",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
     "element-ui": "^2.13.2",
     "eslint": "^6.7.2",

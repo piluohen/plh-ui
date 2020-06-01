@@ -6,7 +6,7 @@
 
 ## 安装 npm 包
 
-npm install -S plh-ui
+npm i -S plh-ui
 
 ## 项目引入css
 
