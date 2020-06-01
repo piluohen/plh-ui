@@ -54,7 +54,7 @@ export default {
     },
     showMoreFn() {
       const height = this.$refs.form.$el.clientHeight
-      this.showMore = height > this.height
+      this.showMore = height - 20 > this.height
     },
     expend() {
       this.isCollapse = !this.isCollapse
@@ -164,11 +164,9 @@ export default {
   }
 
   .plh-search-button {
-    height: 34px;
     margin-left: 10px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
   }
 
   @keyframes bounce {
