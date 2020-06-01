@@ -73,6 +73,11 @@ export default {
           this.$emit('ready', instance, CountUp)
         })
       }, this.duration)
+    },
+    reset() {
+      if (this.instance) {
+        return this.instance.reset()
+      }
     }
   }
 }

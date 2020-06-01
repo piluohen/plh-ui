@@ -10,9 +10,15 @@ const getNavSideBar = url => {
   const file = path.join(__dirname, `../public/json/${url}.json`)
   const sidebar = [...JSON.parse(fs.readFileSync(file, 'utf-8'))]
   const nav = [...sidebar].map(item => {
+    const items = item.children.map(v => {
+      return {
+        text: v.split('/')[1],
+        link: `/docs/${v}`
+      }
+    })
     return {
       text: item.title,
-      link: `/docs/${item.children[0]}`
+      items: items
     }
   })
   return { nav, sidebar }
