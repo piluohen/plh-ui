@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /images/piluohen.jpg
+heroImage: /images/logo.png
 heroText: plh-ui
 tagline:
 actionText: 开始了解 →
-actionLink: /poem/survey
+actionLink: /docs/start
 features:
   - title: 技术栈
     details: 基于Vue、Element-ui拓展的组件库

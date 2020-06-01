@@ -9,10 +9,9 @@
   <div class="demo demo-countup">
     <plh-button type="primary" @click="handleChange">改变随机值</plh-button>
     <div style="padding: 10px 0 20px 0">
-      整数：
-      <plh-countup :endVal="value" :duration="2000"></plh-countup>
-      保留小数位：
-      <plh-countup :endVal="value1" :decimalPlaces="2"></plh-countup>
+      <div>整数： <plh-countup :endVal="value"></plh-countup></div>
+      <div>修改duration： <plh-countup :endVal="value" :duration="2000"></plh-countup></div>
+      <div>保留小数位： <plh-countup :endVal="value1" :decimalPlaces="2"></plh-countup></div>
     </div>
   </div>
 </template>
