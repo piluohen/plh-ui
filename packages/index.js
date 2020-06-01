@@ -12,6 +12,7 @@ import DatePicker from './date-picker'
 import Upload from './upload'
 import Preview from './preview'
 import TableForm from './table-form'
+import ScrollList from './scroll-list'
 
 const install = Vue => {
   Vue.use(Button)
@@ -22,12 +23,13 @@ const install = Vue => {
   Vue.use(Upload)
   Vue.use(Preview)
   Vue.use(TableForm)
+  Vue.use(ScrollList)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export { Button, Form, Search, Table, DatePicker, Upload, Preview, TableForm }
+export { Button, Form, Search, Table, DatePicker, Upload, Preview, TableForm, ScrollList }
 
 export default { install }
