@@ -36,3 +36,5 @@ npm run lib
 ```
 
 ## 文档地址
+
+地址：[https://piluohen.github.io/plh-ui/index.html](https://piluohen.github.io/plh-ui/index.html)

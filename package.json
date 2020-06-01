@@ -1,10 +1,10 @@
 {
   "name": "plh-ui",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "author": {
     "name": "piluohen<1012106967@qq.com>"
   },
-  "homepage": "https://github.com/piluohen/plh-ui",
+  "homepage": "https://piluohen.github.io/plh-ui/index.html",
   "repository": "https://github.com/piluohen/plh-ui",
   "description": "A Component Library Base Element-ui for Vue.js.",
   "keywords": [
