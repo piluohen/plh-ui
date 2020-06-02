@@ -1,15 +1,15 @@
 {
   "name": "plh-ui-snippets",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "piluohen <1012106967@qq.com>",
   "license": "MIT",
   "displayName": "Plh-Ui Snippets",
   "description": "Plh-Ui Snippets for VS Code",
   "icon": "images/logo.png",
-  "homepage": "https://github.com/piluohen/plh-ui-snippets/",
+  "homepage": "https://github.com/piluohen/plh-ui/snippets",
   "repository": {
     "type": "git",
-    "url": "https://github.com/piluohen/plh-ui-snippets/"
+    "url": "https://github.com/piluohen/plh-ui/snippets"
   },
   "publisher": "piluohen",
   "engines": {
