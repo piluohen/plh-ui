@@ -1,6 +1,6 @@
 /**
  * @name plh-date-picker
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import DatePicker from './date-picker'

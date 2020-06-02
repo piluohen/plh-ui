@@ -1,6 +1,6 @@
 /**
  * @name plh-table
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import Table from './table.vue'

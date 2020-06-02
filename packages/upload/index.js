@@ -1,6 +1,6 @@
 /**
  * @name plh-upload
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import Upload from './upload'

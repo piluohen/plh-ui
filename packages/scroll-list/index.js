@@ -1,6 +1,6 @@
 /**
  * @name plh-scroll-list
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import ScrollList from './scroll-list'

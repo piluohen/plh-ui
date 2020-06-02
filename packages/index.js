@@ -1,7 +1,6 @@
 /**
  * @name plh-ui
- * @description 基础非业务组件库
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import Button from './button'

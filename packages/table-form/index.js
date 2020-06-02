@@ -1,6 +1,6 @@
 /**
- * @name plh-table-from
- * @author piluohen
+ * @name plh-table-form
+ * @author piluohen<1012106967@qq.com>
  */
 
 import TableForm from './table-form'

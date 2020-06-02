@@ -1,6 +1,6 @@
 /**
  * @name plh-button
- * @author piluohen
+ * @author piluohen<1012106967@qq.com>
  */
 
 import Button from './button'
