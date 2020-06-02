@@ -1,6 +1,6 @@
 {
   "name": "plh-ui",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "author": {
     "name": "piluohen<1012106967@qq.com>"
   },
@@ -23,7 +23,7 @@
     "serve": "cross-env ENV=dev vuepress dev docs",
     "build": "cross-env ENV=prod vuepress build docs",
     "json": "node build/json",
-    "lib": "vue-cli-service build",
+    "lib": "vue-cli-service build && npm publish",
     "snippet": "node build/snippet && cd snippets && vsce package && vsce publish"
   },
   "dependencies": {

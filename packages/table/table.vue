@@ -112,9 +112,10 @@ export default {
       const uid = this.uid
       const fetch = this.api(params, this.path)
       fetch
-        .then(data => {
+        .then(res => {
           // 只显示最后一次操作的数据
           if (uid === this.uid) {
+            const { data } = res
             this.total = data.totalCount
             this.data = data.list || []
           }
