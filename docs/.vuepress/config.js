@@ -8,11 +8,11 @@ const baseMap = {
 module.exports = {
   base: baseMap[process.env.ENV],
   dest: 'dist',
-  title: 'plh-ui',
+  title: '',
   description: ' ',
   head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
   themeConfig: {
-    logo: '/images/piluohen.jpg',
+    logo: '/images/plh-ui.png',
     nav: nav,
     sidebar: sidebar,
     lastUpdated: '最后更新'

@@ -23,3 +23,9 @@ git commit -m 'deploy'
 git push -f git@github.com:piluohen/plh-ui.git master:gh-pages
 
 cd -
+
+
+
+# snippets 发布
+vsce package
+vsce publish
