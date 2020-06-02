@@ -1,0 +1,72 @@
+{
+  "plh-docs": {
+    "prefix": "plhDocs",
+    "body": ["/**\r", " * @name plh-${1}\r", " * @author piluohen<1012106967@qq.com>\r", " */\r", ""]
+  },
+  "plh-button": {
+    "prefix": "plhBtn",
+    "body": ["<plh-button type=\"${1|primary,success,warning,danger,danger,info,text|}\">$2</plh-button>\r", ""]
+  },
+  "plh-button tooltip": {
+    "prefix": "plhBtnTip",
+    "body": [
+      "<plh-button type=\"${1|primary,success,warning,danger,danger,info,text|}\" tooltip :content=\"$2\">$3</plh-button>\r",
+      ""
+    ]
+  },
+  "plh-countup": {
+    "prefix": "plhCountup",
+    "body": ["<plh-countup :endVal=\"${1}\"></plh-countup>\r", ""]
+  },
+  "plh-date-picker": {
+    "prefix": "plhDatePicker",
+    "body": [
+      "<plh-date-picker type=\"${1|year,month,date,dates,week,datetime,datetimerange,daterange,monthrange|}\" v-model=\"$2\"></plh-date-picker>\r",
+      ""
+    ]
+  },
+  "plh-form": {
+    "prefix": "plhForm",
+    "body": ["<plh-form ref=\"form\" v-mode=\"model\" :items=\"items\" :label-width=\"120px\"></plh-form>\r"]
+  },
+  "plh-preview": {
+    "prefix": "plhPreview",
+    "body": ["<plh-preview v-model=\"visible\" :list=\"fileList\" :index=\"activeIndex\"></plh-preview>\r", ""]
+  },
+  "plh-scroll-list": {
+    "prefix": "plhScrollList",
+    "body": ["<plh-scroll-list :data=\"scrollData\"></plh-scroll-list>\r", ""]
+  },
+  "plh-search": {
+    "prefix": "plhSearch",
+    "body": ["<plh-search :params=\"params\" :searchList=\"searchList\" @submit=\"handleSubmit\"></plh-search>\r", ""]
+  },
+  "plh-table-form": {
+    "prefix": "plhTableForm",
+    "body": ["<plh-table-form ref=\"tableForm\" v-model=\"tableData\" :columns=\"columns\"></plh-table-form>\r", ""]
+  },
+  "plh-table interface": {
+    "prefix": "plhTableInterface",
+    "body": ["<plh-table ref=\"table\" :columns=\"columns\" :api=\"api\" :params=\"params\"></plh-table>\r", ""],
+    "description": "plh-table 远程请求"
+  },
+  "plh-table local": {
+    "prefix": "plhTableLocal",
+    "body": ["<plh-table ref=\"table\" :columns=\"columns\" :tableData=\"tableData\"></plh-table>\r", ""],
+    "description": "plh-table 本地数据"
+  },
+  "plh-upload": {
+    "prefix": "plhUpload",
+    "body": [
+      "<plh-upload\r",
+      " v-model=\"fileList\"\r",
+      " :type=\"${1|picture,file,button|}\"\r",
+      " :action=\"action\"\r",
+      " :configs=\"configs\"\r",
+      " :disabled=\"disabled\"\r",
+      " @complate=\"handleComplate\"\r",
+      "></plh-upload>\r",
+      ""
+    ]
+  }
+}

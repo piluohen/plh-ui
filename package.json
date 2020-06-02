@@ -23,7 +23,8 @@
     "serve": "cross-env ENV=dev vuepress dev docs",
     "build": "cross-env ENV=prod vuepress build docs",
     "json": "node build/json",
-    "lib": "vue-cli-service build"
+    "lib": "vue-cli-service build",
+    "snippet": "node build/snippet && cd snippets && vsce package && vsce publish"
   },
   "dependencies": {
     "countup.js": "^2.0.5"
