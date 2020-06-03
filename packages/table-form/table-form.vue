@@ -91,7 +91,7 @@ export default {
                 type="text"
                 icon="el-icon-delete"
                 size={this.size}
-                disabled={this.disabled}
+                disabled={this.disabled || row.disabled}
                 onClick={() => {
                   this.handleDelete($index)
                 }}>
@@ -161,7 +161,7 @@ export default {
           ref: item.ref,
           attrs: {
             clearable: true,
-            disabled: this.disabled,
+            disabled: this.disabled || row.disabled,
             size: this.size,
             ...item.attrs,
             ...(item.attrFn && item.attrFn(row))

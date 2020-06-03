@@ -39,7 +39,7 @@ export default {
         showBtn: true
       },
       searchList: [...searchList],
-      tableData: [],
+      tableData: [{ input: '12', disabled: true, select: '1', name: '刘备' }],
       columns: [
         {
           tag: 'el-input',
