@@ -37,7 +37,7 @@ export default {
       action: `https://jsonplaceholder.typicode.com/posts/`,
       configs: {
         limitNum: 10,
-        limitSize: 10,
+        limitSize: 500,
         limitUnit: 'kb',
         limitType: 'image/png,image/jpeg,image/gif'
       },
