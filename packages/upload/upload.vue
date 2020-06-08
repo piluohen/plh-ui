@@ -122,20 +122,23 @@ export default {
       showPreview: false, // 是否显示预览
       progressImgUrl: '', // 上传进度显示图片
       imgIndex: 0, // 预览图片索引
-      // 配置项对象
-      typeConfigMap: {
-        picture: {
-          listType: 'picture-card',
-          showFileList: false
-        },
-        file: {
-          listType: 'text',
-          showFileList: true
-        },
-        button: {
-          listType: 'text',
-          showFileList: false
-        }
+      // 上传配置项
+      options: {
+        limitNum: 10,
+        limitSize: 1,
+        limitSizeMsg: '',
+        limitUnit: 'M',
+        limitType: 'image/png,image/jpeg,image/gif',
+        btnName: '点击上传',
+        ...this.configs
+      },
+      limitMap: {
+        B: 1,
+        KB: 1024,
+        MB: 1024 * 1024,
+        M: 1024 * 1024,
+        GB: 1024 * 1024 * 1024,
+        G: 1024 * 1024 * 1024
       }
     }
   },
@@ -163,25 +166,26 @@ export default {
     },
     // 类型配置，没有指定type，采用自定义配置
     typeConfig() {
+      const typeConfigMap = {
+        picture: {
+          listType: 'picture-card',
+          showFileList: false
+        },
+        file: {
+          listType: 'text',
+          showFileList: true
+        },
+        button: {
+          listType: 'text',
+          showFileList: false
+        }
+      }
       return this.type
-        ? this.typeConfigMap[this.type]
+        ? typeConfigMap[this.type]
         : {
             listType: this.listType,
             showFileList: this.showFileList
           }
-    },
-    // 上传配置项
-    options() {
-      let self = this
-      let util = function(key, val) {
-        return self.configs[key] === undefined ? val : self.configs[key]
-      }
-      return {
-        limitNum: util('limitNum', 10),
-        limitSize: util('limitSize', 10),
-        limitType: util('limitType', 'image/png,image/jpeg,image/gif'),
-        btnName: util('btnName', '点击上传')
-      }
     }
   },
   methods: {
@@ -199,14 +203,24 @@ export default {
     },
     // 上传前钩子
     handleBeforeUpload(file) {
-      const { limitSize, limitSizeMsg, limitType } = this.options
+      const { limitSize, limitSizeMsg, limitType, limitUnit } = this.options
       this.isUploading = true
       this.$emit('complate', false)
       this.percentage = 0
-      const isLimitSize = file.size / 1024 / 1024 < limitSize
-      if (!isLimitSize) {
-        this.$message.error(limitSizeMsg ? limitSizeMsg : `上传${this.fileTypeName}大小不能超过${limitSize}MB！`)
+      const unit = limitUnit.toUpperCase()
+      const isLimitNum = this.limitMap[unit]
+      if (!isLimitNum) {
+        this.$message.error('限制文件存储单位limitUnit的类型错误')
         this.resetUpload()
+        return false
+      }
+      const isLimitSize = file.size / isLimitNum < limitSize
+      if (!isLimitSize) {
+        this.$message.error(
+          limitSizeMsg ? limitSizeMsg : `上传${this.fileTypeName}大小不能超过${limitSize}${limitUnit}！`
+        )
+        this.resetUpload()
+        return false
       }
 
       let fileTypeArr = limitType.split(',') || []
@@ -215,8 +229,9 @@ export default {
       if (!canUpload) {
         this.$message.error(`${this.fileTypeName}格式错误`)
         this.resetUpload()
+        return false
       }
-      return isLimitSize && canUpload
+      return isLimitNum && isLimitSize && canUpload
     },
     // 上传进度钩子
     handleProgress(event, file, fileList) {
