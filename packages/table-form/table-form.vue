@@ -59,7 +59,7 @@ export default {
         return item.tag
       })
       list.forEach(item => {
-        obj[item.key] = null
+        obj[item.key] = item.defaultValue || null
       })
       return obj
     },

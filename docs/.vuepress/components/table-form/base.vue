@@ -61,6 +61,12 @@ export default {
           key: 'time'
         },
         {
+          tag: 'el-switch',
+          title: '开关',
+          key: 'switch',
+          defaultValue: true
+        },
+        {
           title: '操作人',
           key: 'name',
           format: (row, column, cellValue, index) => {
