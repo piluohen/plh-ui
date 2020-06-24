@@ -2,6 +2,7 @@ const { resolve, getComponentEntries } = require('./utils')
 
 module.exports = {
   outputDir: resolve('lib'),
+  productionSourceMap: false,
   configureWebpack: {
     entry: {
       ...getComponentEntries('packages')
@@ -20,7 +21,7 @@ module.exports = {
     }
   },
   css: {
-    sourceMap: true,
+    sourceMap: false,
     extract: {
       filename: '[name]/style.css'
     }

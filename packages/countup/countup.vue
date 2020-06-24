@@ -82,3 +82,6 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+.plh-countup {}
+</style>

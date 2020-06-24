@@ -34,4 +34,6 @@ export default {
 }
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus">
+.plh-button {}
+</style>
