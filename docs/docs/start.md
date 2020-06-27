@@ -19,3 +19,26 @@ Vue.use(PlhUi)
 ```
 
 ## 按需加载
+
+1. 安装 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)
+2. babel.config.js 修改配置如下
+
+```JS
+// babel.config.js 配置
+module.exports = {
+  presets: ['@vue/app'],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'plh-ui',
+        libraryDirectory: 'lib',
+        style: name => {
+          return `${name}/style.css`
+        }
+      },
+      'plh-ui'
+    ]
+  ]
+}
+```
