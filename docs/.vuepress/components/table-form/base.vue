@@ -90,7 +90,12 @@ export default {
     },
     handleInput(val) {},
     handleClick() {
-      this.$refs.tableForm.validate()
+      let validate = this.$refs.tableForm.validate()
+      if (validate) {
+        this.$message.success('通过校验')
+      } else {
+        this.$message.error('未通过校验')
+      }
     }
   }
 }
