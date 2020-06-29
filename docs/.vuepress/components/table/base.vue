@@ -58,7 +58,6 @@ export default {
           type: 'expand',
           fixed: 'left',
           render: (h, { row }) => {
-            console.log(row)
             return (
               <el-form label-position="left" inline={false} class="demo-table-expand">
                 <el-form-item label="姓名">
