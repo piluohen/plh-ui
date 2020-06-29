@@ -1,13 +1,13 @@
 # 开始使用
 
-## 安装
+### 安装
 
 ```bash
 ## 安装 npm 包
 npm i plh-ui -S
 ```
 
-## 使用
+### 使用
 
 ```bash
 ## 项目引入css
@@ -18,7 +18,7 @@ import PlhUi from 'plh-ui'
 Vue.use(PlhUi)
 ```
 
-## 按需加载
+### 按需加载
 
 1. 安装 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)
 2. babel.config.js 修改配置如下
@@ -41,4 +41,13 @@ module.exports = {
     ]
   ]
 }
+```
+
+3. 组件按需引入
+
+```JS
+import Vue from 'vue'
+import { Button } from 'plh-ui'
+
+Vue.use(Button)
 ```
