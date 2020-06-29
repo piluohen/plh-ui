@@ -8,7 +8,7 @@
       :collapse="false"
       @submit="handleSearch"
     ></plh-search>
-    <div class="btn-list mt10">
+    <div class="mt10">
       <plh-table-form
         ref="tableForm"
         v-model="tableData"
@@ -19,6 +19,9 @@
         :showBtn="params.showBtn"
         @input="handleInput"
       ></plh-table-form>
+    </div>
+    <div class="mt10">
+      <plh-button type="primary" @click="handleClick">提交</plh-button>
     </div>
   </div>
 </template>
@@ -44,7 +47,12 @@ export default {
         {
           tag: 'el-input',
           title: '输入框',
-          key: 'input'
+          key: 'input',
+          required: true,
+          rules: [
+            { required: true, message: '请输入' },
+            { max: 6, message: '最大个数不超过6' }
+          ]
         },
         {
           tag: 'el-select',
@@ -80,7 +88,10 @@ export default {
     handleSearch(data) {
       this.params = { ...data }
     },
-    handleInput(val) {}
+    handleInput(val) {},
+    handleClick() {
+      this.$refs.tableForm.validate()
+    }
   }
 }
 </script>

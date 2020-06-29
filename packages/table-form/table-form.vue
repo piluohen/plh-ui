@@ -16,6 +16,8 @@
   </div>
 </template>
 <script>
+import AsyncValidator from 'async-validator'
+
 export default {
   name: 'plh-table-form',
   props: {
@@ -122,19 +124,9 @@ export default {
      */
     renderColumn(h, { row, column }, item) {
       let errorTemp = ''
-      let errorMsg = ''
-      let isError = false
       const { property } = column
 
-      // 未通过校验的rule
-      const validaters = this.validFiled(item.rules, row, property).find(rule => {
-        return !rule.validate
-      })
-      // 显示未通过校验的rule
-      if (validaters) {
-        isError = true
-        errorMsg = validaters.message
-      }
+      const { isError, errorMsg } = this.validFiled(item.rules, row, property)
 
       if (isError) {
         errorTemp = <div class="el-form-item__error">{errorMsg}</div>
@@ -224,16 +216,15 @@ export default {
      * 检验数据
      */
     validFiled(rules = [], row, property) {
-      let validaters = rules.map(rule => {
-        let isError = false
-        if (rule.required) {
-          isError = !row[property]
-        } else if (rule.validator) {
-          isError = !rule.validator(row[property])
-        }
-        return {
-          validate: !isError,
-          message: rule.message
+      let validaters = {}
+      const descriptor = {}
+      descriptor[property] = rules
+
+      const validator = new AsyncValidator(descriptor)
+      validator.validate(row, { firstFields: true }, (errors, invalidFields) => {
+        validaters = {
+          isError: !!errors,
+          errorMsg: errors ? errors[0].message : ''
         }
       })
       return validaters
