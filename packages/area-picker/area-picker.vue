@@ -1,12 +1,10 @@
 <template>
   <el-cascader
     class="plh-area-picker"
-    ref="cascader"
     v-model="model"
     :props="defaultProps"
     :clearable="clearable"
-    :class="{ 'dark-placeholder': this.showDefaultValue }"
-    :placeholder="this.showDefaultValue ? this.defaultValue : this.placeholder"
+    :placeholder="this.placeholder"
     v-bind="$attrs"
     v-on="$listeners"
   >
@@ -49,10 +47,6 @@ export default {
       type: Boolean,
       default: true
     },
-    defaultValue: {
-      type: String,
-      default: ''
-    },
     placeholder: {
       type: String,
       default: '请选择'
@@ -69,12 +63,12 @@ export default {
         value: 'id',
         label: 'name',
         children: 'area',
-        expandTrigger: 'click',
-        lazy: true,
         lazyLoad: (node, resolve) => {
           this.lazyLoad(node, resolve)
         },
-        ...this.props
+        ...this.props,
+        emitPath: true,
+        lazy: true
       }
     },
     model: {
@@ -84,9 +78,6 @@ export default {
       set(val) {
         this.$emit('input', val)
       }
-    },
-    showDefaultValue() {
-      return this.model && this.defaultValue
     }
   },
   mounted() {},
@@ -114,25 +105,5 @@ export default {
 <style lang="stylus">
 .el-cascader.plh-area-picker {
   width: 100%;
-  &.dark-placeholder {
-    .el-input input {
-      &::-webkit-input-placeholder {
-        /* WebKit browsers */
-        color: #606266;
-      }
-      &:-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 */
-        color: #606266;
-      }
-      &::-moz-placeholder {
-        /* Mozilla Firefox 19+ */
-        color: #606266;
-      }
-      &:-ms-input-placeholder {
-        /* Internet Explorer 10+ */
-        color: #606266;
-      }
-    }
-  }
 }
 </style>
