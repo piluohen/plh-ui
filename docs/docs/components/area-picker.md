@@ -80,16 +80,16 @@ export default {
 
 详细 API 参考：
 
-- [el-cascader Api](https://element.eleme.cn/#/zh-CN/component/cascader#cascader-attributes)
+[el-cascader Api](https://element.eleme.cn/#/zh-CN/component/cascader#cascader-attributes)
 
 ## Props Api
 
-| 参数     | 描述       | 类型   | 可选值 | 必须 | 默认值 |
-| -------- | ---------- | ------ | ------ | ---- | ------ |
-| vuale    | value 属性 | string |        | 否   | id     |
-| label    | label 属性 | string |        | 否   | name   |
-| children | area 属性  | string |        | 否   | area   |
+| 参数     | 描述          | 类型   | 可选值 | 必须 | 默认值 |
+| -------- | ------------- | ------ | ------ | ---- | ------ |
+| vuale    | value 属性    | string |        | 否   | id     |
+| label    | label 属性    | string |        | 否   | name   |
+| children | children 属性 | string |        | 否   | area   |
 
 详细 API 参考：
 
-- [el-cascader Props Api](https://element.eleme.cn/#/zh-CN/component/cascader#props)
+[el-cascader Props Api](https://element.eleme.cn/#/zh-CN/component/cascader#props)

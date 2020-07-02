@@ -32,7 +32,7 @@
 <script>
 import { searchList } from './searchList'
 export default {
-  name: 'area-picker-base',
+  name: 'DemoAreaPickerBase',
   data() {
     return {
       value: ['130000', '130200', '130202'],

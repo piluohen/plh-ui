@@ -14,6 +14,7 @@ import Preview from './preview'
 import TableForm from './table-form'
 import ScrollList from './scroll-list'
 import AreaPicker from './area-picker'
+import Progress from './progress'
 
 const install = Vue => {
   Vue.use(Button)
@@ -27,12 +28,26 @@ const install = Vue => {
   Vue.use(TableForm)
   Vue.use(ScrollList)
   Vue.use(AreaPicker)
+  Vue.use(Progress)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export { Button, Countup, Form, Search, Table, DatePicker, Upload, Preview, TableForm, ScrollList, AreaPicker }
+export {
+  Button,
+  Countup,
+  Form,
+  Search,
+  Table,
+  DatePicker,
+  Upload,
+  Preview,
+  TableForm,
+  ScrollList,
+  AreaPicker,
+  Progress
+}
 
 export default { install }
