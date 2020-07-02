@@ -1,5 +1,7 @@
 # Countup 动态数字
 
+> plh-countup 组件依赖于 countup.js 插件，更简易实用。
+
 ## 用法
 
 <countup-base></countup-base>

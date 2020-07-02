@@ -1,5 +1,7 @@
 # Date-picker 日期选择
 
+> plh-date-picker 组件依赖于 el-date-picker 组件，优化了部分初始化设置
+
 ## 用法
 
 <date-picker-base></date-picker-base>

@@ -1,5 +1,7 @@
 # Form 表单
 
+> plh-form 组件依赖于 el-form、el-input 等其他表单组件，动态配置化组成表单
+
 ## 用法
 
 <form-base></form-base>

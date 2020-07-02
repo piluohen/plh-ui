@@ -1,5 +1,7 @@
 # Upload 上传
 
+> plh-upload 依赖 el-upload、el-progress、el-image、el-button 组件，集成 el-upload 文件与图片上传功能
+
 ## 用法
 
 <upload-base></upload-base>

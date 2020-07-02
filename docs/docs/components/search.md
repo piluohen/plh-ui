@@ -1,5 +1,7 @@
 # Search 搜索
 
+> plh-search 组件依赖 plh-form、plh-button 组件，自动配置化生成高级搜索与简单搜索
+
 ## 用法
 
 <search-base></search-base>

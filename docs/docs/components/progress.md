@@ -1,5 +1,7 @@
 # Progress 进度条
 
+> plh-progress 组件依赖于 el-progress 组件，在 el-progress 组件基础上拓展了轨道颜色配置。
+
 ## 用法
 
 <progress-base></progress-base>

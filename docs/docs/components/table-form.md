@@ -1,5 +1,7 @@
 # Table-form 表格表单
 
+> plh-table-form 组件依赖 plh-table、plh-button、el-input 等表单组件，async-validator 插件，配置化生成表格式表单
+
 ## 用法
 
 <table-form-base></table-form-base>

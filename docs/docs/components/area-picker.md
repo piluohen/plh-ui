@@ -1,5 +1,7 @@
 # Area-picker 地区选择
 
+> plh-area-picker 组件依赖于 el-cascader 组件
+
 ## 用法
 
 <area-picker-base></area-picker-base>

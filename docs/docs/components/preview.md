@@ -1,5 +1,7 @@
 # Preview 图片预览
 
+> plh-form 组件依赖于 el-dialog 组件
+
 ## 用法
 
 <preview-base></preview-base>

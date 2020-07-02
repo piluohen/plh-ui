@@ -1,5 +1,7 @@
 # Table 表格
 
+> plh-table 组件依赖 el-table、el-pagination 组件，配置化生成表格，集成 api 请求
+
 ## 基本用法
 
 <table-base></table-base>
