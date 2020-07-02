@@ -1,6 +1,6 @@
 {
   "name": "plh-ui-snippets",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "piluohen <1012106967@qq.com>",
   "license": "MIT",
   "displayName": "Plh-Ui Snippets",
@@ -23,8 +23,7 @@
     "Snippets"
   ],
   "contributes": {
-    "snippets": [
-      {
+    "snippets": [{
         "language": "html",
         "path": "./snippets/snippets.json"
       },

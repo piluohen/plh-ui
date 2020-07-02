@@ -68,5 +68,13 @@
       "></plh-upload>\r",
       ""
     ]
+  },
+  "plh-area-picker": {
+    "prefix": "plhAreaPicker",
+    "body": ["<plh-area-picker -model=\"value\"></plh-area-picker>\r", ""]
+  },
+  "plh-progress": {
+    "prefix": "plhProgress",
+    "body": ["<plh-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"percentage\"></plh-progress>\r", ""]
   }
 }
