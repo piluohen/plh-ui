@@ -30,25 +30,20 @@ import { searchList } from './searchList'
 export default {
   name: 'DemoProgressBase',
   data() {
-    const options = [
-      { label: '选项一', value: '1' },
-      { label: '选项二', value: '2' }
-    ]
     return {
       params: {
         percentage: 28,
         type: 'line',
+        status: null,
         'stroke-width': 6,
         'show-text': true,
         'text-inside': false,
         'stroke-linecap': 'round',
-        status: null,
+        'stroke-color': '#e5e9f2',
         color: '#409eff',
-        width: 126,
-        'stroke-color': '#e5e9f2'
+        width: 126
       },
-      searchList: [...searchList],
-      percentage: 20
+      searchList: [...searchList]
     }
   },
   methods: {
