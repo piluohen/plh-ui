@@ -22,3 +22,5 @@
 | plhTableInterface | plh-table 远程请求 |
 | plhTableLocal     | plh-table 本地数据 |
 | plhUpload         | plh-upload         |
+| plhAreaPicker     | plh-area-picker    |
+| plhProgress       | plh-progress       |
