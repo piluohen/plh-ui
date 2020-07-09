@@ -25,6 +25,10 @@ export default {
     decimalPlaces: {
       type: Number,
       default: 0
+    },
+    options: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
@@ -58,7 +62,8 @@ export default {
       const instance = new CountUp(dom, this.endVal, {
         startVal: this.startVal,
         duration: this.delay,
-        decimalPlaces: this.decimalPlaces
+        decimalPlaces: this.decimalPlaces,
+        ...this.options
       })
       if (instance.error) {
         return
@@ -83,5 +88,6 @@ export default {
 }
 </script>
 <style lang="stylus">
-.plh-countup {}
+.plh-countup {
+}
 </style>
