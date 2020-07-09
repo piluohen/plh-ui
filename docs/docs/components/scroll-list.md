@@ -70,14 +70,14 @@ export default {
 
 ## Api
 
-| 参数        |     描述     |  类型  | 可选值 | 必须  |  默认值  |
-| ----------- | :----------: | :----: | :----: | :---: | :------: |
-| data        |   滚动数据   | array  |        | true  |          |
-| itemHeight  | 滚动子项高度 | number |        | false |    60    |
-| count       | 展示子项数量 | number |        | false |    6     |
-| scrollCount | 滚动子项数量 | number |        | false |    1     |
-| speed       | 子项滚动时间 | number |        | false | 300(ms)  |
-| delay       | 滚动间隔时间 | number |        | false | 2000(ms) |
+| 参数        |     描述     |  类型  | 可选值 | 必须 |  默认值  |
+| ----------- | :----------: | :----: | :----: | :--: | :------: |
+| data        |   滚动数据   | array  |        |  是  |          |
+| itemHeight  | 滚动子项高度 | number |        |  否  |    60    |
+| count       | 展示子项数量 | number |        |  否  |    6     |
+| scrollCount | 滚动子项数量 | number |        |  否  |    1     |
+| speed       | 子项滚动时间 | number |        |  否  | 300(ms)  |
+| delay       | 滚动间隔时间 | number |        |  否  | 2000(ms) |
 
 ## Slot
 
