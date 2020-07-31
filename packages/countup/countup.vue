@@ -34,8 +34,20 @@ export default {
   },
   data() {
     return {
-      instance: null,
+      // instance: null,
       delay: this.duration / 1000
+    }
+  },
+  computed: {
+    instance() {
+      const dom = this.$el
+      const instance = new CountUp(dom, this.endVal, {
+        startVal: this.startVal,
+        duration: this.delay,
+        decimalPlaces: this.decimalPlaces,
+        ...this.options
+      })
+      return instance
     }
   },
   mounted() {
@@ -43,9 +55,7 @@ export default {
       this.create()
     }
   },
-  beforeDestroy() {
-    this.instance = null
-  },
+  beforeDestroy() {},
   watch: {
     endVal: {
       handler(value) {
@@ -56,24 +66,16 @@ export default {
   },
   methods: {
     create() {
-      const dom = this.$el
-      const instance = new CountUp(dom, this.endVal, {
-        startVal: this.startVal,
-        duration: this.delay,
-        decimalPlaces: this.decimalPlaces,
-        ...this.options
-      })
-      if (instance.error) {
+      if (this.instance.error) {
         return
       }
-      this.instance = instance
       if (this.delay < 0) {
-        this.$emit('ready', instance, CountUp)
+        this.$emit('ready', this.instance, CountUp)
         return
       }
-      instance.start(() => {
+      this.instance.start(() => {
         setTimeout(() => {
-          this.$emit('ready', instance, CountUp)
+          this.$emit('ready', this.instance, CountUp)
         }, this.duration)
       })
     },

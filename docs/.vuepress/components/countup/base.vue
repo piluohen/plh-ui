@@ -11,10 +11,8 @@
 
     <h3>示例</h3>
     <plh-button type="primary" @click="handleChange">改变随机值</plh-button>
-    <div style="padding: 10px 0 20px 0">
-      <div>整数： <plh-countup :endVal="0" :options="params" @ready="handleReady"></plh-countup></div>
-      <div>修改duration： <plh-countup :endVal="value" :duration="2000" @ready="handleReady"></plh-countup></div>
-      <div>保留小数位： <plh-countup :endVal="value1" :decimalPlaces="2"></plh-countup></div>
+    <div style="padding: 10px 0 20px 0; font-size: 36px">
+      <plh-countup :endVal="value" :options="params" @ready="handleReady"></plh-countup>
     </div>
   </div>
 </template>
@@ -26,9 +24,7 @@ export default {
   data() {
     return {
       value: 0,
-      value1: 435.45,
       searchList: [...searchList],
-      options: {},
       params: {
         startVal: 0,
         decimalPlaces: 1,
@@ -50,12 +46,9 @@ export default {
       this.params = { ...data }
     },
     handleChange() {
-      this.value = Math.floor(Math.random() * 2000)
-      this.value1 = Math.random() * 2000
+      this.value = Math.floor(Math.random() * 20000)
     },
-    handleReady(val, val1) {
-      console.log(val, val1)
-    }
+    handleReady(val, val1) {}
   }
 }
 </script>

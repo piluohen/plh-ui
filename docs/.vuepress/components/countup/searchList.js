@@ -6,9 +6,9 @@ export const searchList = [
     label: '开始值(startVal)',
     key: 'startVal',
     props: {
-      min: 1,
-      max: 100,
-      step: 1,
+      min: 0,
+      max: 1000,
+      step: 10,
       precision: 0,
       'step-strictly': true
     }
