@@ -1,5 +1,5 @@
 <template>
-  <span class="plh-countup"></span>
+  <span ref="countup" class="plh-countup"></span>
 </template>
 
 <script>
@@ -15,7 +15,8 @@ export default {
     },
     endVal: {
       type: Number,
-      required: true
+      required: true,
+      default: 0
     },
     duration: {
       type: Number,
@@ -38,7 +39,9 @@ export default {
     }
   },
   mounted() {
-    this.create()
+    if (this.endVal === 0) {
+      this.create()
+    }
   },
   beforeDestroy() {
     this.instance = null
@@ -46,18 +49,13 @@ export default {
   watch: {
     endVal: {
       handler(value) {
-        if (this.instance) {
-          return this.instance.update(value)
-        }
+        this.create()
       },
       deep: false
     }
   },
   methods: {
     create() {
-      if (this.instance) {
-        return
-      }
       const dom = this.$el
       const instance = new CountUp(dom, this.endVal, {
         startVal: this.startVal,
@@ -73,11 +71,11 @@ export default {
         this.$emit('ready', instance, CountUp)
         return
       }
-      setTimeout(() => {
-        instance.start(() => {
+      instance.start(() => {
+        setTimeout(() => {
           this.$emit('ready', instance, CountUp)
-        })
-      }, this.duration)
+        }, this.duration)
+      })
     },
     reset() {
       if (this.instance) {
