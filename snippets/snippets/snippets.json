@@ -60,7 +60,7 @@
     "body": [
       "<plh-upload\r",
       " v-model=\"fileList\"\r",
-      " :type=\"${1|picture,file,button|}\"\r",
+      " type=\"${1|picture,file,button|}\"\r",
       " :action=\"action\"\r",
       " :configs=\"configs\"\r",
       " :disabled=\"disabled\"\r",

@@ -1,6 +1,6 @@
 {
   "name": "plh-ui-snippets",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "author": "piluohen <1012106967@qq.com>",
   "license": "MIT",
   "displayName": "Plh-Ui Snippets",
@@ -23,16 +23,13 @@
     "Snippets"
   ],
   "contributes": {
-    "snippets": [{
+    "snippets": [
+      {
         "language": "html",
         "path": "./snippets/snippets.json"
       },
       {
-        "language": "handlebars",
-        "path": "./snippets/snippets.json"
-      },
-      {
-        "language": "razor",
+        "language": "vue",
         "path": "./snippets/snippets.json"
       },
       {
@@ -44,11 +41,7 @@
         "path": "./snippets/snippets.json"
       },
       {
-        "language": "javascriptreact",
-        "path": "./snippets/snippets.json"
-      },
-      {
-        "language": "typescriptreact",
+        "language": "vue-html",
         "path": "./snippets/snippets.json"
       }
     ]
