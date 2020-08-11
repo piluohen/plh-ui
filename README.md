@@ -37,4 +37,7 @@ npm run lib
 
 ## 文档地址
 
-地址：[https://piluohen.github.io/plh-ui/index.html](https://piluohen.github.io/plh-ui/index.html)
+地址：
+
+- [国外 github](https://piluohen.github.io/plh-ui/index.html)
+- [国内 gitee](https://piluohen.gitee.io/plh-ui)
