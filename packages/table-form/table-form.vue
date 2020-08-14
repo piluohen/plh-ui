@@ -122,7 +122,8 @@ export default {
     /**
      * render column
      */
-    renderColumn(h, { row, column }, item) {
+    renderColumn(h, data, item) {
+      const { row, column } = data
       let errorTemp = ''
       const { property } = column
 
@@ -133,7 +134,7 @@ export default {
       }
       return (
         <div class={{ 'table-input el-form-item': true, 'is-error': isError }}>
-          {this.renderInput(item, row, property)}
+          {this.renderInput({ item, data, property })}
           {errorTemp}
         </div>
       )
@@ -141,10 +142,12 @@ export default {
     /**
      * render 表单
      */
-    renderInput(item, row, property) {
+    renderInput({ item, data, property }) {
+      const { row } = data
       const h = this.$parent.$createElement
       let input = val => {
         row[property] = val
+        this.$emit('input', this.list)
       }
       let value = row[property]
       const render = h(

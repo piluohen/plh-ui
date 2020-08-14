@@ -52,7 +52,10 @@ export default {
           rules: [
             { required: true, message: '请输入' },
             { max: 6, message: '最大个数不超过6' }
-          ]
+          ],
+          attrs: {
+            placeholder: '请输入'
+          }
         },
         {
           tag: 'el-select',
