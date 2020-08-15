@@ -27,7 +27,7 @@
   },
   "plh-form": {
     "prefix": "plhForm",
-    "body": ["<plh-form ref=\"form\" v-mode=\"model\" :items=\"items\" :label-width=\"120px\"></plh-form>\r"]
+    "body": ["<plh-form ref=\"form\" v-mode=\"model\" :items=\"items\" label-width=\"120px\"></plh-form>\r"]
   },
   "plh-preview": {
     "prefix": "plhPreview",
@@ -71,7 +71,7 @@
   },
   "plh-area-picker": {
     "prefix": "plhAreaPicker",
-    "body": ["<plh-area-picker -model=\"value\"></plh-area-picker>\r", ""]
+    "body": ["<plh-area-picker v-model=\"value\"></plh-area-picker>\r", ""]
   },
   "plh-progress": {
     "prefix": "plhProgress",
