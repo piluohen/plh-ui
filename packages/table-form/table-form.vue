@@ -86,9 +86,7 @@ export default {
           title: '操作',
           width: '80px',
           render: (h, { row, $index }) => {
-            return this.renderOperator ? (
-              this.renderOperator(h, { row, $index })
-            ) : (
+            return (
               <plh-button
                 type="text"
                 icon="el-icon-delete"
