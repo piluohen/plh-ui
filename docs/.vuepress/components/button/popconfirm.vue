@@ -19,9 +19,9 @@
         :cancelButtonType="params.cancelButtonType"
         :cancelButtonText="params.cancelButtonText"
         :disabled="params.disabled"
-        :hideIcon="params.hideIcon"
-        :icon="params.icon"
-        :iconColor="params.iconColor"
+        :hideMsgIcon="params.hideMsgIcon"
+        :msgIcon="params.msgIcon"
+        :msgIconColor="params.msgIconColor"
         >{{ item }}
       </plh-button>
     </div>
@@ -37,15 +37,15 @@ export default {
     return {
       list: [...btnTypeList],
       params: {
-        title: '这是提示标题',
+        title: '你点开了气泡提书框，确认继续吗？',
         confirmButtonType: 'primary',
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         cancelButtonType: 'default',
         disabled: false,
-        hideIcon: false,
-        popIcon: 'el-icon-question',
-        iconColor: '#f90'
+        hideMsgIcon: false,
+        msgIcon: 'el-icon-question',
+        msgIconColor: '#f90'
       },
       searchList: [...popconfirmSearchList]
     }

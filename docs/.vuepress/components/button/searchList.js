@@ -101,7 +101,6 @@ export const tooltipSearchList = [
   }
 ]
 
-
 export const popconfirmSearchList = [
   {
     tag: 'el-input',
@@ -122,13 +121,13 @@ export const popconfirmSearchList = [
     ...searchs.btnType({
       label: '确定按钮类型(confirmButtonType)',
       key: 'confirmButtonType'
-    }),
+    })
   },
   {
     ...searchs.btnType({
       label: '取消按钮类型(cancelButtonType)',
       key: 'cancelButtonType'
-    }),
+    })
   },
   {
     ...radioItem,
@@ -137,17 +136,17 @@ export const popconfirmSearchList = [
   },
   {
     ...radioItem,
-    label: '隐藏图标(hideIcon)',
-    key: 'hideIcon'
+    label: '隐藏图标(hideMsgIcon)',
+    key: 'hideMsgIcon'
   },
   {
     tag: 'el-input',
-    label: '图标(icon)',
-    key: 'icon'
+    label: '图标(msgIcon)',
+    key: 'msgIcon'
   },
   {
-    tag: 'el-input',
-    label: '图标颜色(iconColor)',
-    key: 'iconColor'
+    tag: 'el-color-picker',
+    label: '图标颜色(msgIconColor)',
+    key: 'msgIconColor'
   }
 ]
