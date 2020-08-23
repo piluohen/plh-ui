@@ -100,3 +100,54 @@ export const tooltipSearchList = [
     key: 'hide-after'
   }
 ]
+
+
+export const popconfirmSearchList = [
+  {
+    tag: 'el-input',
+    label: '标题(title)',
+    key: 'title'
+  },
+  {
+    tag: 'el-input',
+    label: '确认按钮文字(confirmButtonText)',
+    key: 'confirmButtonText'
+  },
+  {
+    tag: 'el-input',
+    label: '取消按钮文字(cancelButtonText)',
+    key: 'cancelButtonText'
+  },
+  {
+    ...searchs.btnType({
+      label: '确定按钮类型(confirmButtonType)',
+      key: 'confirmButtonType'
+    }),
+  },
+  {
+    ...searchs.btnType({
+      label: '取消按钮类型(cancelButtonType)',
+      key: 'cancelButtonType'
+    }),
+  },
+  {
+    ...radioItem,
+    label: '禁用(disabled)',
+    key: 'disabled'
+  },
+  {
+    ...radioItem,
+    label: '隐藏图标(hideIcon)',
+    key: 'hideIcon'
+  },
+  {
+    tag: 'el-input',
+    label: '图标(icon)',
+    key: 'icon'
+  },
+  {
+    tag: 'el-input',
+    label: '图标颜色(iconColor)',
+    key: 'iconColor'
+  }
+]

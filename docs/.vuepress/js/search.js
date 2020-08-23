@@ -1,3 +1,5 @@
+import { btnTypeList } from './setting'
+
 export const radioItem = {
   tag: 'el-radio-group',
   children: {
@@ -34,6 +36,21 @@ export const searchs = {
         { label: 'dark', value: 'dark' },
         { label: 'light', value: 'light' }
       ]
+    }
+  },
+  btnType: (options) => {
+    return {
+      tag: 'el-radio-group',
+      label: '按钮类型(type)',
+      key: 'type',
+      children: {
+        tag: 'el-radio-button',
+        options: btnTypeList.map(item => {
+          const data = { label: item, value: item }
+          return data
+        })
+      },
+      ...options
     }
   }
 }

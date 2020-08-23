@@ -2,6 +2,8 @@
 
 > plh-button 组件依赖于 el-button、el-tooltip 组件，集成了两个组件
 
+<button-popconfirm></button-popconfirm>
+
 ## 用法
 
 <button-base></button-base>

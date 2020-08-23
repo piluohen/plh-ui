@@ -22,18 +22,20 @@
         :offset="params.offset"
         :open-delay="params['open-delay']"
         :hide-after="params['hide-after']"
-        >{{ item ? item : '默认' }}
+        >{{ item }}
       </plh-button>
     </div>
   </div>
 </template>
 <script>
 import { tooltipSearchList } from './searchList'
+import { btnTypeList } from '../../js/setting'
+
 export default {
   name: 'DemoButtonTooltip',
   data() {
     return {
-      list: ['', 'primary', 'success', 'warning', 'danger', 'info', 'text'],
+      list: [...btnTypeList],
       params: {
         effect: 'dark',
         placement: 'top',
