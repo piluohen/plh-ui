@@ -48,12 +48,12 @@ export const searchList = [
     }
   },
   {
-    tag: 'el-input',
+    tag: 'el-color-picker',
     label: '进度条颜色(color)',
     key: 'color'
   },
   {
-    tag: 'el-input',
+    tag: 'el-color-picker',
     label: '轨道背景色(stroke-color)',
     key: 'stroke-color'
   },
