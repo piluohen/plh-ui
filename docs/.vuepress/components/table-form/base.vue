@@ -64,6 +64,11 @@ export default {
           children: {
             tag: 'el-option',
             options: [...options]
+          },
+          on: {
+            change: (val, options) => {
+              console.log('select', val, options)
+            }
           }
         },
         {
@@ -75,7 +80,12 @@ export default {
           tag: 'el-switch',
           title: '开关',
           key: 'switch',
-          defaultValue: true
+          defaultValue: true,
+          on: {
+            change: (val, options) => {
+              console.log('select', val, options)
+            }
+          }
         },
         {
           title: '操作人',

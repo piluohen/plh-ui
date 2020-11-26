@@ -140,8 +140,7 @@ export default {
     /**
      * render 表单
      */
-    renderInput({ item, data, property }) {
-      const { row } = data
+    renderInput({ item, data: { $index, row, column }, property }) {
       const h = this.$parent.$createElement
       let input = val => {
         row[property] = val
@@ -165,7 +164,14 @@ export default {
           },
           on: {
             ...item.on,
-            input
+            input,
+            change: () => {
+              return (
+                item.on &&
+                item.on.change &&
+                item.on.change(row[property], { tableData: this.list, item, $index, row, column, property })
+              )
+            }
           },
           nativeOn: {
             keydown: event => {
