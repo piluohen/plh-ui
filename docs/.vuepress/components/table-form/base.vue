@@ -17,6 +17,7 @@
         :limitNum="params.limitNum"
         :disabled="params.disabled"
         :showBtn="params.showBtn"
+        :onAdd="params.onAdd ? handleAdd : null"
         @input="handleInput"
       ></plh-table-form>
     </div>
@@ -39,7 +40,8 @@ export default {
         size: 'medium',
         limitNum: 6,
         disabled: false,
-        showBtn: true
+        showBtn: true,
+        onAdd: false
       },
       searchList: [...searchList],
       tableData: [{ input: '12', disabled: true, select: '1', name: '刘备' }],
@@ -109,6 +111,11 @@ export default {
       } else {
         this.$message.error('未通过校验')
       }
+    },
+    handleAdd(list, item) {
+      const data = [...list]
+      data.splice(list.length - 1, 0, { ...item })
+      return data
     }
   }
 }

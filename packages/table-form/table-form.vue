@@ -41,6 +41,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    onAdd: {
+      type: Function,
+      default: null
     }
   },
   data() {
@@ -244,8 +248,11 @@ export default {
         this.$message.warning(`数量不能超过${this.limitNum}`)
         return
       }
-
-      this.list = [...this.list, { ...this.dataItem }]
+      if (this.onAdd) {
+        this.list = this.onAdd(this.list, this.dataItem)
+      } else {
+        this.list = [...this.list, { ...this.dataItem }]
+      }
     },
     /**
      * 删除数据

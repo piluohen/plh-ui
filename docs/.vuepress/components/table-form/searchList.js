@@ -23,5 +23,10 @@ export const searchList = [
     ...radioItem,
     label: '显示按钮(showBtn)',
     key: 'showBtn'
+  },
+  {
+    ...radioItem,
+    label: '自定义增加方法(onAdd)',
+    key: 'onAdd'
   }
 ]
