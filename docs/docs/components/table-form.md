@@ -74,14 +74,15 @@ export default {
 
 ## Api
 
-| 参数             | 描述                   | 类型    | 可选值                           | 必须 | 默认值 |
-| ---------------- | ---------------------- | ------- | -------------------------------- | ---- | ------ |
-| value \| v-model | 值                     | array   |                                  | 是   | []     |
-| columns          | 表格列数据             | array   |                                  | 是   |        |
-| limitNum         | 限制数量               | number  |                                  | 否   | 6      |
-| showBtn          | 是否显示增加与删除按钮 | boolean |                                  | 否   | true   |
-| size             | 尺寸                   | string  | large \| medium \| small \| mini | 否   | medium |
-| disabled         | 禁用                   | boolean |                                  | 否   | false  |
+| 参数             | 描述                   | 类型                                    | 可选值                           | 必须 | 默认值 |
+| ---------------- | ---------------------- | --------------------------------------- | -------------------------------- | ---- | ------ |
+| value \| v-model | 值                     | array                                   |                                  | 是   | []     |
+| columns          | 表格列数据             | array                                   |                                  | 是   |        |
+| limitNum         | 限制数量               | number                                  |                                  | 否   | 6      |
+| showBtn          | 是否显示增加与删除按钮 | boolean                                 |                                  | 否   | true   |
+| size             | 尺寸                   | string                                  | large \| medium \| small \| mini | 否   | medium |
+| disabled         | 禁用                   | boolean                                 |                                  | 否   | false  |
+| onAdd            | 自定义新增方法         | function(list<当前 list>, item<默认项>) |                                  | 否   | null   |
 
 ## columns Api
 
