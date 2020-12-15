@@ -103,7 +103,9 @@ export default {
     handleSearch(data) {
       this.params = { ...data }
     },
-    handleInput(val) {},
+    handleInput(val, { item, $index, row, column, property }) {
+      console.log('input', val, item, $index, row, column, property)
+    },
     handleClick() {
       let validate = this.$refs.tableForm.validate()
       if (validate) {

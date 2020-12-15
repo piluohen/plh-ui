@@ -56,7 +56,7 @@ export default {
         return this.value || []
       },
       set(val) {
-        this.$emit('input', val)
+        this.$emit('input', val, {})
       }
     },
     dataItem() {
@@ -153,7 +153,7 @@ export default {
       const h = this.$parent.$createElement
       let input = val => {
         row[property] = val
-        this.$emit('input', this.list)
+        this.$emit('input', this.list, { item, $index, row, column, property })
       }
       let value = row[property]
       const render = h(
