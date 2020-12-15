@@ -6,7 +6,9 @@
       </div>
 
       <div class="plh-preview-image">
-        <img v-if="imgSrc" :src="imgSrc" />
+        <slot :src="imgSrc">
+          <el-image v-if="imgSrc" :src="imgSrc" fit="contain"></el-image>
+        </slot>
       </div>
 
       <div v-if="imgList && imgList.length > 1" class="plh-preview-btn plh-preview-btn-next" @click="next()">
@@ -143,7 +145,7 @@ $white = #ffffff
         justify-content: center;
         align-items: center;
 
-        img {
+        .el-image {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;

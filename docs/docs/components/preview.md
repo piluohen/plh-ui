@@ -9,12 +9,16 @@
 ```vue
 <template>
   <div class="demo demo-preview">
-    <div class="img-list">
-      <div class="item" v-for="(item, index) in fileList" :key="index">
-        <el-image :src="item.url" fit="cover" @click="handlePreview(index)"></el-image>
+    <div class="img-list mt10">
+      <div class="item" v-for="(item, index) in fileList" :key="index" @click="handlePreview(index)">
+        <el-image :src="item.url" fit="cover"></el-image>
       </div>
     </div>
-    <plh-preview v-model="visible" :list="fileList" :index="activeIndex"></plh-preview>
+    <plh-preview v-model="visible" :list="fileList" :index="activeIndex">
+      <template slot-scope="{ src }">
+        <el-image :src="src" fit="contain"></el-image>
+      </template>
+    </plh-preview>
   </div>
 </template>
 <script>
@@ -30,7 +34,8 @@ export default {
         { url: 'http://oss.htcxcloud.com/3d1c471e-c5ae-4fc8-a805-433830e8dd43/貂蝉.jpg' },
         { url: 'http://oss.htcxcloud.com/e0e57bb4-af01-45af-a481-be2263793491/关羽.jpg' },
         { url: 'http://oss.htcxcloud.com/110ac643-35d9-4c73-8562-8a73f637a48f/黄忠.jpg' },
-        { url: 'http://oss.htcxcloud.com/3c325ce8-b5fc-42bf-af0e-092420c8c9f4/廖化.jpg' }
+        { url: 'http://oss.htcxcloud.com/3c325ce8-b5fc-42bf-af0e-092420c8c9f4/廖化.jpg' },
+        { url: '' }
       ]
     }
   },
