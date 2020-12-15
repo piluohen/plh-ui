@@ -70,10 +70,11 @@ export default {
         let input = val => {
           let obj = {}
           obj[item.key] = val
-          this.model = {
+          const model = {
             ...this.model,
             ...obj
           }
+          this.$emit('input', model, { item, $index: index })
         }
         let value = this.model[item.key]
         // 渲染控件

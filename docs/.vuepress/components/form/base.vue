@@ -24,6 +24,7 @@
             :hide-required-asterisk="params['hide-required-asterisk']"
             :show-message="params['show-message']"
             :status-icon="params['status-icon']"
+            @input="handleInput"
           ></plh-form>
         </el-col>
         <el-col :span="8">
@@ -71,6 +72,9 @@ export default {
   methods: {
     handleSearch(data) {
       this.params = { ...data }
+    },
+    handleInput(val, { item, $index }) {
+      console.log('form_@input', val, item, $index)
     }
   }
 }

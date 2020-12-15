@@ -104,7 +104,7 @@ export default {
       this.params = { ...data }
     },
     handleInput(val, { item, $index, row, column, property }) {
-      console.log('input', val, item, $index, row, column, property)
+      console.log('tableForm_@input', val, item, $index, row, column, property)
     },
     handleClick() {
       let validate = this.$refs.tableForm.validate()
