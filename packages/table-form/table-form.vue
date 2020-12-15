@@ -129,7 +129,12 @@ export default {
       let errorTemp = ''
       const { property } = column
 
-      const { isError, errorMsg } = this.validFiled(item.rules, row, property)
+      let { isError, errorMsg } = this.validFiled(item.rules, row, property)
+
+      const disabled = this.disabled || row.disabled
+      if (disabled) {
+        isError = false
+      }
 
       if (isError) {
         errorTemp = <div class="el-form-item__error">{errorMsg}</div>
