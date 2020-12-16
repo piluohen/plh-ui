@@ -25,6 +25,7 @@
             :show-message="params['show-message']"
             :status-icon="params['status-icon']"
             @input="handleInput"
+            @change="handleChange"
           ></plh-form>
         </el-col>
         <el-col :span="8">
@@ -75,6 +76,9 @@ export default {
     },
     handleInput(val, { item, $index }) {
       console.log('form_@input', val, item, $index)
+    },
+    handleChange(val, { item, $index }) {
+      console.log('form_@change', val, item, $index)
     }
   }
 }

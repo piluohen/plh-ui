@@ -67,6 +67,7 @@ export default {
     // render 子项
     renderItem(h) {
       return this.items.map((item, index) => {
+        const params = { item, $index: index }
         let input = val => {
           let obj = {}
           obj[item.key] = val
@@ -74,7 +75,7 @@ export default {
             ...this.model,
             ...obj
           }
-          this.$emit('input', model, { item, $index: index })
+          this.$emit('input', model, { ...params })
         }
         let value = this.model[item.key]
         // 渲染控件
@@ -96,7 +97,11 @@ export default {
                 },
                 on: {
                   ...item.on,
-                  input
+                  input,
+                  change: () => {
+                    this.$emit('change', this.model, { ...params })
+                    return item?.on?.change(value, { data: this.model, ...params })
+                  }
                 },
                 nativeOn: {
                   keydown: event => {

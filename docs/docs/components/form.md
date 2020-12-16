@@ -21,6 +21,8 @@
     :hide-required-asterisk="params['hide-required-asterisk']"
     :show-message="params['show-message']"
     :status-icon="params['status-icon']"
+    @input="handleInput"
+    @change="handleChange"
   ></plh-form>
 </template>
 <script>
@@ -252,7 +254,14 @@ export default {
       ]
     }
   },
-  methods: {}
+  methods: {
+    handleInput(val, { item, $index }) {
+      console.log('form_@input', val, item, $index)
+    },
+    handleChange(val, { item, $index }) {
+      console.log('form_@change', val, item, $index)
+    }
+  }
 }
 </script>
 ```
@@ -307,3 +316,10 @@ export default {
 | label    | 显示文字 | string  |        |  否  |        |
 | value    |    值    | string  |        |  否  |        |
 | disabled | 是否禁用 | boolean |        |  否  |        |
+
+## Event
+
+| 名称   |        描述         | 返回值                                                                                                             |
+| ------ | :-----------------: | ------------------------------------------------------------------------------------------------------------------ |
+| input  | 表单 input 监听事件 | {value<表单值，object>, { item<触发 input 的元素>, \$index<触发 input 的元素索引> }}                               |
+| change |    表单改变事件     | {value<触发 change 的元素值>, { data<表单值，object>, item<触发 change 的元素>, \$index<触发 change 的元素索引> }} |
