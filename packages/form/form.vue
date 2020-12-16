@@ -101,7 +101,7 @@ export default {
                 nativeOn: {
                   keydown: event => {
                     if (event.keyCode === 13) {
-                      this.$emit('enter')
+                      this.$emit('enter', event)
                     }
                   },
                   ...item.nativeOn
