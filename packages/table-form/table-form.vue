@@ -150,11 +150,11 @@ export default {
      * render 表单
      */
     renderInput({ item, data: { $index, row, column }, property }) {
-      const params = { item, $index, row, column, property }
       const h = this.$parent.$createElement
       let input = val => {
         row[property] = val
-        this.$emit('input', this.list, { ...params })
+
+        this.$emit('input', this.list, { item, $index, row, column, property })
       }
       let value = row[property]
       const render = h(
@@ -175,9 +175,13 @@ export default {
           on: {
             ...item.on,
             input,
-            change: () => {
-              this.$emit('change', this.list, { ...params })
-              return item.on && item.on.change && item.on.change(value, { data: this.list, ...params })
+            change: val => {
+              this.$emit('change', this.list, { item, $index, row, column, property })
+              return (
+                item.on &&
+                item.on.change &&
+                item.on.change(val, { data: this.list, item, $index, row, column, property })
+              )
             }
           },
           nativeOn: {

@@ -98,9 +98,9 @@ export default {
                 on: {
                   ...item.on,
                   input,
-                  change: () => {
+                  change: val => {
                     this.$emit('change', this.model, { ...params })
-                    return item.on && item.on.change && item.on.change(value, { data: this.model, ...params })
+                    return item.on && item.on.change && item.on.change(val, { data: this.model, ...params })
                   }
                 },
                 nativeOn: {
