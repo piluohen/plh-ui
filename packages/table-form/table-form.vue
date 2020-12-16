@@ -150,10 +150,11 @@ export default {
      * render 表单
      */
     renderInput({ item, data: { $index, row, column }, property }) {
+      const params = { item, $index, row, column, property }
       const h = this.$parent.$createElement
       let input = val => {
         row[property] = val
-        this.$emit('input', this.list, { item, $index, row, column, property })
+        this.$emit('input', this.list, { ...params })
       }
       let value = row[property]
       const render = h(
@@ -175,11 +176,8 @@ export default {
             ...item.on,
             input,
             change: () => {
-              return (
-                item.on &&
-                item.on.change &&
-                item.on.change(row[property], { tableData: this.list, item, $index, row, column, property })
-              )
+              this.$emit('change', this.list, { ...params })
+              return item?.on?.change(value, { data: this.list, ...params })
             }
           },
           nativeOn: {
@@ -253,19 +251,22 @@ export default {
         this.$message.warning(`数量不能超过${this.limitNum}`)
         return
       }
+      let list = [...this.list, { ...this.dataItem }]
       if (this.onAdd) {
-        this.list = this.onAdd(this.list, this.dataItem)
-      } else {
-        this.list = [...this.list, { ...this.dataItem }]
+        list = this.onAdd(this.list, this.dataItem)
       }
+      this.list = [...list]
+      this.$emit('change', list, {})
     },
     /**
      * 删除数据
      */
     handleDelete(index) {
-      this.list = [...this.list].filter((item, i) => {
+      const list = [...this.list].filter((item, i) => {
         return i !== index
       })
+      this.list = [...list]
+      this.$emit('change', list, {})
     },
     /**
      * 是否全部通过校验

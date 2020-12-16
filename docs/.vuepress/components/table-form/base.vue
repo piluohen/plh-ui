@@ -19,6 +19,7 @@
         :showBtn="params.showBtn"
         :onAdd="params.onAdd ? handleAdd : null"
         @input="handleInput"
+        @change="handleChange"
       ></plh-table-form>
     </div>
     <div class="mt10">
@@ -105,6 +106,9 @@ export default {
     },
     handleInput(val, { item, $index, row, column, property }) {
       console.log('tableForm_@input', val, item, $index, row, column, property)
+    },
+    handleChange(val, { item, $index, row, column, property }) {
+      console.log('tableForm_@change', val, item, $index, row, column, property)
     },
     handleClick() {
       let validate = this.$refs.tableForm.validate()

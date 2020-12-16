@@ -20,6 +20,7 @@
         :showBtn="params.showBtn"
         :onAdd="params.onAdd ? handleAdd : null"
         @input="handleInput"
+        @change="handleChange"
       ></plh-table-form>
     </div>
     <div class="mt10">
@@ -104,6 +105,9 @@ export default {
     handleInput(val, { item, $index, row, column, property }) {
       console.log('tableForm_@input', val, item, $index, row, column, property)
     },
+    handleChange(val, { item, $index, row, column, property }) {
+      console.log('tableForm_@change', val, item, $index, row, column, property)
+    },
     handleClick() {
       let validate = this.$refs.tableForm.validate()
       if (validate) {
@@ -150,3 +154,10 @@ export default {
 
 - 有 tag： [plh-form items Api](./form.html#items-api)
 - 无 tag： [plh-table columns Api](./table.html#columns-api)
+
+## Event
+
+| 名称   |        描述         | 返回值                                                                                                                                                                      |
+| ------ | :-----------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input  | 表单 input 监听事件 | {value<表单值，object>, { item<触发 input 的元素>, \$index<触发 input 的元素索引>, row<行>, column<列>, property<触发 input 的元素 key 值> }}                               |
+| change |    表单改变事件     | {value<触发 change 的元素值>, { data<表单值，object>, item<触发 change 的元素>, \$index<触发 change 的元素索引>, row<行>, column<列>, property<触发 input 的元素 key 值> }} |
