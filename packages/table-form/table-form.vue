@@ -177,7 +177,7 @@ export default {
             input,
             change: () => {
               this.$emit('change', this.list, { ...params })
-              return item?.on?.change(value, { data: this.list, ...params })
+              return item.on && item.on.change && item.on.change(value, { data: this.list, ...params })
             }
           },
           nativeOn: {
