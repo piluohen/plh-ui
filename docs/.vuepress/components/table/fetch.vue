@@ -12,19 +12,10 @@
       <plh-table
         ref="table"
         :columns="columns"
-        :tableData="tableData"
+        :api="getDataApi"
         style="width: 100%"
-        :size="params.size"
-        :stripe="params.stripe"
-        :border="params.border"
-        :fit="params.fit"
-        :show-header="params['show-header']"
-        :highlight-current-row="params['highlight-current-row']"
-        :tooltip-effect="params['tooltip-effect']"
-        :show-summary="params['show-summary']"
-        :sum-text="params['sum-text']"
-        :select-on-indeterminate="params['select-on-indeterminate']"
         :pagination="{ current: 1, pageSize: params.pageSize }"
+        :keys="{ list: 'entries' }"
         @selection-change="handleSelectionChange"
       ></plh-table>
     </div>
@@ -35,10 +26,10 @@ import { baseSearchList } from './searchList'
 import { dataItem } from './mock'
 
 export default {
-  name: 'DemoTableBase',
+  name: 'DemoTableFetch',
   data() {
     return {
-      searchList: [...baseSearchList],
+      searchList: [],
       params: {
         size: 'medium',
         stripe: false,
@@ -116,14 +107,20 @@ export default {
       ]
     }
   },
-  created() {
-    this.createData()
-  },
+  created() {},
   methods: {
-    createData() {
-      for (let i = 0; i < this.total; i++) {
-        this.tableData.push({ ...dataItem, id: i + 1 })
-      }
+    getDataApi(params) {
+      console.log('getDataApi', params)
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const res = {
+            entries: Array.from({ length: this.total }).map((item, index) => {
+              return { ...dataItem, id: index + 1 }
+            })
+          }
+          resolve(res)
+        })
+      })
     },
     handleSearch(data) {
       this.params = { ...data }

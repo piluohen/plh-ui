@@ -2,6 +2,10 @@
 
 > plh-table 组件依赖 el-table、el-pagination 组件，配置化生成表格，集成 api 请求
 
+## 远程请求
+
+<table-fetch></table-fetch>
+
 ## 基本用法
 
 <table-base></table-base>

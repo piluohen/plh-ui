@@ -51,7 +51,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          pageIndex: 1,
+          current: 1,
           pageSize: 10
         }
       }
@@ -62,6 +62,10 @@ export default {
       default: () => {
         return [10, 20, 30, 40, 50, 100]
       }
+    },
+    keys: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
@@ -77,6 +81,15 @@ export default {
     pageSizes() {
       const sizes = [...this.pageSizeOptions, this.pagination.pageSize].sort((a, b) => a - b)
       return [...Array.from(new Set(sizes))]
+    },
+    newKeys() {
+      return {
+        current: 'current',
+        pageSize: 'pageSize',
+        total: 'total',
+        list: 'list',
+        ...this.keys
+      }
     }
   },
   mounted() {
@@ -95,10 +108,10 @@ export default {
       return cellValue === undefined || cellValue === null || cellValue === '' ? '-' : cellValue
     },
     fetch() {
-      const { pageIndex, pageSize } = this.pagination
+      const { current, pageSize } = this.pagination
       let params = {
-        pageIndex: pageIndex,
-        pageSize: pageSize,
+        [this.newKeys.current]: current,
+        [this.newKeys.pageSize]: pageSize,
         ...this.defaultParams,
         ...this.params
       }
@@ -110,14 +123,14 @@ export default {
         }
       }
       const uid = this.uid
-      const fetch = this.api(params, this.path)
+      const fetch = this.api(params)
       fetch
         .then(res => {
           // 只显示最后一次操作的数据
           if (uid === this.uid) {
             const { data } = res
-            this.total = data.totalCount
-            this.data = data.list || []
+            this.total = data[this.newKeys.totalCount]
+            this.data = (data[this.newKeys.list] ? data[this.newKeys.list] : data) || []
           }
           this.loading = false
           pollInterval()
@@ -130,7 +143,7 @@ export default {
     },
     search() {
       this.uid++
-      this.pagination.pageIndex = 1
+      this.pagination.current = 1
       return this.getData()
     },
     refresh() {
@@ -156,25 +169,25 @@ export default {
     getLocalData() {
       this.total = this.tableData.length
       const data = [...this.tableData]
-      const { pageIndex, pageSize } = this.pagination
+      const { current, pageSize } = this.pagination
       if (this.paginationable && data.length > pageSize) {
-        const first = pageSize * (pageIndex - 1)
-        const end = pageSize * pageIndex
+        const first = pageSize * (current - 1)
+        const end = pageSize * current
         this.data = data.slice(first, end)
       } else {
         this.data = data || []
       }
     },
-    handlePageChange(pageIndex) {
+    handlePageChange(current) {
       this.uid++
-      this.pagination.pageIndex = pageIndex
+      this.pagination.current = current
       this.clearSelection()
       this.getData()
     },
     handlePageSizeChange(pageSize) {
       this.uid++
-      if (this.pagination.pageIndex !== 0) this.clearSelection()
-      this.pagination.pageIndex = 1
+      if (this.pagination.current !== 0) this.clearSelection()
+      this.pagination.current = 1
       this.pagination.pageSize = pageSize
       this.getData()
     },
@@ -208,7 +221,7 @@ export default {
   },
   render(h) {
     let pagination = null
-    const { pageIndex, pageSize } = this.pagination
+    const { current, pageSize } = this.pagination
     if (this.paginationable) {
       pagination = (
         <el-pagination
@@ -216,7 +229,7 @@ export default {
           background={true}
           total={this.total}
           page-size={pageSize}
-          current-page={pageIndex}
+          current-page={current}
           page-sizes={this.pageSizes}
           layout="total, sizes, prev, pager, next, jumper"
           on-current-change={this.handlePageChange}
