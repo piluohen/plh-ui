@@ -41,11 +41,6 @@ export default {
       type: String,
       default: 'medium'
     },
-    // 接口路径
-    path: {
-      type: String,
-      default: ''
-    },
     // 分页
     pagination: {
       type: Object,
@@ -66,6 +61,14 @@ export default {
     keys: {
       type: Object,
       default: () => {}
+    },
+    total: {
+      type: Number,
+      default: 0
+    },
+    layout: {
+      type: String,
+      default: 'total, sizes, prev, pager, next, jumper'
     }
   },
   data() {
@@ -73,7 +76,7 @@ export default {
       // 用来判断是否使用最后一次操作，防止自动刷新列表覆盖了用户操作后请求回来的数据
       uid: 0,
       loading: false,
-      total: 0,
+      newTotal: 0,
       data: []
     }
   },
@@ -86,7 +89,7 @@ export default {
       return {
         current: 'current',
         pageSize: 'pageSize',
-        total: 'total',
+        total: 'totalCount',
         list: 'list',
         ...this.keys
       }
@@ -99,7 +102,7 @@ export default {
     clearTimeout(this.timer)
   },
   watch: {
-    tableData(val) {
+    tableData() {
       this.getLocalData()
     }
   },
@@ -129,8 +132,10 @@ export default {
           // 只显示最后一次操作的数据
           if (uid === this.uid) {
             const { data } = res
-            this.total = data[this.newKeys.totalCount]
-            this.data = (data[this.newKeys.list] ? data[this.newKeys.list] : data) || []
+            if (data) {
+              this.newTotal = data[this.newKeys.total] || 0
+              this.data = (data[this.newKeys.list] ? data[this.newKeys.list] : data) || []
+            }
           }
           this.loading = false
           pollInterval()
@@ -167,7 +172,7 @@ export default {
       })
     },
     getLocalData() {
-      this.total = this.tableData.length
+      this.newTotal = this.total || this.tableData.length || 0
       const data = [...this.tableData]
       const { current, pageSize } = this.pagination
       if (this.paginationable && data.length > pageSize) {
@@ -227,11 +232,11 @@ export default {
         <el-pagination
           class="plh-pagination"
           background={true}
-          total={this.total}
+          total={this.newTotal}
           page-size={pageSize}
           current-page={current}
           page-sizes={this.pageSizes}
-          layout="total, sizes, prev, pager, next, jumper"
+          layout={this.layout}
           on-current-change={this.handlePageChange}
           on-size-change={this.handlePageSizeChange}
         />

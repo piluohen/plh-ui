@@ -2,10 +2,6 @@
 
 > plh-table 组件依赖 el-table、el-pagination 组件，配置化生成表格，集成 api 请求
 
-## 远程请求
-
-<table-fetch></table-fetch>
-
 ## 基本用法
 
 <table-base></table-base>
@@ -389,21 +385,142 @@ export default {
 </script>
 ```
 
+## 远程请求
+
+<table-fetch></table-fetch>
+
+```vue
+<template>
+  <div class="demo demo-table">
+    <h3>配置项</h3>
+    <div class="mt10">
+      <plh-table
+        ref="table"
+        :columns="columns"
+        :api="getDataApi"
+        style="width: 100%"
+        :pagination="{ current: 1, pageSize: 10 }"
+        :keys="{ list: 'entries', total: 'total' }"
+        @selection-change="handleSelectionChange"
+      ></plh-table>
+    </div>
+  </div>
+</template>
+<script>
+import { dataItem } from './mock'
+
+export default {
+  name: 'DemoTableFetch',
+  data() {
+    return {
+      tableData: [],
+      columns: [
+        {
+          type: 'expand',
+          fixed: 'left',
+          render: (h, { row }) => {
+            return (
+              <el-form label-position="left" inline={false} class="demo-table-expand">
+                <el-form-item label="姓名">
+                  <span>{row.name}</span>
+                </el-form-item>
+                <el-form-item label="性别">
+                  <span>{row.male ? '男' : '女'}</span>
+                </el-form-item>
+                <el-form-item label="介绍">
+                  <span>{row.remark}</span>
+                </el-form-item>
+              </el-form>
+            )
+          }
+        },
+        {
+          type: 'selection',
+          fixed: 'left'
+        },
+        {
+          label: 'ID',
+          prop: 'id',
+          width: '60px'
+        },
+        {
+          title: '姓名',
+          key: 'name',
+          width: '140px',
+          align: 'center',
+          renderHeader: (h, { column }) => {
+            return <span>{`render ${column.label}`}</span>
+          }
+        },
+        {
+          label: '性别',
+          prop: 'male',
+          width: '80px',
+          format: (row, column, cellValue, index) => {
+            return <span>{cellValue ? '男' : '女'}</span>
+          }
+        },
+        {
+          label: '介绍',
+          prop: 'remark',
+          showOverflowTooltip: true
+        },
+        {
+          title: '操作',
+          key: 'operation',
+          width: '80px',
+          fixed: 'right',
+          render: (h, { row }) => {
+            return <plh-button type="primary">编辑</plh-button>
+          }
+        }
+      ]
+    }
+  },
+  created() {},
+  methods: {
+    getDataApi(params) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const res = {
+            code: 0,
+            msg: '请求成功',
+            data: {
+              entries: Array.from({ length: params.pageSize }).map((item, index) => {
+                return { ...dataItem, id: params.current * params.pageSize + index + 1 }
+              }),
+              total: 56
+            }
+          }
+          resolve(res)
+        }, 500)
+      })
+    },
+    handleSelectionChange(val) {
+      console.log('selection', val)
+    }
+  }
+}
+</script>
+```
+
 ## Api
 
-| 参数            | 描述                        |   类型   |              可选值              | 必须 | 默认值                      |
-| --------------- | --------------------------- | :------: | :------------------------------: | :--: | --------------------------- |
-| api             | 接口地址与 tableData 二选一 | function |                                  |  是  |                             |
-| tableData       | 表格数据                    |  arrary  |                                  |  否  |                             |
-| params          | 请求参数                    |  object  |                                  |  否  |                             |
-| defaultParams   | 预设的参数                  |  arrary  |                                  |  否  |                             |
-| columns         | 列表字段对象                |  arrary  |                                  |  否  |                             |
-| pollInterval    | 自动刷新间隔                |  number  |                                  |  否  | 0                           |
-| size            | 尺寸                        |  string  | large \| medium \| small \| mini |  否  | medium                      |
-| path            | 自定义接口路径              |  string  |                                  |  否  |                             |
-| paginationable  | 是否开启分页                | boolean  |                                  |  否  | true                        |
-| pagination      | 分页配置                    |  object  |                                  |  否  | {pageIndex: 1,pageSize: 10} |
-| pageSizeOptions | 分页 sizes 配置             |  array   |                                  |  否  | [10, 20, 30, 40, 50, 100]   |
+| 参数            | 描述                            |   类型   |              可选值              | 必须 | 默认值                                                                        |
+| --------------- | ------------------------------- | :------: | :------------------------------: | :--: | ----------------------------------------------------------------------------- |
+| api             | 接口地址与 tableData 二选一     | function |                                  |  是  |                                                                               |
+| tableData       | 表格数据                        |  arrary  |                                  |  否  |                                                                               |
+| params          | 请求参数                        |  object  |                                  |  否  |                                                                               |
+| defaultParams   | 预设的参数                      |  arrary  |                                  |  否  |                                                                               |
+| columns         | 列表字段对象                    |  arrary  |                                  |  否  |                                                                               |
+| pollInterval    | 自动刷新间隔                    |  number  |                                  |  否  | 0                                                                             |
+| size            | 尺寸                            |  string  | large \| medium \| small \| mini |  否  | medium                                                                        |
+| keys            | 关键字映射                      |  object  |                                  |  否  | {current: 'current', pageSize: 'pageSize', total: 'totalCount', list: 'list'} |
+| total           | 数据总条数，搭配 tableData 使用 |  number  |                                  |  否  | 0                                                                             |
+| layout          | 分页器展示项                    |  string  |                                  |  否  | 'total, sizes, prev, pager, next, jumper'                                     |
+| paginationable  | 是否开启分页                    | boolean  |                                  |  否  | true                                                                          |
+| pagination      | 分页配置                        |  object  |                                  |  否  | {pageIndex: 1,pageSize: 10}                                                   |
+| pageSizeOptions | 分页 sizes 配置                 |  array   |                                  |  否  | [10, 20, 30, 40, 50, 100]                                                     |
 
 详细配置，同[el-table](https://element.eleme.cn/#/zh-CN/component/table#table-attributes)
 

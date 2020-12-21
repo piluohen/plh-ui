@@ -1,49 +1,27 @@
 <template>
   <div class="demo demo-table">
     <h3>配置项</h3>
-    <plh-search
-      :params="params"
-      :searchList="searchList"
-      :showSubmit="false"
-      :collapse="false"
-      @submit="handleSearch"
-    ></plh-search>
     <div class="mt10">
       <plh-table
         ref="table"
         :columns="columns"
         :api="getDataApi"
         style="width: 100%"
-        :pagination="{ current: 1, pageSize: params.pageSize }"
-        :keys="{ list: 'entries' }"
+        :pagination="{ current: 1, pageSize: 10 }"
+        :keys="{ list: 'entries', total: 'total' }"
         @selection-change="handleSelectionChange"
       ></plh-table>
     </div>
   </div>
 </template>
 <script>
-import { baseSearchList } from './searchList'
 import { dataItem } from './mock'
 
 export default {
   name: 'DemoTableFetch',
   data() {
     return {
-      searchList: [],
-      params: {
-        size: 'medium',
-        stripe: false,
-        border: false,
-        fit: true,
-        'show-header': true,
-        'tooltip-effect': 'dark',
-        'show-summary': false,
-        'sum-text': '合计',
-        'select-on-indeterminate': true,
-        pageSize: 10
-      },
       tableData: [],
-      total: 34,
       columns: [
         {
           type: 'expand',
@@ -110,20 +88,21 @@ export default {
   created() {},
   methods: {
     getDataApi(params) {
-      console.log('getDataApi', params)
       return new Promise(resolve => {
         setTimeout(() => {
           const res = {
-            entries: Array.from({ length: this.total }).map((item, index) => {
-              return { ...dataItem, id: index + 1 }
-            })
+            code: 0,
+            msg: '请求成功',
+            data: {
+              entries: Array.from({ length: params.pageSize }).map((item, index) => {
+                return { ...dataItem, id: (params.current - 1) * params.pageSize + index + 1 }
+              }),
+              total: 56
+            }
           }
           resolve(res)
-        })
+        }, 500)
       })
-    },
-    handleSearch(data) {
-      this.params = { ...data }
     },
     handleSelectionChange(val) {
       console.log('selection', val)
