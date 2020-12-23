@@ -8,7 +8,7 @@ const baseMap = {
 module.exports = {
   base: baseMap[process.env.ENV],
   dest: 'dist',
-  title: '',
+  title: 'plh-ui',
   description: ' ',
   head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
   themeConfig: {
