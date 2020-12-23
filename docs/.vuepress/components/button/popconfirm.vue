@@ -22,6 +22,9 @@
         :hideMsgIcon="params.hideMsgIcon"
         :msgIcon="params.msgIcon"
         :msgIconColor="params.msgIconColor"
+        @click="handleClick"
+        @confirm="handleConfirm"
+        @cancel="handleCancel"
         >{{ item }}
       </plh-button>
     </div>
@@ -53,6 +56,15 @@ export default {
   methods: {
     handleSearch(data) {
       this.params = { ...data }
+    },
+    handleClick(event) {
+      console.log('handleClick', event)
+    },
+    handleConfirm() {
+      console.log('handleConfirm')
+    },
+    handleCancel() {
+      console.log('handleCancel')
     }
   }
 }

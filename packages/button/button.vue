@@ -12,6 +12,8 @@
     :icon="msgIcon"
     :iconColor="msgIconColor"
     class="plh-btn-popconfirm"
+    @confirm="$emit('confirm')"
+    @cancel="$emit('cancel')"
   >
     <el-button slot="reference" class="plh-button" :size="size" v-bind="$attrs" @click="handleClick">
       <slot></slot>
@@ -64,8 +66,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.plh-button {
-}
+.plh-button {}
 
 .plh-btn-popconfirm + .plh-btn-popconfirm {
   margin-left: 10px;
