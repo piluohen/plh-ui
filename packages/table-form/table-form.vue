@@ -154,7 +154,7 @@ export default {
       let input = val => {
         row[property] = val
 
-        this.$emit('input', this.list, { item, $index, row, column, property })
+        this.$emit('input', this.list, { item, $index, row, column, property, self: this })
       }
       let value = row[property]
       const render = h(
@@ -176,12 +176,9 @@ export default {
             ...item.on,
             input,
             change: val => {
-              this.$emit('change', this.list, { item, $index, row, column, property })
-              return (
-                item.on &&
-                item.on.change &&
-                item.on.change(val, { data: this.list, item, $index, row, column, property })
-              )
+              const options = { item, $index, row, column, property, self: this }
+              this.$emit('change', this.list, options)
+              return item.on && item.on.change && item.on.change(val, options)
             }
           },
           nativeOn: {

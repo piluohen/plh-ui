@@ -74,11 +74,11 @@ export default {
     handleSearch(data) {
       this.params = { ...data }
     },
-    handleInput(val, { item, $index }) {
-      console.log('form_@input', val, item, $index)
+    handleInput(val, options) {
+      console.log('tableForm_@input', val, options)
     },
-    handleChange(val, { item, $index }) {
-      console.log('form_@change', val, item, $index)
+    handleChange(val, options) {
+      console.log('tableForm_@change', val, options)
     }
   }
 }

@@ -67,7 +67,7 @@ export default {
     // render 子项
     renderItem(h) {
       return this.items.map((item, index) => {
-        const params = { item, $index: index }
+        const params = { item, $index: index, self: this }
         let input = val => {
           let obj = {}
           obj[item.key] = val

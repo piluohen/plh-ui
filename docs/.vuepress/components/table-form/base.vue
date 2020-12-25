@@ -104,11 +104,11 @@ export default {
     handleSearch(data) {
       this.params = { ...data }
     },
-    handleInput(val, { item, $index, row, column, property }) {
-      console.log('tableForm_@input', val, item, $index, row, column, property)
+    handleInput(val, options) {
+      console.log('tableForm_@input', val, options)
     },
-    handleChange(val, { item, $index, row, column, property }) {
-      console.log('tableForm_@change', val, item, $index, row, column, property)
+    handleChange(val, options) {
+      console.log('tableForm_@change', val, options)
     },
     handleClick() {
       let validate = this.$refs.tableForm.validate()
