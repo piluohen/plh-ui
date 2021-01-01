@@ -15,6 +15,7 @@ import TableForm from './table-form'
 import ScrollList from './scroll-list'
 import AreaPicker from './area-picker'
 import Progress from './progress'
+import Draggable from './draggable'
 
 const install = Vue => {
   Vue.use(Button)
@@ -29,6 +30,7 @@ const install = Vue => {
   Vue.use(ScrollList)
   Vue.use(AreaPicker)
   Vue.use(Progress)
+  Vue.use(Draggable)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -47,7 +49,8 @@ export {
   TableForm,
   ScrollList,
   AreaPicker,
-  Progress
+  Progress,
+  Draggable
 }
 
 export default { install }
