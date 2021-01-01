@@ -196,6 +196,8 @@ export default {
         `Transition-group inside component is not supported. Please alter tag value or remove transition-group. Current tag value: ${this.getTag()}`
       )
     }
+    console.log(this.containerClass, this.transitionMode)
+
     const optionsAdded = {}
     eventsListened.forEach(elt => {
       optionsAdded['on' + elt] = delegateAndEmit.call(this, elt)
