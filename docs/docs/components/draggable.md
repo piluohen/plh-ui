@@ -1,6 +1,6 @@
 # Draggable 拖拽组件
 
-> plh-draggable 组件依赖于 sortablejs 插件，支持插件几乎全部功能，更简易实用。
+> plh-draggable 组件依赖于 sortablejs 插件，几乎支持插件全部功能，更简易实用。
 
 ## 基础用法
 

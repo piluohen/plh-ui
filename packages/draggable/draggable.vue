@@ -1,5 +1,5 @@
 <script>
-import Sortable from 'sortablejs'
+import { Sortable } from 'sortablejs'
 import { insertNodeAt, camelize, console, removeNode } from './helper'
 
 function buildAttribute(object, propName, value) {
@@ -177,6 +177,9 @@ export default {
 
     !('draggable' in options) && (options.draggable = '>*')
     this.$nextTick(() => {
+      // if (options.multiDrag) {
+      //   Sortable.mount(new MultiDrag())
+      // }
       this._sortable = new Sortable(this.rootContainer, options)
       this.computeIndexes()
     })
