@@ -4,7 +4,11 @@
 
 ## 基础用法
 
+<draggable-table></draggable-table>
+
 <draggable-base></draggable-base>
+
+<draggable-container></draggable-container>
 
 ```vue
 

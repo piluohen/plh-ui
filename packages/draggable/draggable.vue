@@ -1,6 +1,6 @@
 <script>
 import Sortable from 'sortablejs'
-import { insertNodeAt, camelize, console, removeNode, findNodeByClassName } from './helper'
+import { insertNodeAt, camelize, console, removeNode } from './helper'
 
 function buildAttribute(object, propName, value) {
   if (value === undefined) {
@@ -12,20 +12,21 @@ function buildAttribute(object, propName, value) {
 }
 
 function computeVmIndex(vnodes, element) {
-  return vnodes.map(elt => elt.elm).indexOf(element)
+  const index = vnodes.indexOf(element)
+  return index
 }
 
-function computeIndexes(slots, children, isTransition, footerOffset) {
+function computeIndexes(slots, children, footerOffset) {
   if (!slots) {
     return []
   }
 
-  const elmFromNodes = slots.map(elt => elt.elm)
+  const elmFromNodes = slots
   const footerIndex = children.length - footerOffset
-  const rawIndexes = [...children].map((elt, idx) =>
-    idx >= footerIndex ? elmFromNodes.length : elmFromNodes.indexOf(elt)
-  )
-  return isTransition ? rawIndexes.filter(ind => ind !== -1) : rawIndexes
+  const rawIndexes = [...children].map((elt, idx) => {
+    return idx >= footerIndex ? elmFromNodes.length : elmFromNodes.indexOf(elt)
+  })
+  return rawIndexes
 }
 
 function emit(evtName, evtData) {
@@ -39,21 +40,6 @@ function delegateAndEmit(evtName) {
     }
     emit.call(this, evtName, evtData)
   }
-}
-
-function isTransitionName(name) {
-  return ['transition-group', 'TransitionGroup'].includes(name)
-}
-
-function isTransition(slots) {
-  if (!slots || slots.length !== 1) {
-    return false
-  }
-  const [{ componentOptions }] = slots
-  if (!componentOptions) {
-    return false
-  }
-  return isTransitionName(componentOptions.tag)
 }
 
 function getSlot(slot, scopedSlot, key) {
@@ -77,7 +63,9 @@ function computeChildrenAndOffsets(children, slot, scopedSlot) {
 }
 
 function getComponentAttributes($attrs, componentData) {
-  let attributes = null
+  let attributes = {
+    class: 'plh-draggable'
+  }
   const update = (name, value) => {
     attributes = buildAttribute(attributes, name, value)
   }
@@ -105,7 +93,6 @@ const readonlyProperties = ['Move', ...eventsListened, ...eventsToEmit].map(evt 
 var draggingElement = null
 
 const props = {
-  options: Object,
   list: {
     type: Array,
     required: false,
@@ -126,14 +113,6 @@ const props = {
       return original
     }
   },
-  element: {
-    type: String,
-    default: 'div'
-  },
-  tag: {
-    type: String,
-    default: null
-  },
   move: {
     type: Function,
     default: null
@@ -143,7 +122,14 @@ const props = {
     required: false,
     default: null
   },
-  containerClass: {}
+  containerSelector: {
+    type: String,
+    default: ''
+  },
+  draggableClassName: {
+    type: String,
+    default: ''
+  }
 }
 
 export default {
@@ -155,49 +141,27 @@ export default {
 
   data() {
     return {
-      transitionMode: false,
       noneFunctionalComponentMode: false
     }
   },
 
   render(h) {
     const slots = this.$slots.default
-    this.transitionMode = isTransition(slots)
     const { children, headerOffset, footerOffset } = computeChildrenAndOffsets(slots, this.$slots, this.$scopedSlots)
     this.headerOffset = headerOffset
     this.footerOffset = footerOffset
+
     const attributes = getComponentAttributes(this.$attrs, this.componentData)
-    return h(this.getTag(), attributes, children)
+    return h('div', attributes, children)
   },
 
   created() {
     if (this.list !== null && this.value !== null) {
       console.error('Value and list props are mutually exclusive! Please set one or another.')
     }
-
-    if (this.element !== 'div') {
-      console.warn(
-        'Element props is deprecated please use tag props instead. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#element-props'
-      )
-    }
-
-    if (this.options !== undefined) {
-      console.warn(
-        'Options props is deprecated, add sortable options directly as vue.draggable item, or use v-bind. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#options-props'
-      )
-    }
   },
 
   mounted() {
-    this.noneFunctionalComponentMode =
-      this.getTag().toLowerCase() !== this.$el.nodeName.toLowerCase() && !this.getIsFunctional()
-    if (this.noneFunctionalComponentMode && this.transitionMode) {
-      throw new Error(
-        `Transition-group inside component is not supported. Please alter tag value or remove transition-group. Current tag value: ${this.getTag()}`
-      )
-    }
-    console.log(this.containerClass, this.transitionMode)
-
     const optionsAdded = {}
     eventsListened.forEach(elt => {
       optionsAdded['on' + elt] = delegateAndEmit.call(this, elt)
@@ -212,15 +176,17 @@ export default {
       return res
     }, {})
 
-    const options = Object.assign({}, this.options, attributes, optionsAdded, {
+    const options = Object.assign({}, attributes, optionsAdded, {
       onMove: (evt, originalEvent) => {
         return this.onDragMove(evt, originalEvent)
       }
     })
-    console.log('options', options)
+
     !('draggable' in options) && (options.draggable = '>*')
-    this._sortable = new Sortable(this.rootContainer, options)
-    this.computeIndexes()
+    this.$nextTick(() => {
+      this._sortable = new Sortable(this.rootContainer, options)
+      this.computeIndexes()
+    })
   },
 
   beforeDestroy() {
@@ -231,11 +197,18 @@ export default {
     rootContainer() {
       let el = this.$el
 
-      if (this.containerClass) {
-        el = this.$el.getElementsByClassName(this.containerClass)[0]
+      if (this.containerSelector) {
+        const containerEle = this.$el.querySelector(this.containerSelector)
+        if (containerEle) {
+          el = containerEle
+        } else {
+          console.warn(
+            `You have defined a useless attribute containerSelector="${this.containerSelector}" on plh-draggable component, you can delete it`
+          )
+        }
       }
 
-      return this.transitionMode ? el.children[0] : el
+      return el
     },
 
     realList() {
@@ -264,15 +237,6 @@ export default {
   },
 
   methods: {
-    getIsFunctional() {
-      const { fnOptions } = this._vnode
-      return fnOptions && fnOptions.functional
-    },
-
-    getTag() {
-      return this.tag || this.element
-    },
-
     updateOptions(newOptionValue) {
       for (var property in newOptionValue) {
         const value = camelize(property)
@@ -286,31 +250,31 @@ export default {
       if (this.noneFunctionalComponentMode) {
         return this.$children[0].$slots.default
       }
-      let rawNodes = this.$slots.default
 
-      if (this.containerClass) {
-        rawNodes = findNodeByClassName(rawNodes, this.containerClass)
+      const childList = Array.from(this.rootContainer.childNodes).filter(item => {
+        return item.className
+      })
+
+      const rawNodes = childList.filter(item => {
+        return item.className.includes(this.draggableClassName || '')
+      })
+
+      if (this.draggableClassName && childList.length > 0 && rawNodes.length === 0) {
+        console.error(`You have defined a error attribute draggableClassName="${this.draggableClassName}"`)
       }
 
-      console.log('getChildrenNodes', this.transitionMode, this.$slots, rawNodes)
-
-      return this.transitionMode ? rawNodes[0].child.$slots.default : rawNodes
+      return rawNodes
     },
 
     computeIndexes() {
       this.$nextTick(() => {
-        this.visibleIndexes = computeIndexes(
-          this.getChildrenNodes(),
-          this.rootContainer.children,
-          this.transitionMode,
-          this.footerOffset
-        )
+        this.visibleIndexes = computeIndexes(this.getChildrenNodes(), this.rootContainer.children, this.footerOffset)
       })
     },
 
     getUnderlyingVm(htmlElt) {
       const index = computeVmIndex(this.getChildrenNodes() || [], htmlElt)
-      console.log('getUnderlyingVm', index, this.getChildrenNodes())
+
       if (index === -1) {
         // Edge case during move callback: related element might be
         // an element different from collection
@@ -321,7 +285,7 @@ export default {
     },
 
     getUnderlyingPotencialDraggableComponent({ __vue__: vue }) {
-      if (!vue || !vue.$options || !isTransitionName(vue.$options._componentTag)) {
+      if (!vue || !vue.$options) {
         if (!('realList' in vue) && vue.$children.length === 1 && 'realList' in vue.$children[0])
           return vue.$children[0]
 
@@ -383,7 +347,7 @@ export default {
     },
 
     resetTransitionData(index) {
-      if (!this.noTransitionOnDrag || !this.transitionMode) {
+      if (!this.noTransitionOnDrag) {
         return
       }
       var nodes = this.getChildrenNodes()
@@ -394,7 +358,6 @@ export default {
     },
 
     onDragStart(evt) {
-      console.log('onDragStart', evt)
       this.context = this.getUnderlyingVm(evt.item)
       evt.item._underlying_vm_ = this.clone(this.context.element)
       draggingElement = evt.item
@@ -437,7 +400,6 @@ export default {
     },
 
     updateProperty(evt, propertyName) {
-      console.log(evt)
       // eslint-disable-next-line no-prototype-builtins
       evt.hasOwnProperty(propertyName) && (evt[propertyName] += this.headerOffset)
     },

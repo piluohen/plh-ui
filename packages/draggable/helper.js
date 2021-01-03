@@ -29,20 +29,4 @@ function insertNodeAt(fatherNode, node, position) {
   fatherNode.insertBefore(node, refNode)
 }
 
-function findNodeByClassName(nodes, classKey) {
-  let node = null
-  const fn = (nodes, classKey) => {
-    nodes.forEach(item => {
-      if (item.data && item.data.staticClass === classKey) {
-        node = item.children
-      }
-      if (item.children && item.children.length > 0) {
-        fn(item.children, classKey)
-      }
-    })
-  }
-  fn(nodes, classKey)
-  return node
-}
-
-export { insertNodeAt, camelize, console, removeNode, findNodeByClassName }
+export { insertNodeAt, camelize, console, removeNode }
