@@ -1,7 +1,7 @@
 <template>
   <div class="demo demo-draggable">
     <div class="tag-list">
-      <plh-draggable v-model="value" :multiDrag="true" selectedClass="sortable-selected" :animation="150">
+      <plh-draggable v-model="value">
         <el-tag v-for="item in value" :key="item" class="item">{{ item }}</el-tag>
       </plh-draggable>
       <p class="code">

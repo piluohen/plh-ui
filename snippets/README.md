@@ -8,19 +8,21 @@
 
 ## Available Snippets
 
-| Trigger           | Description        |
-| ----------------- | ------------------ |
-| plhBtn            | plh-button         |
-| plhBtnTip         | plh-button tooltip |
-| plhCountup        | plh-countup        |
-| plhDatePicker     | plh-date-picker    |
-| plhForm           | plh-form           |
-| plhPreview        | plh-preview        |
-| plhScrollList     | plh-scroll-list    |
-| plhSearch         | plh-search         |
-| plhTableForm      | plh-table-from     |
-| plhTableInterface | plh-table 远程请求 |
-| plhTableLocal     | plh-table 本地数据 |
-| plhUpload         | plh-upload         |
-| plhAreaPicker     | plh-area-picker    |
-| plhProgress       | plh-progress       |
+| Trigger           | Description           |
+| ----------------- | --------------------- |
+| plhBtn            | plh-button            |
+| plhBtnTip         | plh-button tooltip    |
+| plhBtnPopconfirm  | plh-button popconfrim |
+| plhCountup        | plh-countup           |
+| plhDatePicker     | plh-date-picker       |
+| plhForm           | plh-form              |
+| plhPreview        | plh-preview           |
+| plhScrollList     | plh-scroll-list       |
+| plhSearch         | plh-search            |
+| plhTableForm      | plh-table-from        |
+| plhTableInterface | plh-table 远程请求    |
+| plhTableLocal     | plh-table 本地数据    |
+| plhUpload         | plh-upload            |
+| plhAreaPicker     | plh-area-picker       |
+| plhProgress       | plh-progress          |
+| plhDraggable      | plh-draggable         |

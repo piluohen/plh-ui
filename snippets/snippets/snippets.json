@@ -14,6 +14,13 @@
       ""
     ]
   },
+  "plh-button popconfirm": {
+    "prefix": "plhBtnPopconfirm",
+    "body": [
+      "<plh-button type=\"${1|primary,success,warning,danger,danger,info,text|}\" popconfirm :content=\"$2\" @confirm=\"$3\">$4</plh-button>\r",
+      ""
+    ]
+  },
   "plh-countup": {
     "prefix": "plhCountup",
     "body": ["<plh-countup :endVal=\"${1}\"></plh-countup>\r", ""]
@@ -76,5 +83,9 @@
   "plh-progress": {
     "prefix": "plhProgress",
     "body": ["<plh-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"percentage\"></plh-progress>\r", ""]
+  },
+  "plh-draggable": {
+    "prefix": "plhDraggable",
+    "body": ["<plh-draggable v-model=\"value\"></plh-draggable\r", ""]
   }
 }
