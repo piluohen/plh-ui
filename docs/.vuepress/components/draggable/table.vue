@@ -5,6 +5,7 @@
         v-model="tableData"
         containerSelector=".el-table__body-wrapper tbody"
         draggableClassName="el-table__row"
+        @end="handleEnd"
       >
         <plh-table ref="table" :columns="columns" :tableData="tableData"></plh-table>
       </plh-draggable>
@@ -16,7 +17,6 @@
 </template>
 
 <script>
-import { searchList } from './searchList'
 export default {
   name: 'demo-draggable-table',
   data() {
@@ -41,6 +41,9 @@ export default {
           this.tableData.push({ id: i + 1 })
         }
       }, 500)
+    },
+    handleEnd(e) {
+      console.log(e)
     }
   }
 }

@@ -93,15 +93,12 @@ const readonlyProperties = ['Move', ...eventsListened, ...eventsToEmit].map(evt 
 var draggingElement = null
 
 const props = {
-  list: {
-    type: Array,
-    required: false,
-    default: null
-  },
   value: {
     type: Array,
     required: false,
-    default: null
+    default: () => {
+      return []
+    }
   },
   noTransitionOnDrag: {
     type: Boolean,
@@ -124,11 +121,11 @@ const props = {
   },
   containerSelector: {
     type: String,
-    default: ''
+    default: null
   },
   draggableClassName: {
     type: String,
-    default: ''
+    default: null
   }
 }
 
@@ -155,11 +152,7 @@ export default {
     return h('div', attributes, children)
   },
 
-  created() {
-    if (this.list !== null && this.value !== null) {
-      console.error('Value and list props are mutually exclusive! Please set one or another.')
-    }
-  },
+  created() {},
 
   mounted() {
     const optionsAdded = {}
@@ -212,7 +205,7 @@ export default {
     },
 
     realList() {
-      return this.list ? this.list : this.value
+      return this.value
     }
   },
 
@@ -301,10 +294,6 @@ export default {
     },
 
     alterList(onList) {
-      if (this.list) {
-        onList(this.list)
-        return
-      }
       const newList = [...this.value]
       onList(newList)
       this.$emit('input', newList)

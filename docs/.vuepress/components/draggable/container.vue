@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { searchList } from './searchList'
 export default {
   name: 'demo-draggable-container',
   data() {
