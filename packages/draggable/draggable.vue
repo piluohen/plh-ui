@@ -431,3 +431,7 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+.plh-draggable {
+}
+</style>
