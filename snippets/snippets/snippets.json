@@ -86,6 +86,6 @@
   },
   "plh-draggable": {
     "prefix": "plhDraggable",
-    "body": ["<plh-draggable v-model=\"value\"></plh-draggable\r", ""]
+    "body": ["<plh-draggable v-model=\"value\">$1</plh-draggable>\r"]
   }
 }
