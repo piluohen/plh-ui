@@ -185,7 +185,7 @@ export default {
             change: val => {
               const options = { item, $index, row, column, property, self: this }
               this.$emit('change', this.list, options)
-              return item.on && item.on.change && item.on.change(val, options)
+              return item.on && item.on.change && item.on.change(val, { data: this.list, ...options })
             }
           },
           nativeOn: {
