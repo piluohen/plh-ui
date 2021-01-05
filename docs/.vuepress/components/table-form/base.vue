@@ -24,6 +24,9 @@
     </div>
     <div class="mt10">
       <plh-button type="primary" @click="handleClick">提交</plh-button>
+      <p class="code">
+        {{ JSON.stringify(tableData) }}
+      </p>
     </div>
   </div>
 </template>
@@ -45,7 +48,7 @@ export default {
         onAdd: false
       },
       searchList: [...searchList],
-      tableData: [{ input: '12', disabled: true, select: '1', name: '刘备' }],
+      tableData: [{ select: '1', name: '刘备' }],
       columns: [
         {
           tag: 'el-input',

@@ -51,14 +51,6 @@ export default {
     return {}
   },
   computed: {
-    list: {
-      get() {
-        return this.value || []
-      },
-      set(val) {
-        this.$emit('input', val, {})
-      }
-    },
     dataItem() {
       let obj = {}
       const list = this.columns.filter(item => {
@@ -68,6 +60,21 @@ export default {
         obj[item.key] = item.defaultValue || null
       })
       return obj
+    },
+    list: {
+      get() {
+        return (
+          this.value.map(item => {
+            return {
+              ...this.dataItem,
+              ...item
+            }
+          }) || []
+        )
+      },
+      set(val) {
+        this.$emit('input', val, {})
+      }
     },
     newColumns() {
       let columns = this.columns.map(item => {
