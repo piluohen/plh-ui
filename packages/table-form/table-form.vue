@@ -64,7 +64,7 @@ export default {
     list: {
       get() {
         return (
-          this.value.map(item => {
+          [...this.value].map(item => {
             return {
               ...this.dataItem,
               ...item
@@ -161,9 +161,12 @@ export default {
       let input = val => {
         row[property] = val
 
+        this.list[$index] = row
+
         this.$emit('input', this.list, { item, $index, row, column, property, self: this })
       }
-      let value = row[property]
+      let value = row[property] || null
+
       const render = h(
         item.tag || 'el-input',
         {
