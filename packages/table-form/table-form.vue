@@ -7,8 +7,8 @@
       :columns="newColumns"
       :tableData="list"
       :paginationable="false"
-    ></plh-table>
-    <div v-if="showBtn" v-show="list.length < limitNum" class="add-btn" style="text-align: center">
+    />
+    <div v-if="showBtn" v-show="list.length < limitNum" class="add-btn" style="text-align: center;">
       <plh-button type="primary" plain :size="size" icon="el-icon-plus" :disabled="disabled" @click="handleAdd">
         增加
       </plh-button>
@@ -21,7 +21,10 @@ import AsyncValidator from 'async-validator'
 export default {
   name: 'plh-table-form',
   props: {
-    value: {},
+    value: {
+      type: Array,
+      default: () => []
+    },
     limitNum: {
       type: Number,
       default: 6
@@ -63,14 +66,7 @@ export default {
     },
     list: {
       get() {
-        return (
-          [...this.value].map(item => {
-            return {
-              ...this.dataItem,
-              ...item
-            }
-          }) || []
-        )
+        return [...this.value]
       },
       set(val) {
         this.$emit('input', val, {})
@@ -246,7 +242,7 @@ export default {
       descriptor[property] = rules
 
       const validator = new AsyncValidator(descriptor)
-      validator.validate(row, { firstFields: true }, (errors, invalidFields) => {
+      validator.validate(row, { firstFields: true }, errors => {
         validaters = {
           isError: !!errors,
           errorMsg: errors ? errors[0].message : ''
