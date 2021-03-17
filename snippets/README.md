@@ -26,3 +26,4 @@
 | plhAreaPicker     | plh-area-picker       |
 | plhProgress       | plh-progress          |
 | plhDraggable      | plh-draggable         |
+| plhDrawer         | plh-drawer            |

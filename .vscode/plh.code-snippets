@@ -87,5 +87,13 @@
   "plh-draggable": {
     "prefix": "plhDraggable",
     "body": ["<plh-draggable v-model=\"value\">$1</plh-draggable>\r"]
+  },
+  "plh-drawer": {
+    "prefix": "plhDrawer",
+    "body": [
+      "<plh-drawer :visible.sync=\"visible\" type=\"${1|add,edit,view|}\" title=\"$2\">\r",
+      "$3\r",
+      "</plh-drawer>"
+    ]
   }
 }

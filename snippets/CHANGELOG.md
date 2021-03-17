@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.12
+
+1. 增加 plhDrawer
+
 ## 0.1.10
 
 1. 增加 plhBtnPopconfirm
