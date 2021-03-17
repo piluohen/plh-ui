@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Draggable from './draggable'
+import component from './component'
 
-Draggable.install = Vue => Vue.component(Draggable.name, Draggable)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Draggable
+export default component

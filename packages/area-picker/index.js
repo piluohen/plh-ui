@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import AreaPicker from './area-picker'
+import component from './component'
 
-AreaPicker.install = Vue => Vue.component(AreaPicker.name, AreaPicker)
+component.install = Vue => Vue.component(component.name, component)
 
-export default AreaPicker
+export default component

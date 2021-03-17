@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Table from './table.vue'
+import component from './component'
 
-Table.install = Vue => Vue.component(Table.name, Table)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Table
+export default component

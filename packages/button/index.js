@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Button from './button'
+import component from './component'
 
-Button.install = Vue => Vue.component(Button.name, Button)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Button
+export default component

@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Upload from './upload'
+import component from './component'
 
-Upload.install = Vue => Vue.component(Upload.name, Upload)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Upload
+export default component

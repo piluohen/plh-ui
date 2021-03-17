@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Form from './form'
+import component from './component'
 
-Form.install = Vue => Vue.component(Form.name, Form)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Form
+export default component

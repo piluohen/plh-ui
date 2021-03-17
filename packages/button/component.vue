@@ -25,38 +25,11 @@
 </template>
 
 <script>
+import props from './props'
+
 export default {
   name: 'plh-button',
-  props: {
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    tooltip: {
-      type: Boolean,
-      default: false
-    },
-    placement: {
-      type: String,
-      default: 'top'
-    },
-    popconfirm: {
-      type: Boolean,
-      default: false
-    },
-    hideMsgIcon: {
-      type: Boolean,
-      default: false
-    },
-    msgIcon: {
-      type: String,
-      default: 'el-icon-question'
-    },
-    msgIconColor: {
-      type: String,
-      default: '#f90'
-    }
-  },
+  props: { ...props },
   methods: {
     handleClick(e) {
       this.$emit('click', e)

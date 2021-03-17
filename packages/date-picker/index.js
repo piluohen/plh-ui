@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import DatePicker from './date-picker'
+import component from './component'
 
-DatePicker.install = Vue => Vue.component(DatePicker.name, DatePicker)
+component.install = Vue => Vue.component(component.name, component)
 
-export default DatePicker
+export default component

@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Countup from './countup'
+import component from './component'
 
-Countup.install = Vue => Vue.component(Countup.name, Countup)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Countup
+export default component

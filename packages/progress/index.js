@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Progress from './progress'
+import component from './component'
 
-Progress.install = Vue => Vue.component(Progress.name, Progress)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Progress
+export default component

@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Preview from './preview'
+import component from './component'
 
-Preview.install = Vue => Vue.component(Preview.name, Preview)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Preview
+export default component

@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import TableForm from './table-form'
+import component from './component'
 
-TableForm.install = Vue => Vue.component(TableForm.name, TableForm)
+component.install = Vue => Vue.component(component.name, component)
 
-export default TableForm
+export default component

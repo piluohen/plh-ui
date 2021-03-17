@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import Search from './search'
+import component from './component'
 
-Search.install = Vue => Vue.component(Search.name, Search)
+component.install = Vue => Vue.component(component.name, component)
 
-export default Search
+export default component

@@ -3,8 +3,8 @@
  * @author piluohen<1012106967@qq.com>
  */
 
-import ScrollList from './scroll-list'
+import component from './component'
 
-ScrollList.install = Vue => Vue.component(ScrollList.name, ScrollList)
+component.install = Vue => Vue.component(component.name, component)
 
-export default ScrollList
+export default component
