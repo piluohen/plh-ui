@@ -1,6 +1,6 @@
 {
   "name": "plh-ui",
-  "version": "2.4.7",
+  "version": "2.4.9",
   "author": {
     "name": "piluohen<1012106967@qq.com>"
   },
@@ -16,7 +16,8 @@
   "files": [
     "lib/index/index.js",
     "lib/index/style.css",
-    "lib"
+    "lib",
+    "vetur"
   ],
   "private": false,
   "scripts": {
@@ -59,5 +60,9 @@
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.5.0",
     "vuex": "^3.0.1"
+  },
+  "vetur": {
+    "tags": "vetur/tags.json",
+    "attributes": "vetur/attributes.json"
   }
 }
