@@ -1,28 +1,9 @@
 <script>
+import props from './props'
+
 export default {
   name: 'plh-search',
-  props: {
-    searchList: {
-      type: Array,
-      default: () => []
-    },
-    params: {
-      type: Object,
-      default: () => {}
-    },
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    showSubmit: {
-      type: Boolean,
-      default: true
-    },
-    collapse: {
-      type: Boolean,
-      default: true
-    }
-  },
+  props: { ...props },
   data() {
     return {
       isCollapse: this.collapse,

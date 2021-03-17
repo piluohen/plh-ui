@@ -28,7 +28,7 @@ componentsDir.forEach(file_name => {
 
     props[file_name] = fileProps
 
-    const fileName = `Dzv${file_name}`
+    const fileName = `plh-${file_name}`
 
     const keys = Object.keys(fileProps)
 

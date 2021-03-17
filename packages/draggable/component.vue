@@ -1,6 +1,7 @@
 <script>
 import { Sortable } from 'sortablejs'
 import { insertNodeAt, camelize, console, removeNode } from './helper'
+import defaultProps from './props'
 
 function buildAttribute(object, propName, value) {
   if (value === undefined) {
@@ -93,40 +94,7 @@ const readonlyProperties = ['Move', ...eventsListened, ...eventsToEmit].map(evt 
 var draggingElement = null
 
 const props = {
-  value: {
-    type: Array,
-    required: false,
-    default: () => {
-      return []
-    }
-  },
-  noTransitionOnDrag: {
-    type: Boolean,
-    default: false
-  },
-  clone: {
-    type: Function,
-    default: original => {
-      return original
-    }
-  },
-  move: {
-    type: Function,
-    default: null
-  },
-  componentData: {
-    type: Object,
-    required: false,
-    default: null
-  },
-  containerSelector: {
-    type: String,
-    default: null
-  },
-  draggableClassName: {
-    type: String,
-    default: null
-  }
+  ...defaultProps
 }
 
 export default {

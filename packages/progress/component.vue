@@ -2,18 +2,11 @@
   <el-progress class="plh-progress" :type="type" v-bind="$attrs"></el-progress>
 </template>
 <script>
+import props from './props'
+
 export default {
   name: 'plh-progress',
-  props: {
-    type: {
-      type: String,
-      default: 'line'
-    },
-    'stroke-color': {
-      type: String,
-      default: ''
-    }
-  },
+  props: { ...props },
   watch: {
     strokeColor() {
       this.setStrokeColor(this.strokeColor)

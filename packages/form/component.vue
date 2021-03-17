@@ -1,23 +1,8 @@
 <script>
+import props from './props'
 export default {
   name: 'plh-form',
-  props: {
-    value: {
-      type: Object
-    },
-    items: {
-      type: Array,
-      default: () => []
-    },
-    size: {
-      type: String,
-      default: 'medium'
-    },
-    inline: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: { ...props },
   computed: {
     model: {
       get() {

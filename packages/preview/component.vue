@@ -18,24 +18,11 @@
   </el-dialog>
 </template>
 <script>
+import props from './props'
+
 export default {
   name: 'plh-preview',
-  props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
-    // 图片数据
-    list: {
-      type: Array,
-      default: () => []
-    },
-    // 图片索引
-    index: {
-      type: Number,
-      default: 0
-    }
-  },
+  props: { ...props },
   data() {
     return {
       imgList: this.list || [],

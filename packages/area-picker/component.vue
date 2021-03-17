@@ -19,11 +19,12 @@
 
 <script>
 import axios from 'axios'
+import props from './props'
 const levelList = ['province', 'city', 'district', 'street']
+
 export default {
   name: 'plh-area-picker',
   props: {
-    value: [String, Array],
     api: {
       type: Function,
       default: params => {
@@ -32,25 +33,12 @@ export default {
     },
     level: {
       type: String,
-      validator: function(value) {
+      validator: () => {
         return levelList
       },
       default: 'district'
     },
-    props: {
-      type: Object,
-      default: () => {
-        return {}
-      }
-    },
-    clearable: {
-      type: Boolean,
-      default: true
-    },
-    placeholder: {
-      type: String,
-      default: '请选择'
-    }
+    ...props
   },
   data() {
     return {

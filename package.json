@@ -23,8 +23,9 @@
     "serve": "cross-env ENV=dev vuepress dev docs",
     "build": "cross-env ENV=prod vuepress build docs",
     "json": "node build/json",
+    "vetur": "node build/vetur",
     "lib": "vue-cli-service build",
-    "pub": "npm run lib && npm publish",
+    "pub": "npm run vetur && npm run lib && npm publish",
     "snippet": "npm run snippet:pack && vsce publish",
     "snippet:pack": "node build/snippet && cd snippets && vsce package"
   },
