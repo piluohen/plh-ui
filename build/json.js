@@ -1,7 +1,6 @@
-const fs = require('fs-extra')
-const path = require('path')
+const { resolve, fs } = require('./utils')
 
-const targetPath = path.resolve(__dirname, '../docs/.vuepress/public/json')
+const targetPath = resolve('docs/.vuepress/public/json')
 
 /**
  * 生成sidebar子项
@@ -22,7 +21,7 @@ const createSiderBarItem = (dir, names) => {
  * 组件生成方法
  */
 const componentsMethods = () => {
-  const sourcePath = path.resolve(__dirname, '../docs/docs/components')
+  const sourcePath = resolve('docs/docs/components')
 
   /**
    * 生成组件 sidebar

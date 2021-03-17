@@ -1,9 +1,17 @@
-const fs = require('fs-extra')
-const path = require('path')
+const { resolve, fs } = require('./utils')
 
-const targetPath = path.resolve(__dirname, '../snippets/snippets')
+const snippetsContent = fs.readdirSync(resolve('snippets'))
 
-const sourcePath = path.resolve(__dirname, '../.vscode/plh.code-snippets')
+// 清空.vsix文件
+snippetsContent.forEach(item => {
+  if (item.indexOf('.vsix') > -1) {
+    fs.unlinkSync(resolve(`snippets/${item}`))
+  }
+})
+
+const targetPath = resolve('snippets/snippets')
+
+const sourcePath = resolve('.vscode/plh.code-snippets')
 
 const content = fs.readFileSync(sourcePath)
 

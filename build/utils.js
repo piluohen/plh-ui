@@ -1,9 +1,10 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const join = path.join
 const resolve = dir => path.join(__dirname, '../', dir)
 
 module.exports = {
+  fs: fs,
   resolve,
   getComponentEntries(path) {
     let files = fs.readdirSync(resolve(path))
