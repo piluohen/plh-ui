@@ -44,7 +44,7 @@
     "@vue/eslint-config-prettier": "^5.0.0",
     "@vuepress/plugin-back-to-top": "^1.5.0",
     "@vuepress/shared-utils": "^1.5.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "core-js": "^2.6.5",
     "cross-env": "^7.0.2",
