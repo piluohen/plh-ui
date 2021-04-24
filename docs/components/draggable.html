@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Draggable 拖拽组件 | plh-ui</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/plh-ui/images/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/plh-ui/assets/css/0.styles.7192f3b2.css" as="style"><link rel="preload" href="/plh-ui/assets/js/app.99fd9687.js" as="script"><link rel="preload" href="/plh-ui/assets/js/2.2ab53244.js" as="script"><link rel="preload" href="/plh-ui/assets/js/37.15f6578a.js" as="script"><link rel="preload" href="/plh-ui/assets/js/15.5f498dda.js" as="script"><link rel="preload" href="/plh-ui/assets/js/16.db923d89.js" as="script"><link rel="preload" href="/plh-ui/assets/js/17.cdc716bd.js" as="script"><link rel="prefetch" href="/plh-ui/assets/js/10.15c1f045.js"><link rel="prefetch" href="/plh-ui/assets/js/11.a12906fd.js"><link rel="prefetch" href="/plh-ui/assets/js/12.a1234608.js"><link rel="prefetch" href="/plh-ui/assets/js/13.d48bd7e3.js"><link rel="prefetch" href="/plh-ui/assets/js/14.5d8aa17d.js"><link rel="prefetch" href="/plh-ui/assets/js/18.effc2be2.js"><link rel="prefetch" href="/plh-ui/assets/js/19.57451d86.js"><link rel="prefetch" href="/plh-ui/assets/js/20.a760c676.js"><link rel="prefetch" href="/plh-ui/assets/js/21.f9366a07.js"><link rel="prefetch" href="/plh-ui/assets/js/22.ed773c30.js"><link rel="prefetch" href="/plh-ui/assets/js/23.57b84d2a.js"><link rel="prefetch" href="/plh-ui/assets/js/24.73b283a8.js"><link rel="prefetch" href="/plh-ui/assets/js/25.269d0c4d.js"><link rel="prefetch" href="/plh-ui/assets/js/26.d6984c61.js"><link rel="prefetch" href="/plh-ui/assets/js/27.a2f0814d.js"><link rel="prefetch" href="/plh-ui/assets/js/28.e301cf4e.js"><link rel="prefetch" href="/plh-ui/assets/js/29.209df21c.js"><link rel="prefetch" href="/plh-ui/assets/js/3.4d22e030.js"><link rel="prefetch" href="/plh-ui/assets/js/30.fa343407.js"><link rel="prefetch" href="/plh-ui/assets/js/31.9f17939f.js"><link rel="prefetch" href="/plh-ui/assets/js/32.8fd539d1.js"><link rel="prefetch" href="/plh-ui/assets/js/33.f3b0a84d.js"><link rel="prefetch" href="/plh-ui/assets/js/34.721a3c7c.js"><link rel="prefetch" href="/plh-ui/assets/js/35.acedebe4.js"><link rel="prefetch" href="/plh-ui/assets/js/36.c5ce431b.js"><link rel="prefetch" href="/plh-ui/assets/js/38.48cf818b.js"><link rel="prefetch" href="/plh-ui/assets/js/39.184c2d45.js"><link rel="prefetch" href="/plh-ui/assets/js/4.22e5e23a.js"><link rel="prefetch" href="/plh-ui/assets/js/40.080c6d49.js"><link rel="prefetch" href="/plh-ui/assets/js/41.fcbd821b.js"><link rel="prefetch" href="/plh-ui/assets/js/42.012d48f1.js"><link rel="prefetch" href="/plh-ui/assets/js/43.ce53ae60.js"><link rel="prefetch" href="/plh-ui/assets/js/44.74cacf5f.js"><link rel="prefetch" href="/plh-ui/assets/js/45.2e06d929.js"><link rel="prefetch" href="/plh-ui/assets/js/46.0cd1a595.js"><link rel="prefetch" href="/plh-ui/assets/js/47.7b7d8b68.js"><link rel="prefetch" href="/plh-ui/assets/js/48.9ef90e95.js"><link rel="prefetch" href="/plh-ui/assets/js/5.114589c9.js"><link rel="prefetch" href="/plh-ui/assets/js/6.228f18fe.js"><link rel="prefetch" href="/plh-ui/assets/js/7.7c1f6b67.js"><link rel="prefetch" href="/plh-ui/assets/js/8.d2a1744b.js"><link rel="prefetch" href="/plh-ui/assets/js/9.1d310efd.js">
+    <link rel="stylesheet" href="/plh-ui/assets/css/0.styles.7192f3b2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/plh-ui/" class="home-link router-link-active"><img src="/plh-ui/images/plh-ui.png" alt="plh-ui" class="logo"> <span class="site-name can-hide">plh-ui</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/plh-ui/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/plh-ui/docs/start.html" class="nav-link">
+  开始使用
+</a></li><li class="dropdown-item"><h4>
+          组件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/plh-ui/docs/components/area-picker.html" class="nav-link">
+  area-picker
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/button.html" class="nav-link">
+  button
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/countup.html" class="nav-link">
+  countup
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/date-picker.html" class="nav-link">
+  date-picker
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/draggable.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  draggable
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/drawer.html" class="nav-link">
+  drawer
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/editor.html" class="nav-link">
+  editor
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/form.html" class="nav-link">
+  form
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/preview.html" class="nav-link">
+  preview
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/progress.html" class="nav-link">
+  progress
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/scroll-list.html" class="nav-link">
+  scroll-list
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/search.html" class="nav-link">
+  search
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/table-form.html" class="nav-link">
+  table-form
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/table.html" class="nav-link">
+  table
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/upload.html" class="nav-link">
+  upload
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/piluohen" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://piluohen.github.io/hn-ui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Hn-ui
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/plh-ui/author.html" class="nav-link">
+  作者
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/plh-ui/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/plh-ui/docs/start.html" class="nav-link">
+  开始使用
+</a></li><li class="dropdown-item"><h4>
+          组件
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/plh-ui/docs/components/area-picker.html" class="nav-link">
+  area-picker
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/button.html" class="nav-link">
+  button
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/countup.html" class="nav-link">
+  countup
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/date-picker.html" class="nav-link">
+  date-picker
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/draggable.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  draggable
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/drawer.html" class="nav-link">
+  drawer
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/editor.html" class="nav-link">
+  editor
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/form.html" class="nav-link">
+  form
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/preview.html" class="nav-link">
+  preview
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/progress.html" class="nav-link">
+  progress
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/scroll-list.html" class="nav-link">
+  scroll-list
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/search.html" class="nav-link">
+  search
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/table-form.html" class="nav-link">
+  table-form
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/table.html" class="nav-link">
+  table
+</a></li><li class="dropdown-subitem"><a href="/plh-ui/docs/components/upload.html" class="nav-link">
+  upload
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/piluohen" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://piluohen.github.io/hn-ui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Hn-ui
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/plh-ui/author.html" class="nav-link">
+  作者
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/plh-ui/docs/start.html" class="sidebar-link">开始使用</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>组件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/plh-ui/docs/components/area-picker.html" class="sidebar-link">Area-picker 地区选择</a></li><li><a href="/plh-ui/docs/components/button.html" class="sidebar-link">Button 按钮</a></li><li><a href="/plh-ui/docs/components/countup.html" class="sidebar-link">Countup 动态数字</a></li><li><a href="/plh-ui/docs/components/date-picker.html" class="sidebar-link">Date-picker 日期选择</a></li><li><a href="/plh-ui/docs/components/draggable.html" aria-current="page" class="active sidebar-link">Draggable 拖拽组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/plh-ui/docs/components/draggable.html#基础用法" class="sidebar-link">基础用法</a></li><li class="sidebar-sub-header"><a href="/plh-ui/docs/components/draggable.html#深层级容器" class="sidebar-link">深层级容器</a></li><li class="sidebar-sub-header"><a href="/plh-ui/docs/components/draggable.html#表格拖拽" class="sidebar-link">表格拖拽</a></li><li class="sidebar-sub-header"><a href="/plh-ui/docs/components/draggable.html#api" class="sidebar-link">Api</a></li><li class="sidebar-sub-header"><a href="/plh-ui/docs/components/draggable.html#event" class="sidebar-link">Event</a></li></ul></li><li><a href="/plh-ui/docs/components/drawer.html" class="sidebar-link">Drawer 抽屉</a></li><li><a href="/plh-ui/docs/components/editor.html" class="sidebar-link">Editor 富文本编辑器</a></li><li><a href="/plh-ui/docs/components/form.html" class="sidebar-link">Form 表单</a></li><li><a href="/plh-ui/docs/components/preview.html" class="sidebar-link">Preview 图片预览</a></li><li><a href="/plh-ui/docs/components/progress.html" class="sidebar-link">Progress 进度条</a></li><li><a href="/plh-ui/docs/components/scroll-list.html" class="sidebar-link">Scroll-list 滚动列表</a></li><li><a href="/plh-ui/docs/components/search.html" class="sidebar-link">Search 搜索</a></li><li><a href="/plh-ui/docs/components/table-form.html" class="sidebar-link">Table-form 表格表单</a></li><li><a href="/plh-ui/docs/components/table.html" class="sidebar-link">Table 表格</a></li><li><a href="/plh-ui/docs/components/upload.html" class="sidebar-link">Upload 上传</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="draggable-拖拽组件"><a href="#draggable-拖拽组件" class="header-anchor">#</a> Draggable 拖拽组件</h1> <blockquote><p>plh-draggable 组件依赖于 sortablejs 插件，几乎支持插件全部功能，更简易实用。</p></blockquote> <h2 id="基础用法"><a href="#基础用法" class="header-anchor">#</a> 基础用法</h2> <div class="demo demo-draggable"><div class="tag-list"><div class="plh-draggable"><span class="item el-tag el-tag--light">1</span><span class="item el-tag el-tag--light">2</span><span class="item el-tag el-tag--light">3</span><span class="item el-tag el-tag--light">4</span><span class="item el-tag el-tag--light">5</span><span class="item el-tag el-tag--light">6</span></div> <p class="code">
+      [1,2,3,4,5,6]
+    </p></div></div> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plh-draggable</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-tag</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in value<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ item }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-tag</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plh-draggable</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'demo-draggable-base'</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      value<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="深层级容器"><a href="#深层级容器" class="header-anchor">#</a> 深层级容器</h2> <div class="demo demo-draggable"><div class="tag-list"><div class="plh-draggable"><div class="el-tabs el-tabs--top"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"><div class="el-tabs__active-bar is-top" style="width:0px;transform:translateX(0px);ms-transform:translateX(0px);webkit-transform:translateX(0px);"></div></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" id="pane-1" aria-labelledby="tab-1" class="el-tab-pane item">
+          tab1
+        </div><div role="tabpanel" aria-hidden="true" id="pane-2" aria-labelledby="tab-2" class="el-tab-pane item" style="display:none;">
+          tab2
+        </div><div role="tabpanel" aria-hidden="true" id="pane-3" aria-labelledby="tab-3" class="el-tab-pane item" style="display:none;">
+          tab3
+        </div><div role="tabpanel" aria-hidden="true" id="pane-4" aria-labelledby="tab-4" class="el-tab-pane item" style="display:none;">
+          tab4
+        </div></div></div></div> <p class="code">
+      [{&quot;title&quot;:&quot;tab1&quot;,&quot;name&quot;:&quot;1&quot;},{&quot;title&quot;:&quot;tab2&quot;,&quot;name&quot;:&quot;2&quot;},{&quot;title&quot;:&quot;tab3&quot;,&quot;name&quot;:&quot;3&quot;},{&quot;title&quot;:&quot;tab4&quot;,&quot;name&quot;:&quot;4&quot;}]
+    </p></div></div> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plh-draggable</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span> <span class="token attr-name">containerSelector</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>.el-tabs__nav<span class="token punctuation">&quot;</span></span> <span class="token attr-name">draggableClassName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>el-tabs__item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-tabs</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>activeTab<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-tab-pane</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in value<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item.name<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item.title<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item.name<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        {{ item.title }}
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-tab-pane</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-tabs</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plh-draggable</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'demo-draggable-container'</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      activeTab<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span>
+      value<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'tab1'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'tab2'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'tab3'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'3'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> title<span class="token operator">:</span> <span class="token string">'tab4'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'4'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="表格拖拽"><a href="#表格拖拽" class="header-anchor">#</a> 表格拖拽</h2> <div class="demo demo-draggable"><div class="tag-list"><div class="plh-draggable"><div class="plh-table"><div class="el-table el-table--fit el-table--enable-row-hover el-table--medium"><div class="hidden-columns"><div label="ID" prop="id"></div></div><div class="el-table__header-wrapper"><table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width:;"><colgroup></colgroup><thead><tr></tr></thead></table></div><div class="el-table__body-wrapper is-scrolling-none"><table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width:;"><colgroup></colgroup><tbody><!----></tbody></table><div class="el-table__empty-block" style="width:;height:100%;"><span class="el-table__empty-text">暂无数据</span></div><!----></div><!----><!----><!----><!----><div class="el-table__column-resize-proxy" style="display:none;"></div></div><div class="el-pagination is-background plh-pagination"><span class="el-pagination__total">共 0 条</span><span class="el-pagination__sizes"><div class="el-select el-select--mini"><!----><div class="el-input el-input--mini el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----><!----><!----><!----></span><!----></span><!----><!----></div><div class="el-select-dropdown el-popper" style="min-width:;display:none;"><div class="el-scrollbar" style="display:none;"><div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"><ul class="el-scrollbar__view el-select-dropdown__list"><!----><li class="el-select-dropdown__item selected"><span>10条/页</span></li><li class="el-select-dropdown__item"><span>20条/页</span></li><li class="el-select-dropdown__item"><span>30条/页</span></li><li class="el-select-dropdown__item"><span>40条/页</span></li><li class="el-select-dropdown__item"><span>50条/页</span></li><li class="el-select-dropdown__item"><span>100条/页</span></li></ul></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="width:0;transform:translateX(0%);ms-transform:translateX(0%);webkit-transform:translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height:0;transform:translateY(0%);ms-transform:translateY(0%);webkit-transform:translateY(0%);"></div></div></div><p class="el-select-dropdown__empty">
+          无数据
+        </p></div></div></span><button type="button" disabled="disabled" class="btn-prev"><i class="el-icon el-icon-arrow-left"></i></button><ul class="el-pager"><li class="number active">1</li><!----><!----><!----></ul><button type="button" disabled="disabled" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button><span class="el-pagination__jump">前往<div class="el-input el-pagination__editor is-in-pagination"><!----><input type="number" autocomplete="off" min="1" max="1" class="el-input__inner"><!----><!----><!----><!----></div>页</span></div></div></div> <p class="code">
+      []
+    </p></div></div> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plh-draggable</span>
+    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tableData<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">containerSelector</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>.el-table__body-wrapper tbody<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">draggableClassName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>el-table__row<span class="token punctuation">&quot;</span></span>
+  <span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plh-table</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>table<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:tableData</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tableData<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plh-table</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plh-draggable</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'demo-draggable-table'</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      tableData<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      columns<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          label<span class="token operator">:</span> <span class="token string">'ID'</span><span class="token punctuation">,</span>
+          prop<span class="token operator">:</span> <span class="token string">'id'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">createData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>tableData<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> id<span class="token operator">:</span> i <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="api"><a href="#api" class="header-anchor">#</a> Api</h2> <table><thead><tr><th>参数</th> <th style="text-align:center;">描述</th> <th style="text-align:center;">类型</th> <th style="text-align:center;">可选值</th> <th style="text-align:center;">必须</th> <th>默认值</th></tr></thead> <tbody><tr><td>value/v-model</td> <td style="text-align:center;">排序数组</td> <td style="text-align:center;">array</td> <td style="text-align:center;"></td> <td style="text-align:center;">是</td> <td>[]</td></tr> <tr><td>noTransitionOnDrag</td> <td style="text-align:center;">是否有过渡动画</td> <td style="text-align:center;">boolean</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td>false</td></tr> <tr><td>containerSelector</td> <td style="text-align:center;">拖拽容器选择器</td> <td style="text-align:center;">string</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td>null</td></tr> <tr><td>draggableClassName</td> <td style="text-align:center;">可拖拽元素的类名</td> <td style="text-align:center;">string</td> <td style="text-align:center;"></td> <td style="text-align:center;">否</td> <td>null</td></tr></tbody></table> <p>更多配置：</p> <p><a href="https://github.com/SortableJS/Sortable#options" target="_blank" rel="noopener noreferrer">sortablejs Options Api<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="event"><a href="#event" class="header-anchor">#</a> Event</h2> <table><thead><tr><th>名称</th> <th style="text-align:center;">描述</th> <th>返回值</th></tr></thead> <tbody><tr><td>end</td> <td style="text-align:center;">列表单元拖放结束后的回调函数</td> <td>CustomEvent</td></tr></tbody></table></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">1/3/2021, 10:25:32 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/plh-ui/docs/components/date-picker.html" class="prev">
+        Date-picker 日期选择
+      </a></span> <span class="next"><a href="/plh-ui/docs/components/drawer.html">
+        Drawer 抽屉
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><BackToTop></BackToTop><Copyright></Copyright></div></div>
+    <script src="/plh-ui/assets/js/app.99fd9687.js" defer></script><script src="/plh-ui/assets/js/2.2ab53244.js" defer></script><script src="/plh-ui/assets/js/37.15f6578a.js" defer></script><script src="/plh-ui/assets/js/15.5f498dda.js" defer></script><script src="/plh-ui/assets/js/16.db923d89.js" defer></script><script src="/plh-ui/assets/js/17.cdc716bd.js" defer></script>
+  </body>
+</html>
