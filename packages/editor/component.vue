@@ -1,26 +1,17 @@
 <template>
-  <Editor v-model="model" api-key="no-api-key" :init="init" />
+  <Editor ref="editor" v-model="model" api-key="no-api-key" :init="init" />
 </template>
 
 <script>
 import Editor from '@tinymce/tinymce-vue'
 import plugins from './plugins'
 import toolbar from './toolbar'
-import { uploadFn } from '@/util/oss'
+import props from './props'
 
 export default {
-  name: 'DzvEditor',
+  name: 'plh-editor',
   components: { Editor },
-  props: {
-    value: {
-      type: String,
-      default: ''
-    },
-    accept: {
-      default: 'image/jpeg,image/jpg,image/png',
-      type: String
-    }
-  },
+  props: { ...props },
   data() {
     return {
       init: {
@@ -51,7 +42,7 @@ export default {
             failure('图片体积过大')
           }
           if (this.accept.indexOf(file.type) >= 0) {
-            uploadFn(file)
+            this.uploadFn(file)
               .then(data => {
                 success(data.url)
               })
@@ -61,7 +52,8 @@ export default {
           } else {
             failure('图片格式错误')
           }
-        }
+        },
+        ...this.options
       }
     }
   },
@@ -72,6 +64,7 @@ export default {
       },
       set(val) {
         this.$emit('input', val)
+        this.$emit('change', val)
       }
     }
   },

@@ -17,6 +17,7 @@ import AreaPicker from './area-picker'
 import Progress from './progress'
 import Draggable from './draggable'
 import Drawer from './drawer'
+import Editor from './editor'
 
 const install = Vue => {
   Vue.use(Button)
@@ -33,6 +34,7 @@ const install = Vue => {
   Vue.use(Progress)
   Vue.use(Draggable)
   Vue.use(Drawer)
+  Vue.use(Editor)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -53,7 +55,8 @@ export {
   AreaPicker,
   Progress,
   Draggable,
-  Drawer
+  Drawer,
+  Editor
 }
 
 export default { install }
