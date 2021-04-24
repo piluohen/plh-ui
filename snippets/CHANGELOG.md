@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.13
+
+1. 修复 plh-form v-model 错误的问题
+2. 增加 plh-editor
+
 ## 0.1.12
 
 1. 增加 plhDrawer

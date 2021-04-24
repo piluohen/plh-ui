@@ -34,7 +34,7 @@
   },
   "plh-form": {
     "prefix": "plhForm",
-    "body": ["<plh-form ref=\"form\" v-mode=\"model\" :items=\"items\" label-width=\"120px\"></plh-form>\r"]
+    "body": ["<plh-form ref=\"form\" v-model=\"model\" :items=\"items\" label-width=\"120px\"></plh-form>\r"]
   },
   "plh-preview": {
     "prefix": "plhPreview",
@@ -95,5 +95,9 @@
       "$3\r",
       "</plh-drawer>"
     ]
+  },
+  "plh-editor": {
+    "prefix": "plhEditor",
+    "body": ["<plh-editor v-model=\"value\"></plh-editor>\r"]
   }
 }

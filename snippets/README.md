@@ -27,3 +27,4 @@
 | plhProgress       | plh-progress          |
 | plhDraggable      | plh-draggable         |
 | plhDrawer         | plh-drawer            |
+| plhEditor         | plh-editor            |
