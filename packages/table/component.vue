@@ -46,10 +46,15 @@ export default {
     fetch() {
       const { current, pageSize } = this.pagination
       let params = {
-        [this.newKeys.current]: current,
-        [this.newKeys.pageSize]: pageSize,
         ...this.defaultParams,
         ...this.params
+      }
+      if (this.paginationable) {
+        params = {
+          ...params,
+          [this.newKeys.current]: current,
+          [this.newKeys.pageSize]: pageSize
+        }
       }
       const pollInterval = () => {
         // 递归定时刷新
