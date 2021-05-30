@@ -160,7 +160,8 @@ export default {
         attrs={this.$attrs}
         size={this.size}
         inline={this.inline}
-        onValidate={this.validateHandle}>
+        onValidate={this.validateHandle}
+        class="plh-form">
         <el-row class="from-list-all" type="flex">
           {this.renderItem(createElement)}
         </el-row>
@@ -170,7 +171,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-.el-form--label-top {
+.el-form--label-top.plh-form {
   margin: 0 -10px;
 
   .el-form-item {

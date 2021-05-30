@@ -9,6 +9,7 @@
     :destroy-on-close="true"
     v-bind="$attrs"
     :size="width"
+    class="plh-drawer"
   >
     <template slot="title">
       <div class="el-drawer__title">
@@ -74,43 +75,45 @@ export default {
 $border = #E4E7ED;
 $sub-title = #606266;
 
-.el-drawer {
-  .el-drawer__header {
-    margin: 0;
-    padding: 15px 20px;
-    border-bottom: 1px solid $border;
-    color: $title;
-    .el-drawer__close-btn {
-      padding: 0;
-      color: $sub-title;
+.plh-drawer {
+  .el-drawer {
+    .el-drawer__header {
+      margin: 0;
+      padding: 15px 20px;
+      border-bottom: 1px solid $border;
+      color: $title;
+      .el-drawer__close-btn {
+        padding: 0;
+        color: $sub-title;
+      }
+      .el-drawer__title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-right: 20px;
+      }
     }
-    .el-drawer__title {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding-right: 20px;
+    .el-drawer__body {
+      width: calc(100% + 20px);
+      height: calc(100% - 65px);
+      padding: 20px 40px 80px 20px;
+      overflow-y: auto;
+      .el-select {
+        width: 100%;
+      }
     }
-  }
-  .el-drawer__body {
-    width: calc(100% + 20px);
-    height: calc(100% - 65px);
-    padding: 20px 40px 80px 20px;
-    overflow-y: auto;
-    .el-select {
+    .drawer-footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
       width: 100%;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      border-top: 1px solid $border;
+      background-color: #fff;
+      z-index: 123;
     }
-  }
-  .drawer-footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: flex-end;
-    border-top: 1px solid $border;
-    background-color: #fff;
-    z-index: 123;
   }
 }
 </style>

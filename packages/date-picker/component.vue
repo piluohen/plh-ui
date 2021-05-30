@@ -9,6 +9,7 @@
     :default-time="defaultTimeArr"
     v-bind="$attrs"
     :value-format="valueFormat"
+    class="plh-date-picker"
     @change="handleChange"
   ></el-date-picker>
 </template>
@@ -44,7 +45,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-.el-date-editor .el-range-separator {
+.el-date-editor.plh-date-picker .el-range-separator {
   width: auto;
 }
 </style>
