@@ -11,9 +11,9 @@ const plugins = [
    link lists 
    media
    nonbreaking noneditable 
-   pagebreak paste powerpaste preview print 
+   pagebreak powerpaste preview print 
    save searchreplace spellchecker 
-   tabfocus table textcolor colorpicker textpattern toc 
+   tabfocus table textpattern toc 
    visualblocks visualchars wordcount`
 ]
 // template bbcode
