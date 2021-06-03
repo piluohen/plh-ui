@@ -7,7 +7,7 @@ export const searchList = [
     key: 'type',
     children: {
       tag: 'el-radio-button',
-      options: ['picture', 'file', 'button'].map(item => {
+      options: ['picture', 'file', 'button', 'video'].map(item => {
         return { label: item, value: item }
       })
     }

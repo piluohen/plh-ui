@@ -1,8 +1,9 @@
 <template>
   <div :class="`plh-upload plh-upload-${type}`">
-    <template v-if="type === 'picture'">
+    <template v-if="hasPreview">
       <div class="plh-upload-item" v-for="(item, index) in fileList" :key="index">
-        <el-image :src="item.url" fit="cover"></el-image>
+        <el-image v-if="type === 'picture'" :src="item.url" fit="cover"></el-image>
+        <video v-if="type === 'video'" :src="item.url"></video>
         <div class="delete" v-if="!isUploading">
           <i class="el-icon-view" @click="handlePictureCardPreview(index)"></i>
           <i class="el-icon-delete" v-if="!disabled" @click="handleDelete(index)"></i>
@@ -10,7 +11,7 @@
       </div>
     </template>
     <el-upload
-      v-if="type !== 'picture' || (fileList && fileList.length < options.limitNum)"
+      v-if="(type !== 'picture' && type !== 'video') || (fileList && fileList.length < options.limitNum)"
       ref="upload"
       :action="action"
       :headers="headers"
@@ -30,10 +31,10 @@
       v-bind="$attrs"
     >
       <slot>
-        <template v-if="type === 'picture'">
+        <template v-if="hasPreview">
           <i class="el-icon-plus" v-show="!isUploading"></i>
           <div class="progress" v-show="isUploading" title="上传中...">
-            <el-image :src="progressImgUrl" fit="cover"></el-image>
+            <el-image v-if="type === 'picture'" :src="progressImgUrl" fit="cover"></el-image>
             <el-progress type="circle" :width="60" :percentage="percentage"></el-progress>
           </div>
         </template>
@@ -51,7 +52,11 @@
         </template>
       </slot>
     </el-upload>
-    <plh-preview v-model="showPreview" :list="fileList" :index.sync="imgIndex"></plh-preview>
+    <plh-preview ref="preview" v-model="showPreview" :list="fileList" :index.sync="imgIndex">
+      <template v-if="type === 'video'" slot-scope="{ src }">
+        <video ref="video" :src="src" autoplay controls></video>
+      </template>
+    </plh-preview>
   </div>
 </template>
 
@@ -93,6 +98,9 @@ export default {
     isSimple() {
       return typeof this.value === 'string'
     },
+    hasPreview() {
+      return this.type === 'picture' || this.type === 'video'
+    },
     // 文件列表
     fileList: {
       get() {
@@ -114,6 +122,10 @@ export default {
     typeConfig() {
       const typeConfigMap = {
         picture: {
+          listType: 'picture-card',
+          showFileList: false
+        },
+        video: {
           listType: 'picture-card',
           showFileList: false
         },
@@ -141,7 +153,7 @@ export default {
     },
     // 上传图片预览
     handlePictureCardPreview(index) {
-      if (this.type !== 'picture') {
+      if (!this.hasPreview) {
         return false
       }
       this.showPreview = true
@@ -238,7 +250,8 @@ export default {
 </script>
 
 <style lang="stylus">
-.plh-upload-picture {
+.plh-upload-picture,
+.plh-upload-video {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -254,7 +267,8 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .el-image {
+    .el-image,
+    video {
       width: 100%;
       height: 100%;
     }
@@ -314,10 +328,6 @@ export default {
 
       .el-progress--circle {
         position: absolute;
-
-        .el-progress__text {
-          color: #ffffff;
-        }
       }
     }
   }

@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       params: {
-        type: 'picture',
+        type: 'video',
         disabled: false
       },
       searchList: [...searchList],
@@ -38,15 +38,17 @@ export default {
       configs: {
         limitNum: 10,
         limitSize: 500,
-        limitUnit: 'kb',
-        limitType: 'image/png,image/jpeg,image/gif'
+        limitUnit: 'M',
+        limitType: 'image/png,image/jpeg,image/gif,video/mp4'
       },
       fileList: [
-        { url: 'http://oss.htcxcloud.com/3219dc07-a031-4dab-a7ad-b8c5d0c6d1da/曹操.jpg', name: '曹操.jpg' },
         { url: 'http://oss.htcxcloud.com/3d1c471e-c5ae-4fc8-a805-433830e8dd43/貂蝉.jpg', name: '貂蝉.jpg' },
-        { url: 'http://oss.htcxcloud.com/e0e57bb4-af01-45af-a481-be2263793491/关羽.jpg', name: '关羽.jpg' },
-        { url: 'http://oss.htcxcloud.com/110ac643-35d9-4c73-8562-8a73f637a48f/黄忠.jpg', name: '黄忠.jpg' },
-        { url: 'http://oss.htcxcloud.com/3c325ce8-b5fc-42bf-af0e-092420c8c9f4/廖化.jpg', name: '廖化.jpg' }
+        // { url: 'http://vd4.bdstatic.com/mda-jbmhv3u6sw67pk8g/sc/mda-jbmhv3u6sw67pk8g.mp4', name: '视频.mp4' },
+        {
+          url:
+            'http://mpvideo.qpic.cn/0bf2teaawaaa5uairawwbrpfbgodbomqacya.f10002.mp4?dis_k=6912cf00b43709b41ccec156c24348b8&dis_t=1622727821&vid=wxv_1367752295282327553&format_id=10002&support_redirect=0&mmversion=false',
+          name: '视频2.mp4'
+        }
       ],
       loading: false
     }

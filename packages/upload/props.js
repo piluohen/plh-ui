@@ -2,7 +2,7 @@ export default {
   value: {
     type: [String, Array]
   },
-  // 上传类型 picture | file | button
+  // 上传类型 picture | file | button | video
   type: {
     type: String,
     default: 'picture'

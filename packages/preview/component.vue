@@ -1,5 +1,5 @@
 <template>
-  <el-dialog class="plh-preview" :visible.sync="modeVisible" top="0%" fullscreen append-to-body>
+  <el-dialog class="plh-preview" :visible.sync="modeVisible" top="0%" fullscreen append-to-body @close="close">
     <div class="plh-preview-container">
       <div v-if="imgList && imgList.length > 1" class="plh-preview-btn plh-preview-btn-prev" @click="prev()">
         <i class="el-icon-arrow-left"></i>
@@ -59,12 +59,12 @@ export default {
     /**
      * 关闭弹框
      */
-    cancel() {
+    close() {
       this.imgList = []
       this.imgSrc = ''
       this.activeIndex = 0
       this.modeVisible = false
-      this.visibleChange.emit(false)
+      this.$emit('close')
     },
 
     /**
@@ -132,7 +132,8 @@ $white = #ffffff
         justify-content: center;
         align-items: center;
 
-        .el-image {
+        .el-image,
+        video {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
