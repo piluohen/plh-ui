@@ -70,7 +70,10 @@ export default {
               size={this.size}
               items={this.searchList}
               onInput={this.handleInput}
-              onEnter={this.getParams}
+              onEnter={event => {
+                event.preventDefault()
+                this.getParams()
+              }}
             />
           </div>
           <div class="plh-search-button">
